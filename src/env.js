@@ -30,5 +30,7 @@ module.exports = {
   env: requireFromEnv('NODE_ENV'),
   port: parseInt(requireFromEnv('PORT'), 10),
   version: packageJson.version,
+  messageStoreConnectionString:
+    requireFromEnv('MESSAGE_STORE_CONNECTION_STRING'),
 };
 

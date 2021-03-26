@@ -2,7 +2,6 @@ const Bluebird = require('bluebird');
 const knex = require('knex');
 
 function createKnexClient({connectionString, migrationsTableName}){
-  console.log('UUUUUUUUUUUUUUUUUUUUUUUUUuu connectionString=', connectionString)
   const client = knex(connectionString);
 
   const migrationOptions = {

@@ -6,6 +6,8 @@ const config = createConfig({env});
 const app = createExpressApp({config, env});
 
 function start() {
+  config.aggregators.forEach(a => a.start());
+  config.components.forEach(s => s.start());
   app.listen(env.port, signalAppStart);
 }
 
