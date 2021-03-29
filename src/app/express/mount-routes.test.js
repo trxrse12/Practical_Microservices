@@ -30,7 +30,7 @@ describe('function mountRoutes', () => {
   });
   it('throws if the config Express app doesn\'t have a valid handler', async () => {
     const badConfig = {};
-    expect(() => {
+    expect(body => {
        mountRoutes(app,badConfig);
     }).toThrow('Invalid route handler');
   });
