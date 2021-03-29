@@ -11,6 +11,9 @@ function createDatabase({connectionString}) {
       connectedClient = client.connect()
         .then(() => client.query('SET search_path = message_store, public'))
         .then(() => client)
+        .catch((err) => {
+          throw new Error('message_store database doesn\'t exist')
+        })
     }
 
     return connectedClient

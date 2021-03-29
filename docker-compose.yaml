@@ -7,4 +7,8 @@ services:
       - POSTGRES_DB=practical_microservices
     ports:
       - '0.0.0.0:5432:5432'
+  message-db:
+    image: ethangarofolo/message-db:1.1.6
+    ports:
+      - '0.0.0.0:5433:5432'
 

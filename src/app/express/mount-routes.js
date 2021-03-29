@@ -1,6 +1,5 @@
 /** @description Mount app routes into the Express app ...*/
 function mountRoutes(app, config){
-  console.log('AAAAAAAAAAAAAAAAAAA config=', config)
   if (!config?.homePageAggregator?.router){
     throw new Error('Invalid route handler');
   }
