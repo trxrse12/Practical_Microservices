@@ -6,8 +6,8 @@ import bodyparser from 'body-parser';
 const app = express(); // create a fake express app
 app.use(bodyparser.json()); //this made it work
 const config = {}; // create a mocked config object, that contains the mocked route
-config.homeApp = {};
-config.homeApp.router = jest.fn((req, res) => {
+config.homePageAggregator = {};
+config.homePageAggregator.router = jest.fn((req, res) => {
   res.status(200);
   res.send([{
     state: "NJ",
