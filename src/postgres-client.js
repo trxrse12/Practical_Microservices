@@ -20,6 +20,10 @@ function createDatabase({connectionString}) {
   }
 
   function query (sql, values = []){
+    if (!sql || sql.toString().length===0){
+      throw new Error('message-db query cannot be null')
+    }
+
     return connect()
       .then(client => client.query(sql, values))
   }
