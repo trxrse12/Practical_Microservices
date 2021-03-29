@@ -1,3 +1,6 @@
 1. How to start the app:
     a. in a new Linux terminal: docker-compose rm && docker-compose up
     b. In another new Linux terminal: npm run start-dev-server
+
+2. How to test the app:
+    npm run test

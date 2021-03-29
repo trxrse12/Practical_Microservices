@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watchAll",
     "start-dev-server": "nodemon src/bin/start-server.js --color",
-    "build": "rimraf dist && babel src  -d dist",
+    "build": "rimraf dist && babel src  -d dist --ignore **/*.test.js",
     "serve": "npm run build && node dist/bin/start-server.js",
     "watch": "nodemon -w src --exec npm run serve"
   },

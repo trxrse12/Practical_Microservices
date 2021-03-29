@@ -21,14 +21,20 @@ config.recordViewingsApp.router = jest.fn((req,res) => Promise.resolve({
   capital: "Seattle",
 }));
 
-describe('function mountRoutes should', () => {
-  it('doesn\'t mount the main route middleware if the router is not a valid handler', async () => {
+describe('function mountRoutes', () => {
+  it('throws if the app is not a valid Express app', () => {
+    const badApp = {};
+    expect(() => {
+      mountRoutes(badApp, config);
+    }).toThrow('Invalid Express app object parameter')
+  });
+  it('throws if the config Express app doesn\'t have a valid handler', async () => {
     const badConfig = {};
     expect(() => {
        mountRoutes(app,badConfig);
     }).toThrow('Invalid route handler');
   });
-  it('mount the config.homeApp.router middleware if is a valid handler', async () => {
+  it('mounts the config.homeApp.router middleware if is a valid handler', async () => {
     const mountResult = await mountRoutes(app,config); // mount the fake route
     const {body} = await request(app).get('/');
     expect(body).toEqual([
