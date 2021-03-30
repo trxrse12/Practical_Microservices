@@ -1,4 +1,4 @@
-const deserializeMessage = require('./deserialize-message')
+// const deserializeMessage = require('./deserialize-message')
 const createRead = require('./read');
 const db = require('../test-helpers');
 

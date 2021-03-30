@@ -1,3 +1,4 @@
+
 const express = require('express');
 const {join} = require('path');
 
@@ -6,7 +7,6 @@ const mountRoutes = require('./mount-routes');
 
 function createExpressApp ({config, env}){
   const app = express();
-
   // Configure PUG
   app.set('views', join(__dirname, '..'));
   app.set('view engine', 'pug');

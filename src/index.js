@@ -4,8 +4,7 @@ const env = require('./env');
 
 const config = createConfig({env});
 const app = createExpressApp({config, env});
-
-// console.log('MMMMMMMMM config =', config)
+// console.log('MMMMMMMMM Express app created')
 
 function start() {
   config.aggregators.forEach(a => a.start());
