@@ -24,7 +24,6 @@ function createRead ({db = {}} = {}){
   function read(streamName, fromPosition = 0, maxMessages=1000) {
     let query = null;;
     let values = [];
-    console.log('NNNNNNNNNNNNNNNNNNn streamName=', streamName)
     if (streamName.includes('-')){
       query = getStreamMessagesSql;
       values = [streamName, fromPosition, maxMessages];
@@ -35,8 +34,7 @@ function createRead ({db = {}} = {}){
 
     return db.query(query.values)
       .then(res => {
-        console.log('XXX res=', res)
-        res.rows.map(deserializeMessage)
+        return res.rows.map(deserializeMessage)
       })
       .catch(err => {
         throw new Error('Error in the read message-db wrapper: ', err);

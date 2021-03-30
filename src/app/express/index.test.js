@@ -4,12 +4,12 @@ import request from 'supertest';
 const config = {};
 const env = {};
 
-describe.skip('app', () => {
+describe('app', () => {
   function app(){
     return createExpressApp({config, env});
   }
 
-  it('serves an index page', async () => {
-    await request(app()).get('/').expect(200);
+  it('serves a Not Found error page', async () => {
+    await request(app()).get('/').expect(404);
   })
 });
