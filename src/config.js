@@ -17,7 +17,7 @@ function createConfig ({env}) {
   });
 
   const messageStore = createMessageStore({db: postgresClient});
-  console.log('XXXXXXXXXXXXXXXXXXXXXXXXXX postgresClient=', postgresClient)
+  // console.log('XXXXXXXXXXXXXXXXXXXXXXXXXX postgresClient=', postgresClient)
 
   const homePageAggregator = createHomePageAggregator({
     db: knexClient,

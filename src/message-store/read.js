@@ -32,7 +32,7 @@ function createRead ({db = {}} = {}){
       values = [streamName, fromPosition, maxMessages];
     }
 
-    return db.query(query.values)
+    return db.query(query,values)
       .then(res => {
         return res.rows.map(deserializeMessage)
       })
