@@ -5,7 +5,10 @@ const getStreamMessagesSql = 'SELECT * FROM get_stream_messages($1, $2, $3)';
 
 const getLastMessageSql = 'SELECT * FROM get_last_stream_message($1)';
 
-function createRead ({db}){
+function createRead ({db = {}} = {}){
+  if (Object.keys(db).length===0 && db.constructor === Object){
+    throw new Error("createRead() error: invalid db argument")
+  }
   function readLastMessage(streamName){
     return db.query(getLastMessageSql, [streamName])
       .then(res => deserializeMessage(res.rows[0]))
@@ -31,7 +34,10 @@ function createRead ({db}){
     }
 
     return db.query(query.values)
-      .then(res => res.rows.map(deserializeMessage))
+      .then(res => {
+        console.log('XXX res=', res)
+        res.rows.map(deserializeMessage)
+      })
       .catch(err => {
         throw new Error('Error in the read message-db wrapper: ', err);
       });
