@@ -1,5 +1,5 @@
 const build =require('./index');
-
+const promiseReflect = require('promise-reflect');
 const db = require('../../test-helpers');
 const messageStore = {a:1};
 
@@ -63,41 +63,55 @@ describe('the register-user app factory', () => {
             {"rows": [{a:1}, {b:2}]}
           )});
       });
-      it('throws if any argument is missing or the wrong type', async () => {
+      it.only('throws if any argument is missing or the wrong type', async () => {
         const badArgs = [
-          [],
+          // [],
           // null, undefined,
-          // 0,
-          // 'a',
-          // ()=>{}, {a:1},
-          // [null,null],
-          // [null,undefined],
-          // [1,null],
-          // [undefined,1],
-          // [,],
-          // ['a','a'],
-          // [[1],[2]],
-          // ['s',null],
-          // ['s',undefined],
-          // ['s', []],
-          // [{}],
-          // [()=>{},()=>{}],
-          // [1,{a:2}],
-          // [1,[]],
-          // [{},{}],
-          // ['1',()=>{}],
-          // ['1',[]],
-          // ['a',{}]
+          0,
+          'a',
+          ()=>{}, {a:1},
+          [null,null],
+          [null,undefined],
+          [1,null],
+          [undefined,1],
+          [,],
+          ['a','a'],
+          [[1],[2]],
+          ['s',null],
+          ['s',undefined],
+          ['s', []],
+          [{}],
+          [()=>{},()=>{}],
+          [1,{a:2}],
+          [1,[]],
+          [{},{}],
+          ['1',()=>{}],
+          ['1',[]],
+          // ['a',{a:1}]
         ];
 
-        try{
-          await Promise.all(badArgs.map(async (args) => {
-            expect.assertions(1);
-            await actions.registerUser.apply(actions.registerUser, args)
-          }))
-        } catch (e){
-          expect(e).toEqual(TypeError('registerUser() requires two arguments: a string and an object'))
-        }
+        let myErroredResultsPromiseArray = badArgs.map(v => {
+          if (Array.isArray(v)){
+            return actions.registerUser.apply(actions.registerUser, v)
+          } else {
+            return actions.registerUser(v);
+          }
+        });
+
+        const complexTestResults = await Promise.all(
+          myErroredResultsPromiseArray.map(promiseReflect))
+            .then(values => {
+              let resolved = values.filter(value => value.status === 'resolved');
+              console.log('RESOLVED: ', resolved);
+              let rejected = values.filter(value => value.status === 'rejected');
+              console.log('REJECTED: ', rejected)
+              return resolved;
+            })
+            .catch(reason => {
+              console.log('should NOT be here!!!')
+        });
+        console.log('complexTestResults=: ', complexTestResults)
+        expect(complexTestResults.length).toBe(0);
       });
 
       it('throws if the attributes argument does not have the right shape', async () => {

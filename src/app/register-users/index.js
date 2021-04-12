@@ -26,8 +26,9 @@ function build({db, messageStore}){
     throw new Error('registerUser build(): empty messageStore object parameter')
   }
 
-  function createActions() {
 
+
+  function createActions() {
     /**
      *
      * @param {string} traceId the trace id associated with this action
@@ -37,8 +38,15 @@ function build({db, messageStore}){
      * @returns {an object, result of db.query()}
      */
     async function registerUser(traceId, attributes){
-      console.log('AAAAAAA', traceId);
-      console.log('BBBBBBB', attributes);
+      console.log('PPPPPPPPPPPPPPP traceid=', traceId, ' and attributes=', attributes)
+      if (!traceId){
+        throw new TypeError('registerUser(): traceId - invalid argument')
+      }
+
+      if(!attributes){
+        throw new TypeError('registerUser(): attributes - invalid argument')
+      }
+
       if (typeof traceId !== 'string'
         || !isObject(attributes)
         || isObject(attributes) && isEmptyObject(attributes)
@@ -46,8 +54,12 @@ function build({db, messageStore}){
         throw new TypeError('registerUser() requires two arguments: a string and an object')
       }
 
-      if (!objHasProps(attributes, ['email','password'])){
-        throw new TypeError('registerUser(): invalid attributes object')
+      try{
+        objHasProps(attributes, ['email','password'])
+      }
+        catch{e => {
+          throw new TypeError('registerUser(): invalid attributes object')
+        }
       }
 
       return db.query();
