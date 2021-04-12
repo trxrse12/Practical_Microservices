@@ -22,7 +22,6 @@ function createRead ({db = {}} = {}){
    * @returns {*|Promise<T | never>|undefined}
    */
   function read(streamName, fromPosition = 0, maxMessages=1000) {
-    console.log('READING streamName = ', streamName, ' FROM POSITION ', fromPosition)
     let query = null;;
     let values = [];
     if (streamName.includes('-')){

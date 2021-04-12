@@ -3,7 +3,7 @@ const createKnexClient = require('./knex-client');
 const createPostGresClient = require('./postgres-client');
 const createMessageStore = require('./message-store');
 const createHomePageAggregator = require('./aggregators/home-page');
-
+const createRegisterUsersApp = require('./app/register-users');
 const createHomeApp = require('./app/home');
 const createRecordViewingsApp = require('./app/record-viewings');
 
@@ -17,7 +17,6 @@ function createConfig ({env}) {
   });
 
   const messageStore = createMessageStore({db: postgresClient});
-  // console.log('XXXXXXXXXXXXXXXXXXXXXXXXXX postgresClient=', postgresClient)
 
   const homePageAggregator = createHomePageAggregator({
     db: knexClient,
@@ -32,7 +31,11 @@ function createConfig ({env}) {
 
   ];
 
-  // const homeApp = createHomeApp({db: knexClient});
+  const homeApp = createHomeApp({db: knexClient});
+  const registerUsersApp = createRegisterUsersApp({
+    db: knexClient,
+    messageStore,
+  });
 
   const recordViewingsApp = createRecordViewingsApp({messageStore});
 
