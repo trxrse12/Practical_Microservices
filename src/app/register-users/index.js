@@ -38,7 +38,7 @@ function build({db, messageStore}){
      * @returns {an object, result of db.query()}
      */
     async function registerUser(traceId, attributes){
-      console.log('PPPPPPPPPPPPPPP traceid=', traceId, ' and attributes=', attributes)
+      // console.log('PPPPPPPPPPPPPPP traceid=', traceId, ' and attributes=', attributes)
       if (!traceId){
         throw new TypeError('registerUser(): traceId - invalid argument')
       }
@@ -54,12 +54,8 @@ function build({db, messageStore}){
         throw new TypeError('registerUser() requires two arguments: a string and an object')
       }
 
-      try{
-        objHasProps(attributes, ['email','password'])
-      }
-        catch{e => {
+      if (!objHasProps(attributes, ['email','password'])){
           throw new TypeError('registerUser(): invalid attributes object')
-        }
       }
 
       return db.query();

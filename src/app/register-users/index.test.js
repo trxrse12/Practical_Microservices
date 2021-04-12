@@ -63,7 +63,7 @@ describe('the register-user app factory', () => {
             {"rows": [{a:1}, {b:2}]}
           )});
       });
-      it.only('throws if any argument is missing or the wrong type', async () => {
+      it('throws if any argument is missing or the wrong type', async () => {
         const badArgs = [
           // [],
           // null, undefined,
@@ -102,15 +102,15 @@ describe('the register-user app factory', () => {
           myErroredResultsPromiseArray.map(promiseReflect))
             .then(values => {
               let resolved = values.filter(value => value.status === 'resolved');
-              console.log('RESOLVED: ', resolved);
+              // console.log('RESOLVED: ', resolved);
               let rejected = values.filter(value => value.status === 'rejected');
-              console.log('REJECTED: ', rejected)
+              // console.log('REJECTED: ', rejected)
               return resolved;
             })
             .catch(reason => {
               console.log('should NOT be here!!!')
         });
-        console.log('complexTestResults=: ', complexTestResults)
+        // console.log('complexTestResults=: ', complexTestResults)
         expect(complexTestResults.length).toBe(0);
       });
 
@@ -122,14 +122,38 @@ describe('the register-user app factory', () => {
           // ['traceId',{email:'R',password:'t'}]
         ];
 
-        try{
-          await Promise.all(badArgs.map(async (args) => {
-            expect.assertions(1);
-            await actions.registerUser.apply(actions.registerUser, args)
-          }))
-        } catch (e){
-          expect(e).toEqual(TypeError('registerUser(): invalid attributes object'))
-        }
+        let myErroredResultsPromiseArray = badArgs.map(v => {
+          if (Array.isArray(v)){
+            return actions.registerUser.apply(actions.registerUser, v)
+          } else {
+            return actions.registerUser(v);
+          }
+        });
+
+        const complexTestResults = await Promise.all(
+          myErroredResultsPromiseArray.map(promiseReflect))
+            .then(values => {
+              let resolved = values.filter(value => value.status === 'resolved');
+              // console.log('RESOLVED: ', resolved);
+              let rejected = values.filter(value => value.status === 'rejected');
+              // console.log('REJECTED: ', rejected)
+              return resolved;
+            })
+            .catch(reason => {
+              console.log('should NOT be here!!!')
+        });
+        // console.log('complexTestResults=: ', complexTestResults)
+        expect(complexTestResults.length).toBe(0);
+
+
+        // try{
+        //   await Promise.all(badArgs.map(async (args) => {
+        //     expect.assertions(1);
+        //     await actions.registerUser.apply(actions.registerUser, args)
+        //   }))
+        // } catch (e){
+        //   expect(e).toEqual(TypeError('registerUser(): invalid attributes object'))
+        // }
 
       });
     });
