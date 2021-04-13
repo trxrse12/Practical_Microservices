@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/message-store/write.js" line="6" />
-    <bookmark url="file://$PROJECT_DIR$/src/app/register-users/write-register-command.test.js" line="66" />
+    <bookmark url="file://$PROJECT_DIR$/src/app/register-users/write-register-command.test.js" line="34" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d4e4149-b1d5-4e06-96ac-081fbd6fc741" name="Default Changelist" comment="" />
+    <list default="true" id="5d4e4149-b1d5-4e06-96ac-081fbd6fc741" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/register-users/validate.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register-users/index.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/index.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register-users/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/validate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register-users/write-register-command.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/write-register-command.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/message-store/read.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/message-store/read.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-helpers.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-helpers.test.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -16,28 +24,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.597237">
+    <splitter split-orientation="vertical" split-proportion="0.53453773">
       <split-first>
         <splitter split-orientation="horizontal" split-proportion="0.5">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/message-store/read.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="336">
-                      <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-                      <folding>
-                        <element signature="n#!!doc;n#read#0;n#!!block;n#createRead#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/app/register-users/index.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="323">
-                      <caret line="58" column="7" lean-forward="true" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+                    <state relative-caret-position="294">
+                      <caret line="60" column="18" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
                       <folding>
                         <element signature="n#!!doc;n#registerUser#0;n#!!block;n#createActions#0;n#!!block;n#build#0" expanded="true" />
                       </folding>
@@ -46,19 +42,13 @@
                 </entry>
               </file>
               <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/test-helpers.test.js">
+                <entry file="file://$PROJECT_DIR$/src/app/register-users/validate.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="182">
-                      <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/package.json">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="238">
-                      <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+                    <state relative-caret-position="336">
+                      <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+                      <folding>
+                        <element signature="n#!!doc" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -70,8 +60,20 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/test-helpers.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="112">
-                      <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+                    <state relative-caret-position="396">
+                      <caret line="48" selection-start-line="48" selection-end-line="48" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/app/register-users/validate.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="284">
+                      <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+                      <folding>
+                        <element signature="n#!!doc" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -99,23 +101,35 @@
         </splitter>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.56782335">
+        <splitter split-orientation="horizontal" split-proportion="0.5">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/app/register-users/write-register-command.test.js">
+                <entry file="file://$PROJECT_DIR$/src/app/register-users/index.test.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="433">
-                      <caret line="61" column="20" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+                    <state relative-caret-position="42">
+                      <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+                      <folding>
+                        <element signature="e#2542#4010#0" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/app/register-users/validate.test.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="84">
+                      <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
                     </state>
                   </provider>
                 </entry>
               </file>
               <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/app/register-users/index.test.js">
+                <entry file="file://$PROJECT_DIR$/src/app/register-users/write-register-command.test.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="109">
-                      <caret line="65" column="9" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
+                    <state relative-caret-position="112">
+                      <caret line="8" selection-start-line="8" selection-end-line="8" />
                     </state>
                   </provider>
                 </entry>
@@ -123,26 +137,8 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/test-helpers.test.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="98">
-                      <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/utils/index.test.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="181">
-                      <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/Readme">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="28">
-                      <caret line="2" column="62" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="62" />
+                    <state relative-caret-position="182">
+                      <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
                     </state>
                   </provider>
                 </entry>
@@ -150,8 +146,8 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/message-store/read.test.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="84">
-                      <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+                    <state relative-caret-position="112">
+                      <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
                     </state>
                   </provider>
                 </entry>
@@ -159,13 +155,22 @@
             </leaf>
           </split-first>
           <split-second>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="true">
-                <entry file="mock:///Local">
-                  <provider selected="true" editor-type-id="terminal-session-editor" />
+            <leaf>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/app/register-users/index.test.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="112">
+                      <caret line="40" selection-start-line="40" selection-end-line="40" />
+                      <folding>
+                        <element signature="e#2150#2463#0" />
+                        <element signature="e#2542#4010#0" />
+                        <element signature="e#4102#5234#0" />
+                      </folding>
+                    </state>
+                  </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="mock:///Local">
                   <provider selected="true" editor-type-id="terminal-session-editor" />
                 </entry>
@@ -214,8 +219,13 @@
       <find>should throw if context object argument has unexpected props</find>
       <find>console</find>
       <find>DDD</find>
-      <find>skip</find>
       <find>only</find>
+      <find>attributes - invalid argument</find>
+      <find>skip</find>
+      <find>messageStore</find>
+      <find>should have a query property</find>
+      <find>should resolve in the value returned by the db</find>
+      <find>should return a Promise that solves in a the value returned by the db</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -227,7 +237,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/env.js" />
         <option value="$PROJECT_DIR$/src/message-store/write.js" />
         <option value="$PROJECT_DIR$/src/message-store/version-conflict-error.js" />
         <option value="$PROJECT_DIR$/src/message-store/message-store.js" />
@@ -247,10 +256,7 @@
         <option value="$PROJECT_DIR$/src/postgres-client.test.js" />
         <option value="$PROJECT_DIR$/src/message-store/read-store.test.js" />
         <option value="$PROJECT_DIR$/src/test-helers.test.js" />
-        <option value="$PROJECT_DIR$/src/test-helpers.js" />
-        <option value="$PROJECT_DIR$/src/test-helpers.test.js" />
         <option value="$PROJECT_DIR$/src/app/express/index.test.js" />
-        <option value="$PROJECT_DIR$/src/message-store/read.test.js" />
         <option value="$PROJECT_DIR$/src/app/express/mount-middleware.js" />
         <option value="$PROJECT_DIR$/src/app/express/prime-request-context.js" />
         <option value="$PROJECT_DIR$/src/app/express/attach-locals.js" />
@@ -267,17 +273,21 @@
         <option value="$PROJECT_DIR$/src/components/contract.md" />
         <option value="$PROJECT_DIR$/Readme" />
         <option value="$PROJECT_DIR$/src/app/register-users/wite-register-command.test.js" />
-        <option value="$PROJECT_DIR$/src/app/register-users/write-register-command.test.js" />
         <option value="$PROJECT_DIR$/src/app/register-users/write-register-command.js" />
         <option value="$PROJECT_DIR$/src/utils/index.test.js" />
         <option value="$PROJECT_DIR$/src/message-store/read.js" />
         <option value="$PROJECT_DIR$/src/config.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/utils/index.js" />
-        <option value="$PROJECT_DIR$/src/app/register-users/validate.js" />
         <option value="$PROJECT_DIR$/src/app/error/validation-error.js" />
         <option value="$PROJECT_DIR$/src/app/register-users/index.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/validate.test.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/validate.js" />
+        <option value="$PROJECT_DIR$/src/test-helpers.test.js" />
+        <option value="$PROJECT_DIR$/src/message-store/read.test.js" />
         <option value="$PROJECT_DIR$/src/app/register-users/index.test.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/write-register-command.test.js" />
+        <option value="$PROJECT_DIR$/src/test-helpers.js" />
       </list>
     </option>
   </component>
@@ -437,17 +447,18 @@
       <workItem from="1617698540249" duration="20034000" />
       <workItem from="1617787639178" duration="34988000" />
       <workItem from="1618215503652" duration="8202000" />
+      <workItem from="1618302002162" duration="2813000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222857000" />
+    <option name="totallyTimeSpent" value="227285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15104446" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15265131" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -486,22 +497,10 @@
           <line>14</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/app/register-users/index.js</url>
-          <line>49</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/knex-client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/message-store/write.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -740,20 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test-helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/register-users/write-register-command.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="61" column="20" lean-forward="true" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/index.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -778,27 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/message-store/read.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Readme">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" column="62" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/register-users/validate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/error/validation-error.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -813,13 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -827,27 +784,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Readme">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test-helpers.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/message-store/read.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/index.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <folding>
+            <element signature="e#2542#4010#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/register-users/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="58" column="7" lean-forward="true" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+        <state relative-caret-position="294">
+          <caret line="60" column="18" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
           <folding>
             <element signature="n#!!doc;n#registerUser#0;n#!!block;n#createActions#0;n#!!block;n#build#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test-helpers.test.js">
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/validate.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        <state relative-caret-position="84">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/register-users/index.test.js">
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/write-register-command.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="65" column="9" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
+        <state relative-caret-position="112">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test-helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>

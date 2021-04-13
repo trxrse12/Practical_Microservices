@@ -1,6 +1,7 @@
 const build =require('./index');
 const promiseReflect = require('promise-reflect');
-const db = require('../../test-helpers');
+const {fakeDb} = require('../../test-helpers');
+const db = fakeDb;
 const messageStore = {a:1};
 
 describe('the register-user app factory', () => {
@@ -144,18 +145,9 @@ describe('the register-user app factory', () => {
         });
         // console.log('complexTestResults=: ', complexTestResults)
         expect(complexTestResults.length).toBe(0);
-
-
-        // try{
-        //   await Promise.all(badArgs.map(async (args) => {
-        //     expect.assertions(1);
-        //     await actions.registerUser.apply(actions.registerUser, args)
-        //   }))
-        // } catch (e){
-        //   expect(e).toEqual(TypeError('registerUser(): invalid attributes object'))
-        // }
-
       });
+
+
     });
   });
 });

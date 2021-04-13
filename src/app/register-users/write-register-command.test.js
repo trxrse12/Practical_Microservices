@@ -1,44 +1,16 @@
 const {v4:uuid} = require('uuid');
+
+const {
+  fakeUserId,
+  fakeTraceId,
+  fakeStream,
+  fakeContext,
+  fakeCommand,
+} = require('../../test-helpers');
+
+
 const writeRegisterCommand = require('./write-register-command');
 
-const generateFakeUserid = () => {
-  return uuid();
-};
-const fakeUserId = generateFakeUserid();
-const fakeStream = `identity:command-${fakeUserId}`;
-
-const generateFakeTraceId = () => {
-  return uuid();
-};
-const fakeTraceId = generateFakeTraceId();
-const generateFakeId = () => uuid();
-
-const fakeContext = {
-  attributes: {
-    id: fakeUserId,
-    email: "me@me.com"
-  },
-  traceId: fakeTraceId,
-  passwordHash: '321123AB',
-  messageStore: {
-    write: jest.fn().mockReturnValue(true),
-  },
-  queries: {},
-};
-
-const fakeCommand = {
-  id: uuid(),
-  type: 'Register',
-  metadata: {
-    traceId: fakeContext.traceId,
-    userId: fakeUserId,
-  },
-  data:{
-    userId: fakeUserId,
-    email: fakeContext.attributes.email,
-    passwordHash: fakeContext.passwordHash
-  }
-};
 const {type,metadata,data,...other} = fakeCommand;
 const fakeCommandStrippedOfId = {type,metadata,data};
 

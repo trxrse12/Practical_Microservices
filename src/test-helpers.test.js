@@ -1,4 +1,4 @@
-const fakeDb = require('./test-helpers');
+const {fakeDb} = require('./test-helpers');
 
 describe('the fake database', () => {
   it('should have a query property', () => {

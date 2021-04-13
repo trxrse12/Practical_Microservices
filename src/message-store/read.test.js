@@ -1,6 +1,7 @@
 // const deserializeMessage = require('./deserialize-message')
 const createRead = require('./read');
-const db = require('../test-helpers');
+const {fakeDb} = require('../test-helpers');
+const db = fakeDb;
 
 jest.mock('./deserialize-message', () => v => v);
 
