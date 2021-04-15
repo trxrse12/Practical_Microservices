@@ -6,6 +6,7 @@ const {
   fakeStream,
   fakeContext,
   fakeCommand,
+  callFcnWithObjWithUnexpectedProps
 } = require('../../test-helpers');
 
 

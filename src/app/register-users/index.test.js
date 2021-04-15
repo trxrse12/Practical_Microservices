@@ -1,6 +1,6 @@
 const build =require('./index');
 const promiseReflect = require('promise-reflect');
-const {fakeDb} = require('../../test-helpers');
+const {fakeDb, badArgs} = require('../../test-helpers');
 const db = fakeDb;
 const messageStore = {a:1};
 
@@ -55,7 +55,7 @@ describe('the register-user app factory', () => {
       expect(actions).toMatchObject({registerUser: expect.any(Function)})
     });
     describe('registerUser(traceId, attributes) inner function', () => {
-      test('should return a Promise that solves in a the value returned by the db', () => {
+      test.skip('should return a Promise that solves in a the value returned by the db', () => {
         const fakeTraceId = '123';
         const fakeAttributes = {email:'t@t.com', password:"***"}
         expect.assertions(1);
@@ -65,32 +65,6 @@ describe('the register-user app factory', () => {
           )});
       });
       it('throws if any argument is missing or the wrong type', async () => {
-        const badArgs = [
-          // [],
-          // null, undefined,
-          0,
-          'a',
-          ()=>{}, {a:1},
-          [null,null],
-          [null,undefined],
-          [1,null],
-          [undefined,1],
-          [,],
-          ['a','a'],
-          [[1],[2]],
-          ['s',null],
-          ['s',undefined],
-          ['s', []],
-          [{}],
-          [()=>{},()=>{}],
-          [1,{a:2}],
-          [1,[]],
-          [{},{}],
-          ['1',()=>{}],
-          ['1',[]],
-          // ['a',{a:1}]
-        ];
-
         let myErroredResultsPromiseArray = badArgs.map(v => {
           if (Array.isArray(v)){
             return actions.registerUser.apply(actions.registerUser, v)
@@ -116,14 +90,14 @@ describe('the register-user app factory', () => {
       });
 
       it('throws if the attributes argument does not have the right shape', async () => {
-        const badArgs = [
+        const incompleteArgs = [
           ['traceId',{a:1}],
           ['traceId',{email:'t@g.com'}],
           ['traceId',{password:''}],
           // ['traceId',{email:'R',password:'t'}]
         ];
 
-        let myErroredResultsPromiseArray = badArgs.map(v => {
+        let myErroredResultsPromiseArray = incompleteArgs.map(v => {
           if (Array.isArray(v)){
             return actions.registerUser.apply(actions.registerUser, v)
           } else {

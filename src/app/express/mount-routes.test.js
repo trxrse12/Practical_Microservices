@@ -21,6 +21,12 @@ config.recordViewingsApp.router = jest.fn((req,res) => Promise.resolve({
   capital: "Seattle",
 }));
 
+config.registerUsersApp = {};
+config.registerUsersApp.router = jest.fn((req, res) => Promise.resolve({
+  email: 'me@me.com',
+  password: '123',
+}))
+
 describe('function mountRoutes', () => {
   it('throws if the app is not a valid Express app', () => {
     const badApp = {};

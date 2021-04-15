@@ -6,7 +6,7 @@ function createKnexClient({connectionString, migrationsTableName}){
 
   const migrationOptions = {
     tableName: migrationsTableName || 'knex-migrations'
-  }
+  };
 
   // Wrap in Bluebird.resolve to guarantee a Bluebird Promise down the chain
   return Bluebird.resolve(client.migrate.latest(migrationOptions))

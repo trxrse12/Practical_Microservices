@@ -8,6 +8,7 @@ function mountRoutes(app, config){
   }
   app.use('/', config.homePageAggregator.router);
   app.use('/record-viewing', config.recordViewingsApp.router)
+  app.use('/register', config.registerUsersApp.router)
 }
 
 module.exports = mountRoutes;

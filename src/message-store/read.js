@@ -5,10 +5,25 @@ const getStreamMessagesSql = 'SELECT * FROM get_stream_messages($1, $2, $3)';
 
 const getLastMessageSql = 'SELECT * FROM get_last_stream_message($1)';
 
+function project(events, projection){
+  return events.reduce((entity, event) => {
+    if (!projection[event.type]){
+      return entity;
+    }
+
+    return projection[event.type](entity, event)
+  }, projection.$init())
+}
+
 function createRead ({db = {}} = {}){
   if (Object.keys(db).length===0 && db.constructor === Object){
     throw new Error("createRead() error: invalid db argument")
   }
+
+  function fetch(streamName, projection){
+    return read(streamName).then(messages => project(messages, projection))
+  }
+
   function readLastMessage(streamName){
     return db.query(getLastMessageSql, [streamName])
       .then(res => deserializeMessage(res.rows[0]))
@@ -43,6 +58,7 @@ function createRead ({db = {}} = {}){
   return {
     read,
     readLastMessage,
+    fetch,
   }
 }
 

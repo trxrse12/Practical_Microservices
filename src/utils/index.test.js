@@ -55,10 +55,14 @@ describe('isObject() should return false if attacked with', () => {
   test('Function', () => {
     expect(isObject(() => {})).toEqual(false)
   })
+
+  test('Empty array', () => {
+    expect(isObject([])).toEqual(false)
+  })
 });
 
 describe('isEmptyObject() should', () =>{
-  describe('should throw if attacked with a non-object', () => {
+  describe('should return false if attacked with a non-object', () => {
     test('null',()=>{
       expect(isEmptyObject(null)).toEqual(false)
     });
@@ -87,6 +91,9 @@ describe('isEmptyObject() should', () =>{
     test('non empty object', () => {
       expect(isEmptyObject({a:1})).toEqual(false);
     });
+  });
+  it('should also return false if attacked with empty array', () => {
+    expect(isEmptyObject(([]))).toEqual(false);
   });
 });
 

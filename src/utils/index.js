@@ -33,8 +33,18 @@ function objHasProps(anObject, propsList){
   return false
 }
 
+function httpContextIsValid({context}){
+  if(!isObject(context) || !objHasProps(context, [
+    'attributes', 'traceId', 'passwordHash', 'messageStore']))
+  {
+    return false
+  }
+  return true
+}
+
 module.exports = {
   isObject,
   isEmptyObject,
   objHasProps,
+  httpContextIsValid
 };

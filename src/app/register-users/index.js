@@ -1,7 +1,11 @@
+const BlueBird = require('bluebird');
 const {isObject} = require('../../utils');
 const {isEmptyObject, objHasProps} = require('../../utils');
 const InvalidDatabaseParameterError = Error('registerUser build(): Invalid database parameter')
 const InvalidMesageStoreParameterError = Error('registerUser build(): Invalid messageStore parameter')
+const ensureThereWasNoExistingEntity = require('./ensure-therewas-no-existing-identity')
+const hashPassword = require('./hash-password');
+const writeRegisterCommand = require('./write-register-command');
 
 // const writeRegisterCommand = require('./write-register-command');
 
@@ -58,13 +62,35 @@ function build({db, messageStore}){
           throw new TypeError('registerUser(): invalid attributes object')
       }
 
-      return db.query();
+      const context = {attributes, traceId, messageStore, queries};
+
+      return BlueBird.resolve(context)
+        .then(validate)
+        .then(loadExistingEntity)
+        .then(ensureThereIsNoExistingEntity)
+        .then(hashPassword)
+        .then(writeRegisterCommand)
     }
+
     return {
       registerUser
     }
   }
 
+  function createQueries({db}){
+    function byEmail(email){
+      return db
+        .then(client =>
+          client('user_credentials')
+            .where({email})
+            .limit(1)
+        )
+        .then(camelcaseKeys)
+        .then(rows => rows[0])
+    }
+
+    return {byEmail}
+  }
 
   const actions = createActions();
   const handlers = {};
