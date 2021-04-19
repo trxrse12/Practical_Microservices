@@ -7,38 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d4e4149-b1d5-4e06-96ac-081fbd6fc741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/20180623124103_create-user-credentials.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/register-users/ensure-therewas-no-existing-identity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/register-users/hash-password.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/register-users/load-existing-identity.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/register-users/load-existing-identity.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/register-users/shallow-validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/register-users/shallow-validate.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/identity/ensure-not-registered.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/identity/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/identity/load-identity.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aggregators/user-credentials.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/20190426220729_create-videos.js" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/20190426220729_create-videos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/error/validation-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/errors/validation-error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/express/mount-routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/express/mount-routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/express/mount-routes.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/express/mount-routes.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register-users/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register-users/index.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/index.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register-users/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register-users/validate.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register-users/write-register-command.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/write-register-command.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/contract.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/identity/contract.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/indentity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/identity/already-registered-error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/knex-client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/knex-client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/message-store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/message-store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/message-store/read.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/message-store/read.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-helpers.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-helpers.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/index.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/index.test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.54197663">
+    <splitter split-orientation="vertical" split-proportion="0.49202976">
       <split-first>
         <splitter split-orientation="horizontal" split-proportion="0.5">
           <split-first>
@@ -58,8 +28,17 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/components/identity/index.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="179">
-                      <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+                    <state relative-caret-position="314">
+                      <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/message-store/subscribe.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="194">
+                      <caret line="43" column="8" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
                     </state>
                   </provider>
                 </entry>
@@ -67,29 +46,61 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/components/identity/load-identity.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="378">
-                      <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+                    <state relative-caret-position="406">
+                      <caret line="29" selection-start-line="29" selection-end-line="29" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/components/identity/already-registered-error.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="140">
+                      <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/components/identity/ensure-not-registered.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="140">
+                      <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/components/identity/write-registered-event.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="336">
+                      <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/config.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="560">
+                      <caret line="40" column="5" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="51" />
                     </state>
                   </provider>
                 </entry>
               </file>
               <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/components/identity/ensure-not-registered.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="140">
-                      <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-                    </state>
-                  </provider>
+                <entry file="file://$PROJECT_DIR$/src/aggregators/user-credentials.js">
+                  <provider selected="true" editor-type-id="text-editor" />
                 </entry>
               </file>
             </leaf>
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/test-helpers.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="308">
+                    <state relative-caret-position="406">
                       <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="3" />
                     </state>
                   </provider>
@@ -113,10 +124,10 @@
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/app/register-users/write-register-command.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="280">
+                    <state relative-caret-position="118">
                       <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
                     </state>
                   </provider>
@@ -163,8 +174,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/message-store/read.test.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="70">
-                      <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+                    <state relative-caret-position="274">
+                      <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
                     </state>
                   </provider>
                 </entry>
@@ -172,27 +183,17 @@
             </leaf>
           </split-first>
           <split-second>
-            <leaf>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/message-store/read.test.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="70">
-                      <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+                    <state relative-caret-position="178">
+                      <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="mock:///Local">
-                  <provider selected="true" editor-type-id="terminal-session-editor" />
-                </entry>
-              </file>
               <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/components/identity/already-registered-error.js">
-                  <provider selected="true" editor-type-id="text-editor" />
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
                 <entry file="mock:///Local">
                   <provider selected="true" editor-type-id="terminal-session-editor" />
                 </entry>
@@ -263,8 +264,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/docker-compose.yaml" />
-        <option value="$PROJECT_DIR$/src/postgres-client.test.js" />
         <option value="$PROJECT_DIR$/src/message-store/read-store.test.js" />
         <option value="$PROJECT_DIR$/src/test-helers.test.js" />
         <option value="$PROJECT_DIR$/src/app/express/index.test.js" />
@@ -305,15 +304,17 @@
         <option value="$PROJECT_DIR$/src/app/register-users/index.test.js" />
         <option value="$PROJECT_DIR$/src/app/register-users/hash-password.js" />
         <option value="$PROJECT_DIR$/src/app/register-users/index.js" />
-        <option value="$PROJECT_DIR$/src/config.js" />
         <option value="$PROJECT_DIR$/src/app/express/mount-routes.js" />
         <option value="$PROJECT_DIR$/src/app/express/mount-routes.test.js" />
         <option value="$PROJECT_DIR$/src/message-store/read.js" />
         <option value="$PROJECT_DIR$/src/message-store/index.js" />
-        <option value="$PROJECT_DIR$/src/components/identity/index.js" />
-        <option value="$PROJECT_DIR$/src/components/identity/load-identity.js" />
         <option value="$PROJECT_DIR$/src/components/identity/ensure-not-registered.js" />
         <option value="$PROJECT_DIR$/src/components/identity/already-registered-error.js" />
+        <option value="$PROJECT_DIR$/src/components/identity/write-registered-event.js" />
+        <option value="$PROJECT_DIR$/src/config.js" />
+        <option value="$PROJECT_DIR$/src/components/identity/index.js" />
+        <option value="$PROJECT_DIR$/src/components/identity/load-identity.js" />
+        <option value="$PROJECT_DIR$/src/aggregators/user-credentials.js" />
       </list>
     </option>
   </component>
@@ -329,7 +330,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="NBKnowledgePane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -341,45 +341,13 @@
             <path>
               <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
               <item name="cqrs" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
               <item name="cqrs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="express" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="register-users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="identity" type="462c0819:PsiDirectoryNode" />
+              <item name="aggregators" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
@@ -391,6 +359,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="NBKnowledgePane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -447,18 +416,20 @@
       <workItem from="1618215503652" duration="8202000" />
       <workItem from="1618302002162" duration="22909000" />
       <workItem from="1618389757132" duration="7572000" />
-      <workItem from="1618474537161" duration="3045000" />
+      <workItem from="1618474537161" duration="9311000" />
+      <workItem from="1618561507350" duration="1637000" />
+      <workItem from="1618822282160" duration="3931000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257998000" />
+    <option name="totallyTimeSpent" value="269832000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18639529" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18960899" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -494,27 +465,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/config.js</url>
-          <line>14</line>
+          <line>15</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/postgres-client.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/express/last-resort-error-handler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" selection-start-column="38" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/home/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -700,13 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="49" column="20" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/register-users/shallow-validate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -763,17 +713,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/message-store/read.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc;n#read#0;n#!!block;n#createRead#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/identity/load-identity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/identity/already-registered-error.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/identity/ensure-not-registered.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/identity/write-registered-event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="40" column="5" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test-helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/register-users/write-register-command.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -801,66 +803,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/message-store/subscribe.js">
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/write-register-command.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test-helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/message-store/read.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Readme">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/message-store/read.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!doc;n#read#0;n#!!block;n#createRead#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="118">
+          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/identity/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="25" column="37" lean-forward="true" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+        <state relative-caret-position="314">
+          <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/load-identity.js">
+    <entry file="file://$PROJECT_DIR$/src/message-store/subscribe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+        <state relative-caret-position="194">
+          <caret line="43" column="8" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/ensure-not-registered.js">
+    <entry file="file://$PROJECT_DIR$/src/message-store/read.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        <state relative-caret-position="274">
+          <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/already-registered-error.js">
+    <entry file="file://$PROJECT_DIR$/src/aggregators/user-credentials.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
