@@ -13,7 +13,7 @@ function createQueries ({db}){
   function createUserCredential(id, email, passwordHash){
     const rawQuery = `
       INSERT INTO
-        user_credential;s(id, email, password_hash)
+        user_credentials(id, email, password_hash)
       VALUES
         (:id, :email, :passwordHash)
       ON CONFLICT DO NOTHING  

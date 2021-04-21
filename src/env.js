@@ -26,9 +26,12 @@ function requireFromEnv(key){
 
 module.exports = {
   appName: requireFromEnv('APP_NAME'),
+  cookieSecret: requireFromEnv('COOKIE_SECRET'),
   databaseUrl: requireFromEnv('DATABASE_URL'),
   env: requireFromEnv('NODE_ENV'),
   port: parseInt(requireFromEnv('PORT'), 10),
+  emailDirectory: requireFromEnv('EMAIL_DIRECTORY'),
+  systemSenderEmailAddress: requireFromEnv('SYSTEM_SENDER_EMAIL_ADDRESS'),
   version: packageJson.version,
   messageStoreConnectionString:
     requireFromEnv('MESSAGE_STORE_CONNECTION_STRING'),

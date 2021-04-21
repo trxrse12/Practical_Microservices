@@ -1,3 +1,4 @@
+const cookieSession = require('cookie-session');
 
 const express = require('express');
 const {join} = require('path');
@@ -8,7 +9,9 @@ const lastResortErrorHandler = require('./last-resort-error-handler');
 const primeRequestContext = require('./prime-request-context');
 
 function mountMiddleware(app, env) {
+  const cookieSessionMiddleware = cookieSession({keys: [env.cookieSecret]});
   app.use(lastResortErrorHandler);
+  app.use(cookieSessionMiddleware);
   app.use(primeRequestContext);
   app.use(attachLocals);
   app.use(
