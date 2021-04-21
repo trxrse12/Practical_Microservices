@@ -10,7 +10,7 @@ function createActions({
       type: 'VideoViewed',
       metadata: {
         traceId,
-        userid,
+        userId,
       },
       data: {
         userId,
