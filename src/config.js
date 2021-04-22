@@ -15,7 +15,11 @@ const createAuthenticateApp = require('./app/authenticate');
 const createIdentityComponent = require('./components/identity');
 
 const createPickupTransport = require('nodemailer-pickup-transport');
-const createSendEmailComponent = require('./components/send-email')
+const createSendEmailComponent = require('./components/send-email');
+
+const createVideoPublishingComponent = require('./components/video-publishing');
+
+
 
 function createConfig ({env}) {
   const knexClient = createKnexClient({
@@ -47,6 +51,9 @@ function createConfig ({env}) {
     transport,
   });
 
+  const videoPublishingComponent = createVideoPublishingComponent({ messageStore });
+
+
   const aggregators = [
     homePageAggregator,
     userCredentialsAggregator,
@@ -55,6 +62,7 @@ function createConfig ({env}) {
   const components = [
     identityComponent,
     sendEmailComponent,
+    videoPublishingComponent,
   ];
 
   const homeApp = createHomeApp({db: knexClient});
@@ -82,6 +90,7 @@ function createConfig ({env}) {
     authenticateApp,
     identityComponent,
     sendEmailComponent,
+    videoPublishingComponent,
   }
 }
 
