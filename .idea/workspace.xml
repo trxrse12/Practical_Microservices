@@ -10,15 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d4e4149-b1d5-4e06-96ac-081fbd6fc741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/video-publishing/already-published-error.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/video-publishing/contract.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/video-publishing/ensure-publishing-not-attempted.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/video-publishing/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/video-publishing/load-video.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/video-publishing/transcode-video.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/video-publishing/video-publishing-projection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/video-publishing/write-video-published-event.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/video-publishing/ensure-publishing-not-attempted.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/video-publishing/ensure-publishing-not-attempted.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,65 +27,52 @@
       <split-first>
         <splitter split-orientation="horizontal" split-proportion="0.5">
           <split-first>
-            <splitter split-orientation="vertical" split-proportion="0.5">
-              <split-first>
-                <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-                  <file pinned="false" current-in-tab="true">
-                    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/index.js">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="126">
-                          <caret line="21" column="30" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="30" />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                </leaf>
-              </split-first>
-              <split-second>
-                <leaf>
-                  <file pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/video-publishing-projection.js">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="222">
-                          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                  <file pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/ensure-publishing-not-attempted.js">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="126">
-                          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                  <file pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/transcode-video.js">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="182">
-                          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                  <file pinned="false" current-in-tab="true">
-                    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/write-video-published-event.js">
-                      <provider selected="true" editor-type-id="text-editor" />
-                    </entry>
-                  </file>
-                </leaf>
-              </split-second>
-            </splitter>
-          </split-first>
-          <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/components/video-publishing/load-video.js">
                   <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="168">
+                      <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/components/video-publishing/video-publishing-projection.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="126">
+                      <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/components/video-publishing/index.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="392">
+                      <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/components/video-publishing/video-publishing-projection.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="392">
+                      <caret line="28" column="39" lean-forward="true" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/components/video-publishing/load-video.js">
+                  <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="210">
-                      <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+                      <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
                     </state>
                   </provider>
                 </entry>
@@ -129,7 +109,7 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/message-store/subscribe.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="238">
+                    <state relative-caret-position="1204">
                       <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
                     </state>
                   </provider>
@@ -165,7 +145,7 @@
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.js">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="196">
@@ -175,26 +155,6 @@
                       </folding>
                     </state>
                   </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="mock:///Local">
-                  <provider selected="true" editor-type-id="terminal-session-editor" />
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="true">
-                <entry file="mock:///Local">
-                  <provider selected="true" editor-type-id="terminal-session-editor" />
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="mock:///Local">
-                  <provider selected="true" editor-type-id="terminal-session-editor" />
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="mock:///Local">
-                  <provider selected="true" editor-type-id="terminal-session-editor" />
                 </entry>
               </file>
             </leaf>
@@ -253,7 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/authenticate/contract.md" />
         <option value="$PROJECT_DIR$/src/app/authenticate/templates/login-form.pug" />
         <option value="$PROJECT_DIR$/src/app/express/mount-middleware.js" />
         <option value="$PROJECT_DIR$/src/app/errors/not-found-error.js" />
@@ -281,7 +240,6 @@
         <option value="$PROJECT_DIR$/src/components/send-mail/index.js" />
         <option value="$PROJECT_DIR$/src/components/send-mail/wite-failed-event.js" />
         <option value="$PROJECT_DIR$/src/components/send-mail/write-failed-event.js" />
-        <option value="$PROJECT_DIR$/src/config.js" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/env.js" />
         <option value="$PROJECT_DIR$/src/app/record-viewings/index.js" />
@@ -297,13 +255,15 @@
         <option value="$PROJECT_DIR$/src/components/identity/index.js" />
         <option value="$PROJECT_DIR$/src/message-store/subscribe.js" />
         <option value="$PROJECT_DIR$/src/components/video-publishing/contract.md" />
-        <option value="$PROJECT_DIR$/src/components/video-publishing/index.js" />
         <option value="$PROJECT_DIR$/src/components/video-publishing/load-video.js" />
         <option value="$PROJECT_DIR$/src/components/video-publishing/video-publishing-projection.js" />
-        <option value="$PROJECT_DIR$/src/components/video-publishing/ensure-publishing-not-attempted.js" />
         <option value="$PROJECT_DIR$/src/components/video-publishing/already-published-error.js" />
         <option value="$PROJECT_DIR$/src/components/video-publishing/transcode-video.js" />
         <option value="$PROJECT_DIR$/src/components/video-publishing/write-video-published-event.js" />
+        <option value="$PROJECT_DIR$/src/components/video-publishing/write-video-publishing-failed-event.js" />
+        <option value="$PROJECT_DIR$/src/config.js" />
+        <option value="$PROJECT_DIR$/src/components/video-publishing/index.js" />
+        <option value="$PROJECT_DIR$/src/components/video-publishing/ensure-publishing-not-attempted.js" />
       </list>
     </option>
   </component>
@@ -319,7 +279,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="NBKnowledgePane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -331,6 +290,73 @@
               <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
               <item name="cqrs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="aggregators" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="authenticate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="common-templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="errors" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="express" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="record-viewings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="register-users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
@@ -373,10 +399,17 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="message-store" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="NBKnowledgePane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -439,18 +472,19 @@
       <workItem from="1618822282160" duration="17535000" />
       <workItem from="1618907807025" duration="5233000" />
       <workItem from="1618992964147" duration="17941000" />
-      <workItem from="1619079713623" duration="13890000" />
+      <workItem from="1619079713623" duration="16886000" />
+      <workItem from="1619165845937" duration="3190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320500000" />
+    <option name="totallyTimeSpent" value="326686000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1955008" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19764328" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -488,13 +522,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/authenticate/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/errors/authentication-error.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -643,13 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/send-email/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
@@ -754,23 +774,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/write-registration-email-sent-event.js">
+    <entry file="file://$PROJECT_DIR$/src/app/express/write-send-command.js" />
+    <entry file="file://$PROJECT_DIR$/src/components/identity/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+        <state relative-caret-position="74">
+          <caret line="76" column="39" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/express/write-send-command.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.js">
+    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/already-published-error.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!doc;n#mountRoutes#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="126">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/transcode-video.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/write-video-published-event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/write-video-publishing-failed-event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -781,20 +824,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/message-store/category.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/message-store/subscribe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="1204">
           <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/index.js">
+    <entry file="file://$PROJECT_DIR$/src/message-store/category.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/identity/write-registration-email-sent-event.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="76" column="39" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="54" />
+        <state relative-caret-position="350">
+          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -808,50 +851,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/load-video.js">
+    <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/video-publishing-projection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/already-published-error.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="30" />
+        <state relative-caret-position="84">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc;n#mountRoutes#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/video-publishing/ensure-publishing-not-attempted.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="14">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/transcode-video.js">
+    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        <state relative-caret-position="392">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/write-video-published-event.js">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/video-publishing-projection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/video-publishing/load-video.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

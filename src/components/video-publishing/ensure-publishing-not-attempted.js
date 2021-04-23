@@ -8,3 +8,5 @@ function ensurePublishingNotAttempted(context){
 
   return context;
 }
+
+module.exports = ensurePublishingNotAttempted;
