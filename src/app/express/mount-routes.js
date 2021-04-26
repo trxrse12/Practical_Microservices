@@ -1,4 +1,7 @@
 /** @description Mount app routes into the Express app ...*/
+
+const mustBeLoggedIn = require('./must-be-logged-in');
+
 function mountRoutes(app, config){
   if (!config?.homeApp?.router){
     throw new Error('Invalid route handler');
@@ -10,6 +13,10 @@ function mountRoutes(app, config){
   app.use('/record-viewing', config.recordViewingsApp.router);
   app.use('/register', config.registerUsersApp.router);
   app.use('/auth', config.authenticateApp.router);
+  app.use('./creators-portal',mustBeLoggedIn, config.creatorsPortalApp.router);
+  app.use(
+    express.static(join(__dirname, '..', 'public'), {maxAge: 86400000})
+  )
 }
 
 module.exports = mountRoutes;

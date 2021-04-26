@@ -36,6 +36,10 @@ const fakeDb = {
   },
 };
 
+const fakeMessageStore = {
+  createSubscription: () => {}
+};
+
 const fakeUserId = uuid();
 const fakeStream = `identity:command-${fakeUserId}`;
 const fakeTraceId = uuid();
@@ -69,6 +73,12 @@ const fakeCommand = {
   }
 };
 
+const fakeConfig = {
+  homeApp: {
+    router: {a:1}
+  }
+};
+
 function callFcnWithObjWithUnexpectedProps(badPropObject, fcn){
       fcn => badParam;
 }
@@ -79,10 +89,12 @@ function checkReturningPromiseIsThrowing(badArgsArray, promiseFcn){
 
 module.exports.badArgs = badArgs;
 module.exports.fakeDb = fakeDb;
+module.exports.fakeMessageStore = fakeMessageStore;
 module.exports.fakeUserId = fakeUserId;
 module.exports.fakeTraceId = fakeTraceId;
 module.exports.fakeStream = fakeStream;
 module.exports.fakeContext = fakeContext;
 module.exports.fakeAttributes = fakeAttributes;
 module.exports.fakeCommand = fakeCommand;
+module.exports.fakeConfig = fakeConfig;
 module.exports.callFcnWithObjWithUnexpectedProps = callFcnWithObjWithUnexpectedProps;

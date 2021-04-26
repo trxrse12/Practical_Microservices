@@ -102,6 +102,8 @@ function build({db, messageStore}){
     .route('/log-out')
     .get(handlers.handleLogOut);
 
+  console.log('Authenticate app started');
+
   return {actions, handlers, queries, router}
 }
 

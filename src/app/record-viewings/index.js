@@ -50,7 +50,7 @@ function createRecordViewings({
   const router = express.Router();
 
   router.route('/:videoId').post(handlers.handleRecordViewing);
-
+  console.log('Record Viewings app started');
   return {actions, handlers, router};
 }
 

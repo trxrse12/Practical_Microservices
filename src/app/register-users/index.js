@@ -97,6 +97,8 @@ function build({db, messageStore}){
   const queries = {};
   const routers = {};
 
+  console.log('Register Users app started');
+
   return {
     actions, handlers, queries, routers,
   }

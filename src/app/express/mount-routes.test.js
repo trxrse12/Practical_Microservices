@@ -3,6 +3,8 @@ import mountRoutes from './mount-routes';
 import request from 'supertest';
 import bodyparser from 'body-parser';
 
+import {fakeConfig} from '../../test-helpers';
+
 const app = express(); // create a fake express app
 app.use(bodyparser.json()); //this made it work
 const config = {}; // create a mocked config object, that contains the mocked route
@@ -41,6 +43,7 @@ describe('function mountRoutes', () => {
     }).toThrow('Invalid route handler');
   });
   it('mounts the config.homeApp.router middleware if is a valid handler', async () => {
+    const config = fakeConfig;
     const mountResult = await mountRoutes(app,config); // mount the fake route
     const {body} = await request(app).get('/');
     expect(body).toEqual([

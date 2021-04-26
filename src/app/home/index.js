@@ -37,6 +37,7 @@ function createHome({db}){
   const handlers = createHandlers({queries});
   const router = express.Router();
   router.route('/').get(handlers.home);
+  console.log('createHome app started')
   return {handlers, queries, router};
 }
 

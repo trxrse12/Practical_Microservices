@@ -23,6 +23,7 @@
     "dotenv": "^8.2.0",
     "email-templates": "^8.0.4",
     "express": "^4.17.1",
+    "jquery": "^3.6.0",
     "knex": "^0.95.2",
     "nodemailer": "^6.5.0",
     "nodemailer-pickup-transport": "^0.1.1",
