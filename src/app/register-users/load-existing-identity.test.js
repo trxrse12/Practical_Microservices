@@ -2,6 +2,8 @@ const {loadExistingIdentity} = require('./load-existing-identity');
 const {badArgs, fakeContext} = require('../../test-helpers');
 const promiseReflect = require('promise-reflect');
 
+jest.mock('./shallow-validate', () => Promise.return({a:1}));
+
 
 describe('loadExistingIdentity()', () => {
   it('should throw when context not valid', async () => {
@@ -32,9 +34,9 @@ describe('loadExistingIdentity()', () => {
     // })
   });
 
-  it.skip('should return a Promise that solves in a context',async () => {
-    expect.assertions(1);
-    return await loadExistingIdentity(fakeContext)
-      .then(result => expect(result).toMatchObject(context))
+  it('should return a Promise that solves in a context', () => {
+    // expect.assertions(1);
+    return loadExistingIdentity(fakeContext)
+      .then(result => {expect(result).toMatchObject(fakeContext)})
   });
 });

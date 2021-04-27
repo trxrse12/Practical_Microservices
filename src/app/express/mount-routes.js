@@ -1,6 +1,7 @@
 /** @description Mount app routes into the Express app ...*/
-
+const express = require('express');
 const mustBeLoggedIn = require('./must-be-logged-in');
+const {join} = require('path');
 
 function mountRoutes(app, config){
   if (!config?.homeApp?.router){

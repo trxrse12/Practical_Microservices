@@ -1,6 +1,13 @@
-const build =require('./index');
+const build =require('../index');
 const promiseReflect = require('promise-reflect');
-const {fakeDb, badArgs} = require('../../test-helpers');
+const {fakeDb, badArgs} = require('../../../test-helpers');
+
+jest.mock('../shallow-validate');
+const shallowValidate = require('./shallow-validate').default;
+
+jest.mock('../write-register-command');
+const writeRegisterCommand = require('./write-register-command').default;
+
 const db = fakeDb;
 const messageStore = {a:1};
 
@@ -54,15 +61,14 @@ describe('the register-user app factory', () => {
     it('have a registerUser function property', () => {
       expect(actions).toMatchObject({registerUser: expect.any(Function)})
     });
-    describe('registerUser(traceId, attributes) inner function', () => {
-      test.skip('should return a Promise that solves in a the value returned by the db', () => {
+    describe('and registerUser(traceId, attributes) inner function', () => {
+      test('should return a Promise that solves in a the value returned by the db', () => {
         const fakeTraceId = '123';
         const fakeAttributes = {email:'t@t.com', password:"***"}
-        expect.assertions(1);
+
         return actions.registerUser(fakeTraceId, fakeAttributes)
-          .then(result => {expect(result).toMatchObject(
-            {"rows": [{a:1}, {b:2}]}
-          )});
+          .then(async result => {
+            expect(result).toEqual([{a:1}, {b:2}])});
       });
       it('throws if any argument is missing or the wrong type', async () => {
         let myErroredResultsPromiseArray = badArgs.map(v => {

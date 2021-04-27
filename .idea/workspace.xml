@@ -10,67 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d4e4149-b1d5-4e06-96ac-081fbd6fc741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/aggregators/home-page.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/creators-portal/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/creators-portal/templates/video.pug" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/express/must-be-logged-in.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/amelia-master/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/amelia.bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/amelia.bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-grid.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-grid.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-grid.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-grid.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-reboot.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-reboot.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-reboot.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-reboot.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-utilities.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-utilities.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-utilities.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-utilities.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-utilities.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-utilities.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-utilities.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap-utilities.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/css/bootstrap.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.esm.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.esm.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.esm.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/public/js/jquery-3.2.1.slim.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/register-users/__mocks__/shallow-validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/register-users/__mocks__/write-register-command.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/authenticate/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/authenticate/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aggregators/home-page.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/aggregators/home-page.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/express/mount-routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/express/mount-routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/record-viewings/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/record-viewings/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/express/mount-routes.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/express/mount-routes.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register-users/ensure-therewas-no-existing-identity.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/ensure-there-was-no-existing-identity.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/register-users/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register-users/index.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/__mocks__/index.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register-users/load-existing-identity.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/load-existing-identity.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register-users/write-register-command.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/write-register-command.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test-helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-helpers.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -83,112 +33,168 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.6121148">
+    <splitter split-orientation="vertical" split-proportion="0.5143464">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.5">
+        <splitter split-orientation="horizontal" split-proportion="0.54832214">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/aggregators/home-page.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="441">
-                      <caret line="78" column="23" lean-forward="true" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
+                    <state relative-caret-position="728">
+                      <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
                     </state>
                   </provider>
                 </entry>
               </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/app/authenticate/index.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="1161">
+                      <caret line="96" column="41" selection-start-line="96" selection-start-column="41" selection-end-line="96" selection-end-column="41" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/app/register-users/index.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="321">
+                      <caret line="55" column="3" lean-forward="true" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
+                      <folding>
+                        <element signature="n#!!doc;n#registerUser#0;n#!!block;n#createActions#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/index.js">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="308">
-                      <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+                      <caret line="22" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="5" />
                     </state>
                   </provider>
                 </entry>
               </file>
               <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/app/express/must-be-logged-in.js">
+                <entry file="file://$PROJECT_DIR$/src/app/register-users/__mocks__/shallow-validate.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="112">
-                      <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="294">
-                      <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-                      <folding>
-                        <element signature="n#!!doc;n#mountRoutes#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/test-helpers.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="413">
-                      <caret line="79" column="52" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.test.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="295">
-                      <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/app/register-users/index.test.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="56">
-                      <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="27" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/app/common-templates/layout.pug">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="336">
-                      <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/config.js">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="280">
-                      <caret line="97" column="1" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
+                    <state relative-caret-position="98">
+                      <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
                     </state>
                   </provider>
                 </entry>
               </file>
             </leaf>
+          </split-first>
+          <split-second>
+            <splitter split-orientation="vertical" split-proportion="0.56677526">
+              <split-first>
+                <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+                  <file pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.js">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="70">
+                          <caret line="5" column="34" selection-start-line="6" selection-start-column="1" selection-end-line="7" selection-end-column="45" />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/src/test-helpers.js">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="97">
+                          <caret line="32" column="25" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="20" />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file pinned="false" current-in-tab="true">
+                    <entry file="file://$PROJECT_DIR$/src/app/register-users/write-register-command.js">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="70">
+                          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/src/app/register-users/__mocks__/shallow-validate.js">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="126">
+                          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                </leaf>
+              </split-first>
+              <split-second>
+                <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+                  <file pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.test.js">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="406">
+                          <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+                          <folding>
+                            <element signature="e#0#30#0" expanded="true" />
+                          </folding>
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file pinned="false" current-in-tab="true">
+                    <entry file="file://$PROJECT_DIR$/src/test-helpers.js">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="111">
+                          <caret line="36" column="4" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                  <file pinned="false" current-in-tab="false">
+                    <entry file="file://$PROJECT_DIR$/src/app/register-users/load-existing-identity.test.js">
+                      <provider selected="true" editor-type-id="text-editor">
+                        <state relative-caret-position="-350">
+                          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+                        </state>
+                      </provider>
+                    </entry>
+                  </file>
+                </leaf>
+              </split-second>
+            </splitter>
           </split-second>
         </splitter>
       </split-first>
       <split-second>
-        <splitter split-orientation="horizontal" split-proportion="0.4906791">
+        <splitter split-orientation="horizontal" split-proportion="0.54484606">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/aggregators/home-page.test.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="168">
-                      <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+                    <state relative-caret-position="140">
+                      <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/app/register-users/index.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="-280">
+                      <caret line="92" column="3" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="3" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/app/register-users/__mocks__/index.test.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="86">
+                      <caret line="68" column="24" lean-forward="true" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
                     </state>
                   </provider>
                 </entry>
@@ -200,11 +206,8 @@
               <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="196">
-                      <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-                      <folding>
-                        <element signature="n#!!doc;n#mountRoutes#0" expanded="true" />
-                      </folding>
+                    <state relative-caret-position="140">
+                      <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
                     </state>
                   </provider>
                 </entry>
@@ -213,7 +216,7 @@
                 <entry file="file://$PROJECT_DIR$/src/components/identity/contract.md">
                   <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                     <state split_layout="SPLIT">
-                      <first_editor relative-caret-position="90">
+                      <first_editor relative-caret-position="1162">
                         <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
                       </first_editor>
                       <second_editor />
@@ -227,17 +230,17 @@
                 </entry>
               </file>
               <file pinned="false" current-in-tab="false">
-                <entry file="mock:///Local">
+                <entry file="mock:///Local (2)">
                   <provider selected="true" editor-type-id="terminal-session-editor" />
                 </entry>
               </file>
               <file pinned="false" current-in-tab="false">
-                <entry file="mock:///Local">
+                <entry file="mock:///Local (3)">
                   <provider selected="true" editor-type-id="terminal-session-editor" />
                 </entry>
               </file>
               <file pinned="false" current-in-tab="false">
-                <entry file="mock:///Local">
+                <entry file="mock:///Local (4)">
                   <provider selected="true" editor-type-id="terminal-session-editor" />
                 </entry>
               </file>
@@ -256,10 +259,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>console.log</find>
-      <find>poll</find>
-      <find>lastReadMessage</find>
-      <find>toThrow</find>
       <find>READ</find>
       <find>uuid</find>
       <find>should throw if context object argument has unexpected props</find>
@@ -271,7 +270,6 @@
       <find>messageStore</find>
       <find>should have a query property</find>
       <find>should resolve in the value returned by the db</find>
-      <find>should return a Promise that solves in a the value returned by the db</find>
       <find>badArgs</find>
       <find>Promise</find>
       <find>default</find>
@@ -285,7 +283,12 @@
       <find>Started aggregators:home-page</find>
       <find>Started video-publishing</find>
       <find>createCreatorsPortal</find>
+      <find>throws if the app is not a valid Express app</find>
+      <find>.skip</find>
+      <find>validate</find>
       <find>mounts the config.homeApp.router middleware if is a valid handler</find>
+      <find>should return a Promise that solves in a the value returned by the db</find>
+      <find>KKK</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src</dir>
@@ -297,16 +300,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/authenticate/handle-credential-mismatch.js" />
-        <option value="$PROJECT_DIR$/src/aggregators/user-credentials.js" />
-        <option value="$PROJECT_DIR$/src/app/authenticate/handle-credential-not-found.js" />
-        <option value="$PROJECT_DIR$/src/components/send-mail/contract.md.js" />
-        <option value="$PROJECT_DIR$/src/components/send-mail/contract.md" />
-        <option value="$PROJECT_DIR$/src/components/send-mail/snd.js" />
-        <option value="$PROJECT_DIR$/src/components/send-mail/send.js" />
-        <option value="$PROJECT_DIR$/src/components/send-mail/load-email.js" />
-        <option value="$PROJECT_DIR$/src/components/send-mail/already-sent-error.js" />
-        <option value="$PROJECT_DIR$/src/components/send-mail/ensure-email-has-not-been-sent.js" />
         <option value="$PROJECT_DIR$/src/components/send-mail/send-email.js" />
         <option value="$PROJECT_DIR$/src/components/send-mail/write-sent-event.js" />
         <option value="$PROJECT_DIR$/src/components/send-mail/send-error.js" />
@@ -340,14 +333,24 @@
         <option value="$PROJECT_DIR$/src/app/express/must-be-logged-in.js" />
         <option value="$PROJECT_DIR$/src/app/home/index.js" />
         <option value="$PROJECT_DIR$/src/app/record-viewings/index.js" />
-        <option value="$PROJECT_DIR$/src/app/register-users/index.js" />
         <option value="$PROJECT_DIR$/src/app/authenticate/index.js" />
         <option value="$PROJECT_DIR$/src/app/creators-portal/index.js" />
-        <option value="$PROJECT_DIR$/src/app/express/mount-routes.js" />
         <option value="$PROJECT_DIR$/src/app/creators-portal/templates/video.pug" />
-        <option value="$PROJECT_DIR$/src/test-helpers.js" />
         <option value="$PROJECT_DIR$/src/aggregators/home-page.js" />
         <option value="$PROJECT_DIR$/src/aggregators/home-page.test.js" />
+        <option value="$PROJECT_DIR$/src/app/express/mount-routes.js" />
+        <option value="$PROJECT_DIR$/src/app/express/mount-routes.test.js" />
+        <option value="$PROJECT_DIR$/src/test-helpers.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/validate.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/load-existing-identity.test.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/__mocks__/shallow_validate.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/index.test.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/write-register-command.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/shallow-validate.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/__mocks__/index.test.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/index.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/__mocks__/write-register-command.js" />
+        <option value="$PROJECT_DIR$/src/app/register-users/__mocks__/shallow-validate.js" />
       </list>
     </option>
   </component>
@@ -363,8 +366,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="NBKnowledgePane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -394,6 +395,13 @@
               <item name="cqrs" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="authenticate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="express" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -403,10 +411,20 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="register-users" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="cqrs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cqrs" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="register-users" type="462c0819:PsiDirectoryNode" />
+              <item name="__mocks__" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="NBKnowledgePane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -419,15 +437,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/public/js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/register-users/__mocks__" />
       <recent name="$PROJECT_DIR$/src/app/public" />
       <recent name="$PROJECT_DIR$/src/app/public/js" />
       <recent name="$PROJECT_DIR$/src/app/public/css" />
       <recent name="$PROJECT_DIR$/bootstrap-5.0.0-beta3-dist/css" />
-      <recent name="$PROJECT_DIR$/src/components/identity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/public/js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -474,18 +492,19 @@
       <workItem from="1618992964147" duration="17941000" />
       <workItem from="1619079713623" duration="16886000" />
       <workItem from="1619165845937" duration="3190000" />
-      <workItem from="1619426319247" duration="10787000" />
+      <workItem from="1619426319247" duration="17865000" />
+      <workItem from="1619512218141" duration="12876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="340470000" />
+    <option name="totallyTimeSpent" value="360424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1060" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19978575" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20192823" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -519,67 +538,26 @@
           <line>2</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/aggregators/home-page.js</url>
+          <line>25</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/express/mount-routes.test.js</url>
+          <line>32</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/register-users/__mocks__/index.test.js</url>
+          <line>63</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/identity/already-sent-registration-email-error.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/ensure-registration-email-not-sent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/send-email/write-failed-event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/templates/registration-email/subject.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/templates/registration-email/html.pug">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/write-registered-event.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/render-registration-email.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/identity/load-identity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/express/write-send-command.js" />
     <entry file="file://$PROJECT_DIR$/src/components/identity/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="74">
@@ -692,34 +670,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/creators-portal/contract.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="100">
-            <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="97" column="1" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/creators-portal/contract.md" />
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
           <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -730,27 +685,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/register-users/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
-          <folding>
-            <element signature="n#!!doc;n#registerUser#0;n#!!block;n#createActions#0;n#!!block;n#build#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/record-viewings/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/authenticate/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="92" column="8" lean-forward="true" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -823,58 +761,142 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1169">
+          <caret line="97" column="1" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aggregators/user-credentials.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/validate.js" />
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/ensure-there-was-no-existing-identity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aggregators/home-page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="34" column="18" lean-forward="true" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/identity/contract.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="90">
+          <first_editor relative-caret-position="1162">
             <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.js">
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/load-existing-identity.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc;n#mountRoutes#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="154">
+          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/register-users/index.test.js">
+    <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="27" />
+        <state relative-caret-position="70">
+          <caret line="5" column="34" selection-start-line="6" selection-start-column="1" selection-end-line="7" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/authenticate/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1161">
+          <caret line="96" column="41" selection-start-line="96" selection-start-column="41" selection-end-line="96" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="22" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aggregators/home-page.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="140">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aggregators/home-page.js">
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/shallow-validate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="78" column="23" lean-forward="true" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="23" />
+        <state relative-caret-position="98">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/load-existing-identity.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-350">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test-helpers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="79" column="52" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
+        <state relative-caret-position="97">
+          <caret line="32" column="25" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/express/mount-routes.test.js">
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/__mocks__/write-register-command.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+        <state relative-caret-position="97">
+          <caret line="7" column="4" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/__mocks__/index.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="68" column="24" lean-forward="true" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/__mocks__/shallow-validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="55" column="3" lean-forward="true" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc;n#registerUser#0;n#!!block;n#createActions#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/register-users/write-register-command.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
         </state>
       </provider>
     </entry>

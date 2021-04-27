@@ -33,7 +33,7 @@ describe('function mountRoutes', () => {
   it('throws if the app is not a valid Express app', () => {
     const badApp = {};
     expect(() => {
-      mountRoutes(badApp, config);
+      mountRoutes(badApp, fakeConfig);
     }).toThrow('Invalid Express app object parameter')
   });
   it('throws if the config Express app doesn\'t have a valid handler', async () => {

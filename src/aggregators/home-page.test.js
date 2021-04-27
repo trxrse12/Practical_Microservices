@@ -11,4 +11,11 @@ describe('buildHomePage()', () => {
       start: expect.any(Function),
     })
   });
+  it('the queries object should contain two functions', () => {
+    const {queries} = buildHomePage({db, messageStore});
+    expect(queries).toMatchObject({
+      ensureHomePage: expect.any(Function),
+      incrementVideosWatched: expect.any(Function),
+    });
+  });
 });

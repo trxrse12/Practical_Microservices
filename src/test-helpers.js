@@ -1,4 +1,5 @@
 const {v4:uuid} = require('uuid');
+const express = require('express');
 
 const badArgs = [
   [],
@@ -49,6 +50,7 @@ const fakeAttributes = {
   email: "me@me.com",
 }
 
+const byEmail = email => Promise.resolve({identity: 'trx'})
 const fakeContext = {
   attributes: fakeAttributes,
   traceId: fakeTraceId,
@@ -56,7 +58,9 @@ const fakeContext = {
   messageStore: {
     write: jest.fn().mockReturnValue(true),
   },
-  queries: {},
+  queries: {
+    byEmail: byEmail,
+  },
 };
 
 const fakeCommand = {
@@ -73,10 +77,30 @@ const fakeCommand = {
   }
 };
 
+const fakeRouter = jest.fn((req, res) => {
+  res.status(200);
+  res.send([{
+    state: 'NJ',
+    capital: 'Trenton',
+  }])
+});
+
 const fakeConfig = {
   homeApp: {
-    router: {a:1}
-  }
+    router:fakeRouter ,
+  },
+  recordViewingsApp: {
+    router: express.Router(),
+  },
+  registerUsersApp: {
+    router: express.Router(),
+  },
+  authenticateApp: {
+    router: express.Router(),
+  },
+  creatorsPortalApp: {
+    router: express.Router(),
+  },
 };
 
 function callFcnWithObjWithUnexpectedProps(badPropObject, fcn){
