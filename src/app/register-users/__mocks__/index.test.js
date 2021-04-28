@@ -20,10 +20,10 @@ describe('the register-user app factory', () => {
   it('should return an object', () => {
     registerUserApp = build({db, messageStore});
     expect(registerUserApp).toEqual(expect.objectContaining({
-      actions: expect.anything(),
-      handlers: expect.anything(),
-      queries: expect.anything(),
-      routers: expect.anything(),
+      actions: expect.any(Object),
+      handlers: expect.any(Object),
+      queries: expect.any(Object),
+      //routers: expect.any(Array),
     }))
   });
 

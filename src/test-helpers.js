@@ -111,6 +111,8 @@ function checkReturningPromiseIsThrowing(badArgsArray, promiseFcn){
 
 }
 
+// function fakeRead(streamName, from)
+
 module.exports.badArgs = badArgs;
 module.exports.fakeDb = fakeDb;
 module.exports.fakeMessageStore = fakeMessageStore;

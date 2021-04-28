@@ -22,6 +22,9 @@ function createQueries({db}){
   }
 
   function incrementVideosWatched (globalPosition){
+    if (!globalPosition || isNaN(globalPosition) || Array.isArray(globalPosition)){
+      throw new TypeError('Invalid global position: ' + globalPosition);
+    }
     const queryString = `
     UPDATE
       pages
@@ -40,7 +43,9 @@ function createQueries({db}){
       (page_data->>'lastViewProcessed')::int < :globalPosition
   `;
 
-    return db.then(client => client.raw(queryString, {globalPosition}));
+    return db.then(client => {
+      client.raw(queryString, {globalPosition})
+    });
   }
 
   return {

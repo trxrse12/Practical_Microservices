@@ -10,7 +10,9 @@ const shallowValidate = require('./shallow-validate');
 const loadExistingIdentity = require('./load-existing-identity');
 const ensureThereWasNoExistingIdentity = require('./ensure-there-was-no-existing-identity')
 // const writeRegisterCommand = require('./write-register-command');
-const Bluebird = require('bluebird')
+const Bluebird = require('bluebird');
+const bodyParser = require('body-parser');
+const express = require('express');
 
 function createActions({messageStore, queries}) {
   /**
@@ -56,6 +58,43 @@ function createActions({messageStore, queries}) {
   }
 }
 
+function createHandlers({actions}){
+  function handleRegistrationForm(req, res){
+    const userId = uuid();
+    res.render('register-users/templates/register', {userId});
+  }
+
+  function handleRegistrationComplete(req, res){
+    res.render('register-users/templates/registration-complete');
+  }
+
+  function handleRegisterUser(req, res, next){
+    const attributes = {
+      id: req.body.id,
+      email: req.body.email,
+      password: req.body.password,
+    };
+
+    return actions
+      .registerUser(req.context.traceId, attributes)
+      .then(() => res.redirect(301, 'register/registration-complete'))
+      .catch(ValidationError, err =>
+        res
+          .status(400)
+          .render(
+            'register-users/templates/register',
+            {userId: attributes.id, errors: err.errors}
+          )
+      )
+  }
+
+  return {
+    handleRegistrationForm,
+    handleRegistrationComplete,
+    handleRegisterUser,
+  }
+}
+
 function createQueries({db}){
   function byEmail(email){
     return db
@@ -91,16 +130,28 @@ function build({db, messageStore}){
   if (isEmptyObject(messageStore)){
     throw new Error('registerUser build(): empty messageStore object parameter')
   }
-  const queries = {};
+  const queries = createQueries({db});
   const actions = createActions({messageStore, queries});
-  const handlers = {};
+  const handlers = createHandlers({actions});
 
-  const routers = {};
+  const router = express.Router();
+
+  router
+    .route('/')
+    .get(handlers.handleRegistrationForm)
+    .post(
+      bodyParser.urlencoded({extended: false}),
+      handlers.handleRegisterUser
+    );
+
+  router
+    .route('/registration-complete')
+    .get(handlers.handleRegistrationComplete);
 
   console.log('Register Users app started');
 
   return {
-    actions, handlers, queries, routers,
+    actions, handlers, queries, router,
   }
 }
 
