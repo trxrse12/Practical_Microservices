@@ -1,6 +1,7 @@
 const Bluebird = require('bluebird');
 const uuid = require('uuid');
 const category = require('./category');
+const {isObject} = require("../utils");
 
 function configureCreateSubscription({read, readLastMessage, write}){
   return ({
@@ -12,6 +13,23 @@ function configureCreateSubscription({read, readLastMessage, write}){
     originStreamName = null,
     tickIntervalMs = 100
   }) => {
+    if (!(typeof streamName === 'string')){
+      throw new TypeError('createSubscription() error: incorrect parameters: streamName=', streamName);
+    }
+    if (!isObject(handlers) ||
+      (isObject(handlers)
+        && Object.values(handlers).filter(v => {
+          return (typeof v === 'function') && v.toString().match(/{}/)?.length>0
+        })?.length>0
+      )
+    ){
+      throw new TypeError('createSubscription() error: incorrect parameters: handlers=', handlers)
+    }
+    if (!(typeof subscriberId === 'string') ||  !subscriberId.match(/:/)){
+      throw new TypeError('createSubscription() error: incorrect parameters: subscriberId=', subscriberId)
+    }
+
+
     const subscriberStreamName = `subscriberPosition-${subscriberId}`;
     let currentPosition = 0;
     let messageSinceLastPositionWrite = 0;
