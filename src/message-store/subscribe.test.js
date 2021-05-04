@@ -31,7 +31,7 @@ describe('configureCreateSubscription() should', () => {
         expect(e.message).toBeTruthy();
       }
     });
-    it.each(badArgs)('throw if handlers is not a valid object', (badArg) => {
+    it.each(badArgs)('throw if handlers is not an object that has non-empty functions as keys', (badArg) => {
       const streamName = 'identity:trxrse1-100010010';
       const handlers = badArg;
       try{
@@ -50,6 +50,19 @@ describe('configureCreateSubscription() should', () => {
         throw new Error('It should not get to this point: subscriberId=',subscriberId);
       } catch (e){
         expect(e.message).toMatch('createSubscription() error: incorrect parameters: subscriberId=');
+      }
+    });
+    it('should return a valid function if the min set params is OK', () => {
+      const streamName = 'identity:trxrse1-100010010';
+      const handlers ={ VideoViewed: () => {return 100} };
+      const subscriberId = 'gigi:identity';
+      try{
+        // console.log('KKKKKKKKKKKKKKKKKKKK subscribeFcn=', subscribeFcn);
+        expect(createSubscriptionFcn({streamName, handlers, subscriberId})).toContainAllKeys([
+          'loadPosition','start','stop','tick','writePosition',
+        ]);
+      } catch(e){
+        throw new Error(e.message)
       }
     });
   });

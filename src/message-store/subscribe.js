@@ -13,20 +13,25 @@ function configureCreateSubscription({read, readLastMessage, write}){
     originStreamName = null,
     tickIntervalMs = 100
   }) => {
+    // Check for a min set of correct params:
+// TODO: Tech debt: refactor the lines below into separate validation class or function)
+    // streamName: string
     if (!(typeof streamName === 'string')){
       throw new TypeError('createSubscription() error: incorrect parameters: streamName=', streamName);
     }
+    // handlers is an object with keys that have functions as their values
     if (!isObject(handlers) ||
       (isObject(handlers)
         && Object.values(handlers).filter(v => {
-          return (typeof v === 'function') && v.toString().match(/{}/)?.length>0
+          return (typeof v === 'function') && v.toString().match(/(,+){}/)?.length>0
         })?.length>0
       )
     ){
       throw new TypeError('createSubscription() error: incorrect parameters: handlers=', handlers)
     }
+    // subscriberId should a string that contains : (e.g. aggregators:home-page)
     if (!(typeof subscriberId === 'string') ||  !subscriberId.match(/:/)){
-      throw new TypeError('createSubscription() error: incorrect parameters: subscriberId=', subscriberId)
+      throw new TypeError('createSubscription() error: incorrect parameters: subscriberId=' + subscriberId)
     }
 
 
