@@ -25,24 +25,25 @@ function createActions ({messageStore, queries}){
 
 function createHandlers ({actions, queries}){
   function handlePublishVideo(req, res, next) {
-    return actions
-      .publishVideo(req.context, req.body.videoId, req.body.url)
-      .then(() => res.json('"ok"'))
-      .catch(next);
+    return {};
+    // return actions
+    //   .publishVideo(req.context, req.body.videoId, req.body.url)
+    //   .then(() => res.json('"ok"'))
+    //   .catch(next);
   }
-
-  function handleShowVideo(req, res, next){
-    const videoId = req.params.id;
-    const ownerId = req.context.userId;
-
-    return queries
-      .videoByIdAndOwnerId(videoId, ownerId)
-      .then(video => {
-        const template = video
-          ? 'creators-portal/templates/video'
-          : 'common-templates/404'
-      })
-  }
+  //
+  // function handleShowVideo(req, res, next){
+  //   const videoId = req.params.id;
+  //   const ownerId = req.context.userId;
+  //
+  //   return queries
+  //     .videoByIdAndOwnerId(videoId, ownerId)
+  //     .then(video => {
+  //       const template = video
+  //         ? 'creators-portal/templates/video'
+  //         : 'common-templates/404'
+  //     })
+  // }
 
   return {
     handlePublishVideo,
@@ -65,7 +66,7 @@ function createCreatorsPortal({db, messageStore}){
   // router.route('/videos/:id').get(handlers.handleShowVideo);
   // router.route('/').get(handlers.handleDashboard);
 
-  console.log('Creators-portal app started');
+  //console.log('Creators-portal app started');
 
   return {handlers,router};
 }

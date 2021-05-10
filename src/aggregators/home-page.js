@@ -57,7 +57,7 @@ function createQueries({db}){
 function build({db, messageStore}){
   const queries = createQueries({db});
   const handlers = createHandlers({queries});
-  console.log('building the subscription')
+  //console.log('building the subscription')
   const subscription = messageStore.createSubscription({
     streamName: 'viewing',
     handlers,
@@ -69,7 +69,7 @@ function build({db, messageStore}){
   }
 
   function start(){
-    console.log('starting the aggregator')
+    //console.log('starting the aggregator')
     init().then(subscription.start);
   }
 

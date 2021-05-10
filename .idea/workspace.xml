@@ -11,14 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d4e4149-b1d5-4e06-96ac-081fbd6fc741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/identity/identity.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20181013180427_create_creators-portal-videos.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/creators-portal/creators-portal.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aggregators/home-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/aggregators/home-page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/authenticate/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/authenticate/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/creators-portal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/creators-portal/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/record-viewings/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/record-viewings/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register-users/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/identity/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/identity/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/message-store/subscribe.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/message-store/subscribe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/message-store/subscribe.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/message-store/subscribe.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test-helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-helpers.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +216,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/migrations" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -333,7 +336,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/message-store/subscribe.test.js</url>
           <line>67</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>

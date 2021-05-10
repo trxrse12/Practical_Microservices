@@ -1,5 +1,7 @@
 const {v4:uuid} = require('uuid');
 const express = require('express');
+// const Bluebird = require('bluebird');
+const {app, config} = require('./');
 
 const badArgs = [
   [],
@@ -104,11 +106,31 @@ const fakeConfig = {
 };
 
 function callFcnWithObjWithUnexpectedProps(badPropObject, fcn){
-      fcn => badParam;
+  fcn => badParam;
 }
 
 function checkReturningPromiseIsThrowing(badArgsArray, promiseFcn){
 
+}
+
+Promise.each = async function(arr, fn) { // take an array and a function
+   for(const item of arr) await fn(item);
+}
+
+function reset () {
+  const tablesToWipe = [
+    'pages',
+    'user_credentials',
+    'creators_portal_videos',
+    // 'video_operations',
+    // 'admin_subscriber_positions',
+    // 'admin_streams',
+    // 'admin_users'
+  ]
+
+  return Promise.each(tablesToWipe, table =>
+    config.db.then(client => client(table).del())
+  )
 }
 
 // function fakeRead(streamName, from)
@@ -124,3 +146,6 @@ module.exports.fakeAttributes = fakeAttributes;
 module.exports.fakeCommand = fakeCommand;
 module.exports.fakeConfig = fakeConfig;
 module.exports.callFcnWithObjWithUnexpectedProps = callFcnWithObjWithUnexpectedProps;
+module.exports.reset = reset;
+module.exports.config = config;
+module.exports.app = app;

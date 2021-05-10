@@ -148,7 +148,7 @@ function build({db, messageStore}){
     .route('/registration-complete')
     .get(handlers.handleRegistrationComplete);
 
-  console.log('Register Users app started');
+  //console.log('Register Users app started');
 
   return {
     actions, handlers, queries, router,
