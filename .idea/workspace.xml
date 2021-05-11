@@ -10,16 +10,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/message-store/subscribe.test.js" line="10" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d4e4149-b1d5-4e06-96ac-081fbd6fc741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/identity/identity.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/identity/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/identity/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/message-store/subscribe.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/message-store/subscribe.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/message-store/subscribe.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/message-store/subscribe.test.js" afterDir="false" />
-    </list>
+    <list default="true" id="5d4e4149-b1d5-4e06-96ac-081fbd6fc741" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -333,7 +324,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/message-store/subscribe.test.js</url>
           <line>67</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
