@@ -1,3 +1,4 @@
+jest.disableAutomock();
 const createExpressApp = require('../express/index');
 const supertest = require('supertest');
 const {app, config, reset} = require('../../test-helpers');
@@ -11,10 +12,12 @@ describe('app', () => {
     const videoToPublish = {
       id: 100
     }
+
+    // console.log('BBBBBBBBBBBBBBBBBBBB app=', app)
     return reset()
       .then(() =>
         supertest(app)
-          .post('/creators-portal/publish-video')
+          .post('/publish-video')
           .send(videoToPublish)
           .expect(201)
          )

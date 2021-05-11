@@ -11,17 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d4e4149-b1d5-4e06-96ac-081fbd6fc741" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/20181013180427_create_creators-portal-videos.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/creators-portal/creators-portal.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aggregators/home-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/aggregators/home-page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/authenticate/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/authenticate/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/creators-portal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/creators-portal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/record-viewings/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/record-viewings/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/register-users/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register-users/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/identity/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/identity/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test-helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/test-helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/creators-portal/creators-portal.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/creators-portal/creators-portal.test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,14 +216,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/migrations" />
       <recent name="$PROJECT_DIR$/src/app/public/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/register-users" />
       <recent name="$PROJECT_DIR$/src/app/register-users/__mocks__" />
       <recent name="$PROJECT_DIR$/src/app/public" />
       <recent name="$PROJECT_DIR$/src/app/public/js" />
       <recent name="$PROJECT_DIR$/src/app/public/css" />
-      <recent name="$PROJECT_DIR$/bootstrap-5.0.0-beta3-dist/css" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -314,11 +306,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/config.js</url>
-          <line>2</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/express/mount-routes.test.js</url>
           <line>32</line>
           <option name="timeStamp" value="4" />
@@ -337,6 +324,12 @@
           <url>file://$PROJECT_DIR$/src/message-store/subscribe.test.js</url>
           <line>67</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/config.js</url>
+          <line>9</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
