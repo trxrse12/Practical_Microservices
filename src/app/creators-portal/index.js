@@ -1,10 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const {v4:uuidv4} = require('uuid');
 
 function createActions ({messageStore, queries}){
   function publishVideo(context, videoId, sourceUri){
     const publishVideoCommand = {
-      id: uuid(),
+      id: uuidv4(),
       type: 'PublishVideo',
       metadata: {
         traceId: context.traceId,
@@ -20,6 +21,10 @@ function createActions ({messageStore, queries}){
     const streamName = `videoPublishing:command-${videoId}`;
 
     return messageStore.write(streamName, publishVideoCommand);
+  }
+
+  return {
+    publishVideo,
   }
 }
 
@@ -65,7 +70,7 @@ function createCreatorsPortal({db, messageStore}){
   // router.route('/videos/:id').get(handlers.handleShowVideo);
   // router.route('/').get(handlers.handleDashboard);
 
-  console.log('Creators-portal app started');
+  //console.log('Creators-portal app started');
 
   return {handlers,router};
 }

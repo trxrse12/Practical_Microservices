@@ -44,6 +44,8 @@ function createActions({messageStore, queries}) {
     }
 
     const context = {attributes, traceId, messageStore, queries};
+
+    //console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr shallowValidate=', shallowValidate.toString())
     return Bluebird.resolve(context)
       .then(shallowValidate)
       .then(loadExistingIdentity)
@@ -148,7 +150,7 @@ function build({db, messageStore}){
     .route('/registration-complete')
     .get(handlers.handleRegistrationComplete);
 
-  console.log('Register Users app started');
+  //console.log('Register Users app started');
 
   return {
     actions, handlers, queries, router,

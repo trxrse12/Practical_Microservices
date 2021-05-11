@@ -11,7 +11,7 @@ const ensureRegistrationEmailNotSent =
 
 
 function createIdentityCommandHandlers({messageStore}){
-  console.log('MMMMMMMMMMMMMMMMMMMMMMM messageStore=', messageStore);
+  //console.log('MMMMMMMMMMMMMMMMMMMMMMM messageStore=', messageStore);
   return {
     Register: command => {
       const context = {
