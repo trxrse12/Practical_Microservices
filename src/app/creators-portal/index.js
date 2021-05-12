@@ -1,35 +1,49 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const {v4:uuidv4} = require('uuid');
+const {flipConfig} = require('../../utils')
+
+function outerPublishVideo({context, videoId, sourceUri}, config){
+  console.log('TTTTTTTTTTTTTTTTTTTTTT context=', context)
+  console.log('UUUUUUUUUUUUUUUUUUUUUU videoId=', videoId)
+  console.log('VVVVVVVVVVVVVVVVVVVVVV videoId=', videoId)
+  console.log('RRRRRRRRRRRRRRRRRRRR sourceUri=', sourceUri)
+
+  const publishVideoCommand = {
+    id: uuidv4(),
+    type: 'PublishVideo',
+    metadata: {
+      traceId: context.traceId,
+      userId: context.userId,
+    },
+    data: {
+      ownerId: context.userId,
+      sourceUri: sourceUri, // comes from the req object
+      videoId: videoId, // comes from the req object
+    }
+  };
+  const streamName = `videoPublishing:command-${videoId}`;
+  return config?.messageStore?.write(streamName, publishVideoCommand);
+}
 
 function createActions ({messageStore, queries}){
-  function publishVideo(context, videoId, sourceUri){
-    const publishVideoCommand = {
-      id: uuidv4(),
-      type: 'PublishVideo',
-      metadata: {
-        traceId: context.traceId,
-        userId: context.userId,
-      },
-      data: {
-        ownerId: context.userId,
-        sourceUri: sourceUri, // comes from the req object
-        videoId: videoId, // comes from the req object
-      }
-    };
-
-    const streamName = `videoPublishing:command-${videoId}`;
-
-    return messageStore.write(streamName, publishVideoCommand);
-  }
-
+  const config = {messageStore, queries};
+  console.log('IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII config=', config)
+  config.innerFunction = (context, videoId, sourceUri) => outerPublishVideo.bind(null,
+    {context, videoId, sourceUri},
+    {
+      messageStore: config.messageStore,
+      queries: config.queries,
+    }
+  )();
   return {
-    publishVideo,
+    publishVideo: config.innerFunction,
   }
 }
 
 function createHandlers ({actions, queries}){
   function handlePublishVideo(req, res, next) {
+    console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ context=', req.context)
     return actions
       .publishVideo(req.context, req.body.videoId, req.body.url)
       .then(() => res.json('"ok"'))

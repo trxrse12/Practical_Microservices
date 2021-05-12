@@ -39,6 +39,7 @@ describe('app', () => {
       context: {
         traceId: uuidv4(),
         userId: creator.id,
+        videoId,
       }
     }
 
