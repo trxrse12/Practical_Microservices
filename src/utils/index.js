@@ -42,9 +42,23 @@ function httpContextIsValid({context}){
   return true
 }
 
+const flipConfig = fn => {
+  if (typeof fn !== 'function'){
+    throw('flipConfig error: argument should be a function')
+  }
+  if (fn.length===0){
+    throw('flipConfig error: argument function should have at least a parameter')
+  }
+  return (config, ...args) => {
+    return fn(...args, config);
+  }
+};
+
+
 module.exports = {
   isObject,
   isEmptyObject,
   objHasProps,
-  httpContextIsValid
+  httpContextIsValid,
+  flipConfig,
 };

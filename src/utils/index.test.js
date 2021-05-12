@@ -1,3 +1,5 @@
+const {isObject, isEmptyObject, objHasProps, flipConfig} = require('./index');
+
 const badArgs = [
   [],
   null, undefined, 0, 'a', ()=>{}, {a:1},
@@ -22,8 +24,6 @@ const badArgs = [
   [{a:1},[]],
   // [{a:1},['l']],
 ];
-
-const {isObject, isEmptyObject, objHasProps} = require('./index');
 
 describe('isObject() should return false if attacked with', () => {
   test('String', () => {
@@ -122,5 +122,69 @@ describe('objHasProps()', () => {
     const myObj = {a:1, c:3};
     const goodPropsList = ['a','c'];
     expect(objHasProps(myObj, goodPropsList)).toBe(true);
+  });
+});
+
+describe('flipConfig()', () => {
+  it('should throw if input argument is not a function', () => {
+    const myNonFunctionArg = {a:1};
+    expect(() => {
+      flipConfig(myNonFunctionArg)
+    }).toThrow('flipConfig error: argument should be a function');
+  });
+  it('should return another function', () => {
+    const result = flipConfig((a) => {a:1});
+    expect(typeof result === 'function').toBe(true)
+  });
+  it('triangle 1 - should return a function that is the initial function with the first param in the last position', () => {
+    const fn = (a,b,c) => a+b+c;
+    const result = flipConfig(fn);
+    expect(result(1,2,3)).toBe(fn(2,3,1));
+  });
+  it('triangle 2 - should return a function that is the initial function with the first param in the last position', () => {
+    const fn = (a,b,c) => ({a,b,c});
+    const result = flipConfig(fn);
+    const config = {a:1};
+    const o2 = {b:1};
+    const o3 = {c:1};
+    expect(result(config,o2,o3)).toEqual(fn(o2,o3,config));
+  });
+  it('triangle 3 - should return a function that is the initial function with the first param in the last position', () => {
+    const fn = (a,b,c) => ({a,b,c});
+    const result = flipConfig(fn);
+    const config = {a:{A:1}};
+    const o2 = {b:{B:1}};
+    const o3 = {c:{C:1}};
+    expect(result(config,o2,o3)).toEqual(fn(o2,o3,config));
+  });
+  it('triangle 4 - should return a function (of 4 params) that is the initial function with the first param in the last position', () => {
+    const fn = (a,b,c,d) => ({a,b,c,d});
+    const result = flipConfig(fn);
+    const config = {a:1};
+    const o2 = {b:1};
+    const o3 = {c:1};
+    const o4 = {d:1};
+    expect(result(config,o2,o3,o4)).toEqual(fn(o2,o3,o4,config));
+  });
+  it('triangle 5 - should return a function (of 2 params) that is the initial function with the first param in the last position', () => {
+    const fn = (a,b) => ({a,b});
+    const result = flipConfig(fn);
+    const config = {a:1};
+    const o2 = {b:1};
+    expect(result(config,o2)).toEqual(fn(o2,config));
+  });
+  it('triangle 6 - should return a function (of 1 params) that is the initial function with the first param in the last position', () => {
+    const fn = (a) => {return {a, x:100}};
+    const result = flipConfig(fn);
+    const config = {u:100};
+    const a = {A: 10000}
+    expect(result(config, a)).toEqual(fn(a, config));
+  });
+  it('should throw if the input function has no arguments', () => {
+    const fn = () => 100;
+    const config = {a:1};
+    const o1 = {M:1000};
+    expect( ()=>flipConfig(fn))
+      .toThrow('flipConfig error: argument function should have at least a parameter');
   });
 });
