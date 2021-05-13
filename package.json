@@ -4,7 +4,7 @@
   "description": "",
   "main": "/bin/start-server.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test:unit": "jest --watchAll",
     "start-dev-server": "nodemon src/bin/start-server.js --color",
     "build": "rimraf dist && babel src  -d dist --ignore **/*.test.js",
     "serve": "npm run build && node dist/bin/start-server.js",
@@ -41,6 +41,7 @@
     "@babel/preset-env": "^7.13.12",
     "jest": "^26.6.3",
     "jest-extended": "^0.11.5",
+    "nyc": "^15.1.0",
     "rimraf": "^3.0.2",
     "snakecase-keys": "^4.0.2",
     "supertest": "^6.1.3"

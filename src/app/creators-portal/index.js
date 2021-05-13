@@ -4,11 +4,10 @@ const {v4:uuidv4} = require('uuid');
 const {flipConfig} = require('../../utils')
 
 function outerPublishVideo({context, videoId, sourceUri}, config){
-  console.log('TTTTTTTTTTTTTTTTTTTTTT context=', context)
-  console.log('UUUUUUUUUUUUUUUUUUUUUU videoId=', videoId)
-  console.log('VVVVVVVVVVVVVVVVVVVVVV videoId=', videoId)
-  console.log('RRRRRRRRRRRRRRRRRRRR sourceUri=', sourceUri)
-
+  console.log('TTTTTTTTTTTTTTTTTTTTTTTTT context=', context);
+  console.log('UUUUUUUUUUUUUUUUUUUUUUUUU videoId=', videoId);
+  console.log('VVVVVVVVVVVVVVVVVVVVVVVVV sourceUri=', sourceUri);
+  console.log('XXXXXXXXXXXXXXXXXXXXXXXXX config=', config);
   const publishVideoCommand = {
     id: uuidv4(),
     type: 'PublishVideo',
@@ -23,12 +22,11 @@ function outerPublishVideo({context, videoId, sourceUri}, config){
     }
   };
   const streamName = `videoPublishing:command-${videoId}`;
-  return config?.messageStore?.write(streamName, publishVideoCommand);
+  return config.messageStore.write(streamName, publishVideoCommand);
 }
 
 function createActions ({messageStore, queries}){
   const config = {messageStore, queries};
-  console.log('IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII config=', config)
   config.innerFunction = (context, videoId, sourceUri) => outerPublishVideo.bind(null,
     {context, videoId, sourceUri},
     {
@@ -43,7 +41,6 @@ function createActions ({messageStore, queries}){
 
 function createHandlers ({actions, queries}){
   function handlePublishVideo(req, res, next) {
-    console.log('QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ context=', req.context)
     return actions
       .publishVideo(req.context, req.body.videoId, req.body.url)
       .then(() => res.json('"ok"'))
