@@ -4,7 +4,9 @@
   "description": "",
   "main": "/bin/start-server.js",
   "scripts": {
-    "test:unit": "jest --watchAll",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "jest --config jest.unit.config.js --watchAll",
+    "test:integration": "jest --config jest.integration.config.js --watchAll",
     "start-dev-server": "nodemon src/bin/start-server.js --color",
     "build": "rimraf dist && babel src  -d dist --ignore **/*.test.js",
     "serve": "npm run build && node dist/bin/start-server.js",

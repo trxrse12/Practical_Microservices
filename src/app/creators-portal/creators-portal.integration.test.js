@@ -16,6 +16,12 @@ function getMountedRoutes(app){
 }
 
 describe('app', () => {
+  afterEach(() => {
+    config.db
+      .then(client => client.destroy())
+
+    config.messageStore.stop();
+  });
   it('notifying server of an upload triggers PublishVideo command', async () => {
     const videoId = uuidv4();
     const creatorId = uuidv4();

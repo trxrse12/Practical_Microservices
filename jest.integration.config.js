@@ -3,7 +3,7 @@ module.exports = {
     "./src"
   ],
   "testMatch": [
-    "**/?(*.)+(spec|test).+(unit).+(ts|tsx|js)"
+    "**/?(*.)+(integration).+(spec|test).+(ts|tsx|js)"
   ],
   "setupFilesAfterEnv": ["jest-extended"]
 }
