@@ -40,7 +40,11 @@ const fakeDb = {
 };
 
 const fakeMessageStore = {
-  createSubscription: () => {}
+  createSubscription: () => jest.fn(() => {subscription: 100}),
+  read: () => Promise.resolve({read: 200}),
+  readLastMessage: () => Promise.resolve({readLastMessage: 300}),
+  write: () => Promise.resolve({write: 400}),
+  fetch: () => Promise.resolve({fetch: 500})
 };
 
 const fakeUserId = uuid();
@@ -52,8 +56,12 @@ const fakeAttributes = {
   email: "me@me.com",
 }
 
+const fakeVideoId = "f35bc702-9992-43e1-b751-3ec07c67e311";
+const fakeSourceUri = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+
 const byEmail = email => Promise.resolve({identity: 'trx'})
 const fakeContext = {
+  userId:'e29cbf58-6cf8-4dc8-a41e-0d4aa5ca27da',
   attributes: fakeAttributes,
   traceId: fakeTraceId,
   passwordHash: '321123AB',
@@ -103,6 +111,8 @@ const fakeConfig = {
   creatorsPortalApp: {
     router: express.Router(),
   },
+  messageStore: fakeMessageStore,
+  queries: {},
 };
 
 function callFcnWithObjWithUnexpectedProps(badPropObject, fcn){
