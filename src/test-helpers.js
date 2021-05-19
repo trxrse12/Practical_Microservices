@@ -54,6 +54,7 @@ const fakeTraceId = uuid();
 const fakeAttributes = {
   id: fakeUserId,
   email: "meme@gmail.com",
+  password: "test_password_123"
 }
 
 const fakeVideoId = "f35bc702-9992-43e1-b751-3ec07c67e311";

@@ -28,8 +28,7 @@ function writeRegisterCommand(context){
       passwordHash: context?.passwordHash
     }
   };
-
-  context?.messageStore?.write(stream, command);
+  return context?.messageStore?.write(stream, command);
 }
 
 module.exports = writeRegisterCommand;

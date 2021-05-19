@@ -38,7 +38,8 @@ describe('the writeCommandRegister function', () => {
   it('should write the command to the stream ', () => {
     const registerCommandResult = writeRegisterCommand(fakeContext);
     expect(fakeContext.messageStore.write).toHaveBeenCalled();
-    expect(fakeContext.messageStore.write).toHaveBeenCalledWith(fakeStream,
+    expect(fakeContext.messageStore.write).toHaveBeenCalledWith(
+      fakeStream,
       expect.objectContaining(fakeCommandStrippedOfId));
   });
 });

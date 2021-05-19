@@ -39,7 +39,7 @@ function createActions({messageStore, queries}) {
       throw new TypeError('registerUser() requires two arguments: a string and an object')
     }
 
-    if (!objHasProps(attributes, ['email','password'])){
+    if (!objHasProps(attributes, ['email', 'password'])){
       throw new TypeError('registerUser(): invalid attributes object')
     }
 
@@ -51,7 +51,7 @@ function createActions({messageStore, queries}) {
       .then(ensureThereWasNoExistingIdentity)
       .then(hashPassword)
       .then(context => writeRegisterCommand(context))
-      // .catch((e) => e)
+      .catch((e) => e)
   }
 
   return {

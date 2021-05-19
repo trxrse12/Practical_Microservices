@@ -1,6 +1,6 @@
 const promiseReflect = require('promise-reflect');
 const build = require('./index');
-const { fakeDb, badArgs } = require('../../test-helpers');
+const { fakeDb, badArgs, fakeMessageStore } = require('../../test-helpers');
 
 // jest.mock('./shallow-validate');
 // const shallowValidate = require('./__mocks__/shallow-validate').default;
@@ -11,7 +11,7 @@ const { fakeDb, badArgs } = require('../../test-helpers');
 // const writeRegisterCommand = require('./write-register-command');
 
 const db = fakeDb;
-const messageStore = { a: 1 };
+const messageStore = fakeMessageStore;
 
 describe('the register-user app factory', () => {
   let registerUserApp;
@@ -77,14 +77,17 @@ describe('the register-user app factory', () => {
       expect(actions).toMatchObject({ registerUser: expect.any(Function) });
     });
     describe('and registerUser(traceId, attributes) inner function', () => {
-      test.only('should return a Promise that solves in a the value returned by the db', () => {
+      test('should return a Promise that solves in a the value returned by the db', () => {
         const fakeTraceId = '123';
-        const fakeAttributes = { email: 't@t.com', password: '***' };
+        const fakeAttributes = {
+          email: 't@t.com',
+          password: 'cucu_bau-123',
+        };
 
         return actions
           .registerUser(fakeTraceId, fakeAttributes)
-          .then(async (result) => {
-            expect(result).toEqual([{ a: 1 }, { b: 2 }]);
+          .then((result) => {
+            expect(result).toEqual({ write: 400 });
           });
       });
       it('throws if any argument is missing or the wrong type', async () => {
