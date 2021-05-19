@@ -37,6 +37,8 @@ describe('loadExistingIdentity()', () => {
   it('should return a Promise that solves in a context', () => {
     // expect.assertions(1);
     return loadExistingIdentity(fakeContext)
-      .then(result => {expect(result).toMatchObject(fakeContext)})
+      .then(result => {
+        expect(result).toMatchObject(fakeContext)
+      })
   });
 });

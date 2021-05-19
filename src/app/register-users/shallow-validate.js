@@ -1,46 +1,36 @@
-const validationClass = require('validate');
-const validationObject = new validationClass();
-const {httpContextIsValid} = require('../../utils');
-const {isObject, objHasProps, isEmptyObject} = require('../../utils');
-//
+const Ajv = require('ajv');
+const userSchema = require('../../schema/user-credentials.json');
+
+const ajvValidate = new Ajv({
+  allErrors: true,
+})
+  .addFormat('email', /^[\w.+]+@\w+\.\w+$/)
+  .addSchema([userSchema])
+  .compile(userSchema);
+
+const { httpContextIsValid } = require('../../utils');
+
 const ValidationError = require('../errors/validation-error');
 
-const constraints ={
-  email: {
-    email: true,
-    presence: true
-  },
-  password: {
-    length: {minimum:8},
-    presence: true,
-  }
-};
-
-function shallowValidate(context, validationObject){
-  // if(!isObject(context) || !objHasProps(context, [
-  //   'attributes', 'traceId', 'passwordHash', 'messageStore']))
-  // {
-  //   throw new TypeError("shallowValidation(): invalid context:", context)
-  // }
-  if (!httpContextIsValid({context})){
-    throw new TypeError("shallowValidation(): invalid context:", context)
+function shallowValidate(context) {
+  const registerUserContextShape = [
+    'attributes',
+    'traceId',
+    'messageStore',
+    'queries',
+  ];
+  if (!httpContextIsValid({ context, propList: registerUserContextShape })) {
+    throw new TypeError('shallowValidation(): invalid context:', context);
   }
 
-  if (!isObject(validationObject) || !objHasProps(validationObject, [
-    'validate',
-    ]) ){
-    throw new TypeError("shallowValidation(): invalid validation engine:", context)
-  }
-  const validationErrors = validationObject.validate(context?.attributes, constraints);
+  const validate = ajvValidate(context.attributes);
+  const validationErrors = ajvValidate.errors;
 
-  if (validationErrors){
-    throw new ValidationError(validationErrors)
+  if (!validate) {
+    throw new ValidationError(validationErrors);
   }
 
   return context;
 }
 
 module.exports = shallowValidate;
-
-
-

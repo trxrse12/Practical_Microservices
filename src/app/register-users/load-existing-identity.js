@@ -2,7 +2,19 @@ const {httpContextIsValid} = require('../../utils');
 
 
 async function loadExistingIdentity(context){
-  if (!httpContextIsValid({context})){
+  const loadExistingIdentityShape = [
+    'userId',
+    'attributes',
+    'traceId',
+    'passwordHash',
+    'messageStore',
+    'queries',
+  ];
+  if (!httpContextIsValid({
+    context,
+    propList: loadExistingIdentityShape,
+  })
+  ) {
     throw new TypeError('loadIdentityContext(): invalid context')
   }
 

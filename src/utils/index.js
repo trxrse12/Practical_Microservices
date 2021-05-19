@@ -10,6 +10,7 @@ function isEmptyObject(variable){
 }
 
 function objHasProps(anObject, propsList){
+  let missingProp;
   if (!isObject(anObject)
     || !Array.isArray(propsList)
     || isEmptyObject(anObject)){
@@ -19,27 +20,34 @@ function objHasProps(anObject, propsList){
     throw new TypeError('objHasProps(): needs a non-empty array of props')
   }
 
-  let p, rightPropsCount=0;
+  let p;
+  let rightPropsCount = 0;
   for (p in anObject){
     if (propsList.indexOf(p)>=0){
       rightPropsCount++;
+    } else {
+      missingProp = p;
     }
   }
 
   if (rightPropsCount===propsList.length){
     return true
   }
-
   return false
 }
 
-function httpContextIsValid({context}){
-  if(!isObject(context) || !objHasProps(context, [
-    'attributes', 'traceId', 'passwordHash', 'messageStore']))
-  {
-    return false
+function httpContextIsValid({ context, propList }) {
+  if (!isObject(context)) {
+    return false;
   }
-  return true
+  if (!Array.isArray(propList) || propList.length === 0 || !propList[0]) {
+    return false;
+  }
+  if(!objHasProps(context,propList))
+  {
+    return false;
+  }
+  return true;
 }
 
 const flipConfig = fn => {

@@ -1,4 +1,4 @@
-const {outerPublishVideo} = require('./index');
+const { outerPublishVideo } = require('./index');
 
 describe('the publishVideo()', () => {
   let context;

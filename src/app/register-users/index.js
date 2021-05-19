@@ -43,9 +43,8 @@ function createActions({messageStore, queries}) {
       throw new TypeError('registerUser(): invalid attributes object')
     }
 
-    const context = {attributes, traceId, messageStore, queries};
+    const context = { attributes, traceId, messageStore, queries };
 
-    //console.log('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr shallowValidate=', shallowValidate.toString())
     return Bluebird.resolve(context)
       .then(shallowValidate)
       .then(loadExistingIdentity)

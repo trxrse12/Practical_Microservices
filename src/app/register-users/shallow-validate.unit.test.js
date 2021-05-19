@@ -1,51 +1,39 @@
-const {fakeContext, fakeAttributes, badArgs} = require('../../test-helpers');
+const { fakeContext, badArgs } = require('../../test-helpers');
 const shallowValidate = require('./shallow-validate');
 
 describe('validate()', () => {
+  let context;
+  beforeEach(() => {
+    context = fakeContext;
+  });
   it('should throw if no valid context argument', () => {
-    badArgs.forEach(arg => {
+    badArgs.forEach((arg) => {
       // console.log('PPPPPPPPPPPPPPPP arg=', arg)
-      expect(
-        () => shallowValidate(arg)
-      ).toThrow()
-    })
+      expect(() => shallowValidate(arg)).toThrow();
+    });
   });
 
   it('should throw if context has no valid shape', () => {
     const badProp = 'badProperty';
-    function callWithUnexpectedArgumentProperties(){
+    function callWithUnexpectedArgumentProperties() {
       const badParam = {};
       badParam[badProp] = 'unexpected';
       const WriteRegisterCommandWrongArgResult = shallowValidate(badParam);
     }
-    expect(callWithUnexpectedArgumentProperties)
-      .toThrow("shallowValidation(): invalid context")
-  });
-
-  it('should throw if no valid validation engine', () => {
-    badArgs.forEach(arg => {
-      expect(
-        () => shallowValidate(fakeContext, arg)
-      ).toThrow("shallowValidation(): invalid validation engine")
-    })
+    expect(callWithUnexpectedArgumentProperties).toThrow(
+      'shallowValidation(): invalid context'
+    );
   });
 
   it('should throw if validation error', () => {
-    const fakeValidationObject = {};
-    fakeValidationObject.validate = () => {
-      return {
-        email: 'Email is not a valid email'
-      }
-    }; //mocked validator
-    expect(() => shallowValidate(fakeContext, fakeValidationObject))
-      .toThrow('Email is not a valid email')
+    context = { ...context, attributes: {} };
+    expect(() => shallowValidate(context)).toThrow(
+      /Validation error/
+    )
   });
 
   it('should return context argument if no validation error', () => {
-        const fakeValidationObject = {};
-    fakeValidationObject.validate = () => {
-      return null;
-    }; //mocked validator
-    expect(shallowValidate(fakeContext, fakeValidationObject)).toEqual(fakeContext);
+    const result = shallowValidate(context);
+    expect(result).toEqual(context);
   });
 });

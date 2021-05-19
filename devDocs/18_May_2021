@@ -1,0 +1,12 @@
+Lessons learned:
+
+    1. 1. When you have to pay tech debt in terms of skipped tests, be sure you zoom in on the
+        failing test. For ex., assume that you remove the .skip, so assume you'll get
+        5 failing tests in different parts of the app.
+            Step 1. Find the first failing test in the list into your test  files;
+            Step 2. Run "jest --config jest.unit.config.js $MY_FIRST_FAILING_TEST_PATH"
+            Step 3. Make that failing test a .only test;
+            Step 4. Solve that test;
+            Step 5. Once solved, go back to the "npm run test:unit" command and reapply the procedure
+                for each of the remaining tests in the set;
+                Obs. Don't forget to git add/ git commit in the intermediate steps
