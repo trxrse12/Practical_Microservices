@@ -1,5 +1,9 @@
 const configureCreateSubscription = require('./subscribe');
-const {badArgs} = require('../test-helpers');
+const { badArgs,
+  fakeStream,
+  fakeHandlers,
+  fakeSubscriberId,
+} = require('../test-helpers');
 
 const read = () => Promise.resolve({a:1});
 const readLastMessage = () => Promise.resolve({b:1});
@@ -7,7 +11,9 @@ const write = () => Promise.resolve({c:1});
 
 describe('configureCreateSubscription() should', () => {
   it('return a function ', () => {
-    expect(configureCreateSubscription({read, readLastMessage, write})).toBeInstanceOf(Function)
+    expect(
+      configureCreateSubscription({ read, readLastMessage, write })
+    ).toBeInstanceOf(Function);
   });
   describe('and the returned createSubscription() should', () => {
     let createSubscriptionFcn;
@@ -31,7 +37,9 @@ describe('configureCreateSubscription() should', () => {
         expect(e.message).toBeTruthy();
       }
     });
-    it.each(badArgs)('throw if handlers is not an object that has non-empty functions as keys', (badArg) => {
+    it.each(badArgs)(
+      'throw if handlers is not an object that has non-empty functions as keys',
+      (badArg) => {
       const streamName = 'identity:trxrse1-100010010';
       const handlers = badArg;
       try{
@@ -41,7 +49,9 @@ describe('configureCreateSubscription() should', () => {
         expect(e.message).toBeTruthy();
       }
     });
-    it.each(badArgs)('throw if subscriberId is not a valid string that contains :', (badArg) => {
+    it.each(badArgs)(
+      'throw if subscriberId is not a valid string that contains :',
+      (badArg) => {
       const streamName = 'identity:trxrse1-100010010';
       const handlers ={ VideoViewed: () => {return 100} };
       try{
@@ -58,12 +68,45 @@ describe('configureCreateSubscription() should', () => {
       const subscriberId = 'gigi:identity';
       try{
         // console.log('KKKKKKKKKKKKKKKKKKKK subscribeFcn=', subscribeFcn);
-        expect(createSubscriptionFcn({streamName, handlers, subscriberId})).toContainAllKeys([
-          'loadPosition','start','stop','tick','writePosition',
+        expect(
+          createSubscriptionFcn({ streamName, handlers, subscriberId })
+        ).toContainAllKeys([
+          'loadPosition',
+          'start',
+          'stop',
+          'tick',
+          'writePosition',
         ]);
       } catch(e){
         throw new Error(e.message)
       }
+    });
+  });
+});
+describe('the subscribe function', () => {
+  let subscribeFunction, subscriptionResult;
+  beforeEach(() => {
+    subscribeFunction = configureCreateSubscription({
+      read,
+      readLastMessage,
+      write,
+    });
+    subscriptionResult = subscribeFunction({
+      streamName: fakeStream,
+      handlers: fakeHandlers,
+      subscriberId: fakeSubscriberId,
+    }); // the rest of the params are left to be initialized from defaults
+  });
+  describe('should return on object with a tick method, that ', () => {
+    it('returns a function', () => {
+      expect(subscriptionResult).toMatchObject({
+        tick: expect.anything(Function),
+      });
+    });
+    describe('and the tick function should', () => {
+      it('should return a Promise', () => {
+
+      });
     });
   });
 });

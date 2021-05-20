@@ -1,3 +1,5 @@
+const {v4:uuid} = require('uuid');
+
 function writeVideoPublishingFailedEvent (err, context){
   const command = context.command;
   const messageStore = context.messageStore;

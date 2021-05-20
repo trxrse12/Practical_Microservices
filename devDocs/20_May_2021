@@ -1,0 +1,16 @@
+Lessons learned:
+
+    1. I lost 1 pomodoro due to the fact that in my TDD I was using a default value of {} in an object param
+    and because I did not observe that I was wondering why that function is returning
+    that empty object.
+    Solution: be sure you get the right function when you use factories
+
+    2. How to tackle a Jira bug ticket:
+    She got started the same as always.
+        a. Reproduce the bug . . .
+        b. Track down the module that was the probable source of it . . .
+        c. Set the debugger to break upon entry to the module . . .
+        d. Step through the code with the failing input . . .
+        e. Inspect the likely variables . . .
+        f. Watch for unexpected state changes.
+        All standard troubleshooting steps.

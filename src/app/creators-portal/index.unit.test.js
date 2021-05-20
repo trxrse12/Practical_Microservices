@@ -1,13 +1,20 @@
+const { v4: uuid } = require('uuid');
 const { outerPublishVideo } = require('./index');
+const { fakeContext } = require('../../test-helpers');
 
 describe('the publishVideo()', () => {
-  let context;
-  beforeEach(() => {
-
-  });
-  it('should throw if invalid context argument', () => {
-    context = null;
+  beforeEach(() => {});
+  it('should throw if invalid config argument', () => {
     // expect(() => outerPublishVideo({context, videoId, sourceUri}, config)).toThrow('PublishVideo(): ')
-    expect(1).toBe(1)
+    expect(() =>
+      outerPublishVideo(
+        {
+          context: fakeContext,
+          videoId: uuid(),
+          sourceUri: 'aaa',
+        },
+        null
+      )
+    ).toThrow(/Invalid config/);
   });
 });

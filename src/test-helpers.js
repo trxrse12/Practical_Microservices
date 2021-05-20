@@ -48,6 +48,7 @@ const fakeMessageStore = {
 };
 
 const fakeUserId = uuid();
+const fakeSubscriberId = 'appService:123';
 const fakeStream = `identity:command-${fakeUserId}`;
 const fakeTraceId = uuid();
 
@@ -145,11 +146,16 @@ function reset () {
 }
 
 // function fakeRead(streamName, from)
+const fakeHandlers = {
+  handler1: () => Promise.resolve({handlerResult: 1}),
+  handler2: () => Promise.resolve({handlerResult: 2}),
+};
 
 module.exports.badArgs = badArgs;
 module.exports.fakeDb = fakeDb;
 module.exports.fakeMessageStore = fakeMessageStore;
 module.exports.fakeUserId = fakeUserId;
+module.exports.fakeSubscriberId = fakeSubscriberId;
 module.exports.fakeTraceId = fakeTraceId;
 module.exports.fakeStream = fakeStream;
 module.exports.fakeContext = fakeContext;
@@ -159,4 +165,5 @@ module.exports.fakeConfig = fakeConfig;
 module.exports.callFcnWithObjWithUnexpectedProps = callFcnWithObjWithUnexpectedProps;
 module.exports.reset = reset;
 module.exports.config = config;
+module.exports.fakeHandlers = fakeHandlers;
 module.exports.app = app;

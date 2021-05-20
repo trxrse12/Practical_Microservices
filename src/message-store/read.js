@@ -37,7 +37,13 @@ function createRead ({db = {}} = {}){
    * @returns {*|Promise<T | never>|undefined}
    */
   function read(streamName, fromPosition = 0, maxMessages=1000) {
-    let query = null;;
+    if (typeof streamName !== 'string'){
+      throw new TypeError('read(): invalid stream name');
+    }
+    if(isNaN(fromPosition)){
+      throw new TypeError('read(): invalid fromPosition argument: ' + fromPosition);
+    }
+    let query = null;
     let values = [];
     if (streamName.includes('-')){
       query = getStreamMessagesSql;

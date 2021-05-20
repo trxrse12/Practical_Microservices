@@ -142,13 +142,13 @@ function configureCreateSubscription({read, readLastMessage, write}){
       }
     }
 
-    function tick(){
+    function tick() {
       return getNextBatchOfMessages()
         .then(processBatch)
         .catch(err => {
           console.error('Error processing batch', err);
           stop();
-        })
+        });
     }
 
     return {
