@@ -7,7 +7,7 @@ const {isObject} = require("../utils");
 const configureCreateSubscription = (function(){
 
   return function({read, readLastMessage, write}) {
-    return ({
+    const subscribe = function ({
               streamName,
               handlers,
               messagesPerTick = 100,
@@ -15,7 +15,7 @@ const configureCreateSubscription = (function(){
               positionUpdateInterval = 100,
               originStreamName = null,
               tickIntervalMs = 100
-            }) => {
+            }){
       // Check for a min set of correct params:
       // TODO: Tech debt: refactor the lines below into separate validation class or function)
       // streamName: string
@@ -163,6 +163,8 @@ const configureCreateSubscription = (function(){
         writePosition,
       }
     }
+
+    return subscribe
   }
 })()
 
