@@ -50,7 +50,7 @@ const configureCreateSubscription = (function(){
           })
       }
 
-       function writePosition(position) {
+      function writePosition (position) {
         const positionEvent = {
           id: uuid(),
           type: 'Read',
@@ -164,7 +164,7 @@ const configureCreateSubscription = (function(){
       }
     }
 
-    return subscribe
+    return subscribe;
   }
 })()
 
