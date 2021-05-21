@@ -151,6 +151,10 @@ const fakeHandlers = {
   handler2: () => Promise.resolve({handlerResult: 2}),
 };
 
+const fakeRead = () => Promise.resolve('Here is the read function');
+const fakeReadLastMessage = () => Promise.resolve('Here is the readLastMessage function');
+const fakeWrite = () => Promise.resolve('Here is the write function');
+
 module.exports.badArgs = badArgs;
 module.exports.fakeDb = fakeDb;
 module.exports.fakeMessageStore = fakeMessageStore;
@@ -166,4 +170,7 @@ module.exports.callFcnWithObjWithUnexpectedProps = callFcnWithObjWithUnexpectedP
 module.exports.reset = reset;
 module.exports.config = config;
 module.exports.fakeHandlers = fakeHandlers;
+module.exports.fakeRead = fakeRead;
+module.exports.fakeReadLastMessage = fakeReadLastMessage;
+module.exports.fakeWrite = fakeWrite;
 module.exports.app = app;

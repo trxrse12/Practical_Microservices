@@ -1,15 +1,18 @@
-const configureCreateSubscription = require('./subscribe');
+const ConfigureCreateSubscription = require('./subscribe');
 const { badArgs,
   fakeStream,
   fakeHandlers,
   fakeSubscriberId,
+  fakeRead,
+  fakeReadLastMessage,
+  fakeWrite,
 } = require('../test-helpers');
 
 const read = () => Promise.resolve({a:1});
 const readLastMessage = () => Promise.resolve({b:1});
 const write = () => Promise.resolve({c:1});
 
-describe('configureCreateSubscription() should', () => {
+describe.skip('configureCreateSubscription() should', () => {
   it('return a function ', () => {
     expect(
       configureCreateSubscription({ read, readLastMessage, write })
@@ -83,7 +86,7 @@ describe('configureCreateSubscription() should', () => {
     });
   });
 });
-describe('the subscribe function', () => {
+describe.skip('the subscribe function', () => {
   let subscribeFunction, subscriptionResult;
   beforeEach(() => {
     subscribeFunction = configureCreateSubscription({
@@ -108,5 +111,26 @@ describe('the subscribe function', () => {
 
       });
     });
+  });
+});
+describe('writePosition()', () => {
+  it.only('should throw if no valid argument', () => {
+    const subscribe = ConfigureCreateSubscription({
+      read: fakeRead,
+      readLastMessage: fakeReadLastMessage,
+      write: fakeWrite,
+    });
+    console.log('SSSSSSSSSSSSSSSSSSSSSSSS subscribe=', subscribe({
+      streamName: fakeStream,
+      handlers: fakeHandlers,
+      subscriberId: fakeSubscriberId,
+    }));
+    const {writePosition} = subscribe({
+      streamName: fakeStream,
+      handlers: fakeHandlers,
+      subscriberId: fakeSubscriberId,
+    });
+    console.log('QQQQQQQQQQQQQQQQQQQQQ writePosition=', writePosition.toString())
+    expect(() => writePosition(null)).toThrow(/invalid argument/)
   });
 });

@@ -1,21 +1,21 @@
 const Bluebird = require('bluebird');
-const uuid = require('uuid');
+const {v4:uuid} = require('uuid');
 const category = require('./category');
 const {isObject} = require("../utils");
 
 
-const configureCreateSubscription = (function(){
-
+const ConfigureCreateSubscription = (function(){
+  // returns the constructor
   return function({read, readLastMessage, write}) {
-    const subscribe = function ({
-              streamName,
-              handlers,
-              messagesPerTick = 100,
-              subscriberId,
-              positionUpdateInterval = 100,
-              originStreamName = null,
-              tickIntervalMs = 100
-            }){
+    return ({
+      streamName,
+      handlers,
+      messagesPerTick = 100,
+      subscriberId,
+      positionUpdateInterval = 100,
+      originStreamName = null,
+      tickIntervalMs = 100
+    }) => {
       // Check for a min set of correct params:
       // TODO: Tech debt: refactor the lines below into separate validation class or function)
       // streamName: string
@@ -50,7 +50,10 @@ const configureCreateSubscription = (function(){
           })
       }
 
-      function writePosition (position) {
+      function writePosition(position) {
+        if (!position){
+          throw new TypeError('invalid argument')
+        }
         const positionEvent = {
           id: uuid(),
           type: 'Read',
@@ -163,10 +166,12 @@ const configureCreateSubscription = (function(){
         writePosition,
       }
     }
-
-    return subscribe;
   }
-})()
+}())
 
-module.exports = configureCreateSubscription;
+ConfigureCreateSubscription.prototype = {
+  display: () => {}
+}
+
+module.exports = ConfigureCreateSubscription;
 

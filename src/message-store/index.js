@@ -1,16 +1,19 @@
 const createWrite = require('./write');
 const createRead = require('./read');
-const configureCreateSubscription = require('./subscribe');
+const ConfigureCreateSubscription = require('./subscribe');
 
 function createMessageStore({db}){
   const write = createWrite({db});
   const read = createRead({db});
-  const createSubscription = configureCreateSubscription({
+
+  const createSubscription = new ConfigureCreateSubscription({
     read: read.read,
     readLastMessage: read.readLastMessage,
     write: write
   });
-
+  console.log('UUUUUUUUUUUUUUUUUUUUUUUUUUUU createSubscription=',
+    JSON.stringify(createSubscription)
+)
   return {
     createSubscription,
     read: read.read,
