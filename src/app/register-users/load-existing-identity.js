@@ -1,6 +1,5 @@
 const {httpContextIsValid} = require('../../utils');
 
-
 async function loadExistingIdentity(context){
   const loadExistingIdentityShape = [
     'userId',
@@ -17,6 +16,8 @@ async function loadExistingIdentity(context){
   ) {
     throw new TypeError('loadIdentityContext(): invalid context')
   }
+
+  const res = await context.queries.byEmail(context.attributes.email)
 
   return context.queries
     .byEmail(context.attributes.email)

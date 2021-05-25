@@ -155,6 +155,11 @@ const fakeRead = () => Promise.resolve('Here is the read function');
 const fakeReadLastMessage = () => Promise.resolve('Here is the readLastMessage function');
 const fakeWrite = () => Promise.resolve('Here is the write function');
 
+const testMockedModule = fn => (async () => {
+  console.log('OOOOOOOOOOOOOOOOOO res=',  await fn())
+})()
+  .catch(err => console.log('HHHHHHHHHHHHHHHHHHHHHHHHHHH err=',err))
+
 module.exports.badArgs = badArgs;
 module.exports.fakeDb = fakeDb;
 module.exports.fakeMessageStore = fakeMessageStore;
@@ -173,4 +178,5 @@ module.exports.fakeHandlers = fakeHandlers;
 module.exports.fakeRead = fakeRead;
 module.exports.fakeReadLastMessage = fakeReadLastMessage;
 module.exports.fakeWrite = fakeWrite;
+module.exports.testMockedModule = testMockedModule;
 module.exports.app = app;

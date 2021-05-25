@@ -17,23 +17,23 @@ const fakeCommandStrippedOfId = {type,metadata,data};
 
 describe('the writeCommandRegister function', () => {
   it('should throw if context argument invalid', () => {
-    const invalidContextArgumentArray = [
-      null, undefined, 1, "SomeString", false, ()=>{}
-    ].forEach(function testInvalidInputs(notAnObj){
-      expect(function shouldThrow(){
-        const registerCommandWrongResult = writeRegisterCommand(notAnObj)
-      }).toThrow("WriteRegisterCommand(): a context object should be provided")
-    })
+    [null, undefined, 1, "SomeString", false, ()=>{}].forEach(async (notAnObj)=> {
+        try {
+        const res = await writeRegisterCommand(notAnObj)
+      } catch(e) {
+        expect(e?.message).toMatch(/a context object should be provided/);
+      }
+    });
   });
-  it('should throw if context object argument has unexpected props', () => {
+  it('should throw if context object argument has unexpected props', async () => {
+    const badParam = {};
     const badProp = 'badProperty';
-    function callWithUnexpectedArgumentProperties(){
-      const badParam = {};
-      badParam[badProp] = 'unexpected';
-      const WriteRegisterCommandWrongArgResult = writeRegisterCommand(badParam);
+    badParam[badProp] = 'unexpected';
+    try {
+      const res = await writeRegisterCommand(badParam)
+    } catch(e) {
+      expect(e?.message).toMatch(/improper context object provided/);
     }
-    expect(callWithUnexpectedArgumentProperties)
-      .toThrow("improper context object provided")
   });
   it('should write the command to the stream ', () => {
     const registerCommandResult = writeRegisterCommand(fakeContext);

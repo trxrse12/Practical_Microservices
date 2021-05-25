@@ -4,12 +4,14 @@ const userSchema = require('../../schema/user-credentials.json');
 const ajvValidate = new Ajv({
   allErrors: true,
   // eslint-disable-next-line global-require
-  keywords: require('ajv-keywords/dist/definitions'),
-  strict: false // to get rid of console.warning
+  // keywords: require('ajv-keywords/dist/definitions'),
+  strict: false, // to get rid of console.warning
 })
   .addFormat('email', /^[\w.+]+@\w+\.\w+$/)
   .addSchema([userSchema])
   .compile(userSchema);
+
+require('ajv-keywords/dist/definitions')(ajvValidate)
 
 const { httpContextIsValid } = require('../../utils');
 
@@ -32,7 +34,6 @@ function shallowValidate(context) {
   if (!validate) {
     throw new ValidationError(validationErrors);
   }
-
   return context;
 }
 

@@ -23,7 +23,7 @@ function createActions({messageStore, queries}) {
    * @param {string} attributes.password
    * @returns {an object, result of db.query()}
    */
-  async function registerUser(traceId, attributes){
+  function registerUser(traceId, attributes){
     if (!traceId){
       throw new TypeError('registerUser(): traceId - invalid argument')
     }
@@ -45,13 +45,14 @@ function createActions({messageStore, queries}) {
 
     const context = { attributes, traceId, messageStore, queries };
 
+
     return Bluebird.resolve(context)
       .then(shallowValidate)
       .then(loadExistingIdentity)
       .then(ensureThereWasNoExistingIdentity)
       .then(hashPassword)
-      .then(context => writeRegisterCommand(context))
-      .catch((e) => e)
+      .then(writeRegisterCommand)
+      //.catch((e) => e)
   }
 
   return {

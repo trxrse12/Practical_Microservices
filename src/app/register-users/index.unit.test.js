@@ -1,8 +1,12 @@
-const promiseReflect = require('promise-reflect');
 const build = require('./index');
-const { fakeDb, badArgs, fakeMessageStore } = require('../../test-helpers');
+const { fakeDb, badArgs, fakeMessageStore, fakeContext } = require('../../test-helpers');
 
-// jest.mock('./shallow-validate');
+jest.mock('./shallow-validate', () => () => Promise.resolve({a:1}));
+jest.mock('./load-existing-identity', () => () => Promise.resolve({b:1}));
+jest.mock('./ensure-there-was-no-existing-identity', () => () => Promise.resolve({c:1}));
+jest.mock('./hash-password', () => () => Promise.resolve({d:1}));
+jest.mock('./write-register-command', () => () => Promise.resolve({e:1}));
+
 // const shallowValidate = require('./__mocks__/shallow-validate').default;
 // const shallowValidate = require('./shallow-validate');
 
@@ -16,7 +20,6 @@ const messageStore = fakeMessageStore;
 describe('the register-user app factory', () => {
   let registerUserApp;
   beforeEach(() => {});
-
   it('should return an object', () => {
     registerUserApp = build({ db, messageStore });
     expect(registerUserApp).toEqual(
@@ -63,15 +66,16 @@ describe('the register-user app factory', () => {
 
   describe('should return an actions object, which should', () => {
     let actions = {};
-    beforeEach(() => {
+    beforeEach(async () => {
       // us the mocked shallowValidate module
       // const shallowValidate = jest.mock('./shallow-validate');
       // const shallowValidateMocked = require('./__mocks__/shallow-validate').default;
       // shallowValidate.mockImplementation()
 
-      registerUserApp = build({ db, messageStore });
+      registerUserApp = await build({ db, messageStore });
 
       ({ actions } = registerUserApp);
+      console.log('AAAAAAAAAAAAAAAAAAA actions=', actions)
     });
     it('have a registerUser function property', () => {
       expect(actions).toMatchObject({ registerUser: expect.any(Function) });
@@ -82,41 +86,20 @@ describe('the register-user app factory', () => {
         const fakeAttributes = {
           email: 't@t.com',
           password: 'cucu_bau-123',
+          userId: 'trxrse',
         };
-
-        return actions
-          .registerUser(fakeTraceId, fakeAttributes)
-          .then((result) => {
-            expect(result).toEqual({ write: 400 });
-          });
+        actions.registerUser(fakeTraceId, fakeAttributes)
+          .then(result => {
+          expect(result).toBe({ e: 1 });
+        });
       });
-      it('throws if any argument is missing or the wrong type', async () => {
+      it('throws if any argument is missing or the wrong type', () => {
         const myErroredResultsPromiseArray = badArgs.map((v) => {
           if (Array.isArray(v)) {
-            return actions.registerUser.apply(actions.registerUser, v);
+            expect(() => actions.registerUser.apply(actions.registerUser, v)).toThrow();
           }
-          return actions.registerUser(v);
+          expect(() => actions.registerUser(v)).toThrow();
         });
-
-        const complexTestResults = await Promise.all(
-          myErroredResultsPromiseArray.map(promiseReflect)
-        )
-          .then((values) => {
-            const resolved = values.filter(
-              (value) => value.status === 'resolved'
-            );
-            // console.log('RESOLVED: ', resolved);
-            const rejected = values.filter(
-              (value) => value.status === 'rejected'
-            );
-            // console.log('REJECTED: ', rejected)
-            return resolved;
-          })
-          .catch((reason) => {
-            console.log('should NOT be here!!!');
-          });
-        // console.log('complexTestResults=: ', complexTestResults)
-        expect(complexTestResults.length).toBe(0);
       });
 
       it('throws if the attributes argument does not have the right shape', async () => {
@@ -129,30 +112,11 @@ describe('the register-user app factory', () => {
 
         const myErroredResultsPromiseArray = incompleteArgs.map((v) => {
           if (Array.isArray(v)) {
-            return actions.registerUser.apply(actions.registerUser, v);
-          }
-          return actions.registerUser(v);
-        });
+            expect(() => actions.registerUser.apply(actions.registerUser, v)).toThrow();
 
-        const complexTestResults = await Promise.all(
-          myErroredResultsPromiseArray.map(promiseReflect)
-        )
-          .then((values) => {
-            const resolved = values.filter(
-              (value) => value.status === 'resolved'
-            );
-            // console.log('RESOLVED: ', resolved);
-            const rejected = values.filter(
-              (value) => value.status === 'rejected'
-            );
-            // console.log('REJECTED: ', rejected)
-            return resolved;
-          })
-          .catch((reason) => {
-            console.log('should NOT be here!!!');
-          });
-        // console.log('complexTestResults=: ', complexTestResults)
-        expect(complexTestResults.length).toBe(0);
+          }
+          expect(() => actions.registerUser(v)).toThrow()
+        });
       });
     });
   });

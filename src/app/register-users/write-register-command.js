@@ -2,7 +2,8 @@ const {isObject} = require('../../utils');
 const {isEmptyObject, objHasProps} = require('../../utils');
 const {v4:uuid} = require('uuid');
 
-function writeRegisterCommand(context){
+async function writeRegisterCommand(context){
+
   if (!context || !isObject(context) || typeof context === 'function'){
     throw new Error("WriteRegisterCommand(): a context object should be provided");
   }
@@ -10,9 +11,8 @@ function writeRegisterCommand(context){
   // test the context obj shape (should have certain attributes to be valid)
   const contextProperties = ['attributes', 'traceId', 'passwordHash', 'messageStore', 'queries'];
   if (!objHasProps(context, contextProperties)){
-    throw new Error ("WriteRegisterCommand(): improper context object provided:")
+    throw new Error ("WriteRegisterCommand(): improper context object provided")
   }
-
   const userId = context?.attributes?.id;
   const stream = `identity:command-${userId}`;
   const command = {
@@ -28,7 +28,8 @@ function writeRegisterCommand(context){
       passwordHash: context?.passwordHash
     }
   };
-  return context?.messageStore?.write(stream, command);
+  const writeResult = await context?.messageStore?.write(stream, command);
+  return writeResult;
 }
 
 module.exports = writeRegisterCommand;

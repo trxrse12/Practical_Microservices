@@ -1,5 +1,8 @@
 1. How to start the app:
-    a. in a new Linux terminal: docker-compose rm && docker-compose up (and wait for "database ready to accept connections")
+    a. in a new Linux terminal:
+        docker-compose rm && docker-compose up
+        (and wait for "database ready to accept connections")
+
     b. In another new Linux terminal: npm run start-dev-server
 
 2. How to test the app:

@@ -3,14 +3,21 @@ const bcrypt = require('bcrypt');
 // TODO: move this intop an env var file
 const SALT_ROUNDS = 10;
 
-function hashPassword(context){
-  return bcrypt
-    .hash(context.attributes.password, SALT_ROUNDS)
-    .then(passwordHash => {
-      context.passwordHash = passwordHash;
+async function hashPassword(context) {
+  if (!context) {
+    throw new TypeError('hashPassword(): invalid context arg')
+  }
 
-      return context;
-    })
+  const result = await bcrypt;
+  const hashResult = await result.hash(
+    context?.attributes?.password,
+    SALT_ROUNDS
+  );
+  const modifiedContext = await hashResult.then((passwordHash) => {
+    context.passwordHash = passwordHash;
+    return context;
+  });
+  return modifiedContext;
 }
 
 module.exports = hashPassword;

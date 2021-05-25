@@ -1,0 +1,37 @@
+Lessons learned:
+
+    1. If you get to a point where you cannot use "git log" or "git status" as you get
+        a "gitdiff permission denied", be sure you invalidate the git pager:
+            git config --global core.pager cat
+
+    2. If you use "ajv-keywords" npm, you might get the annoying message in Jest TDD:
+            console.warn
+                keywords option as map is deprecated, pass array
+
+           Get rid of it by requiring ajv_keywords below the new Ajv():
+
+        const ajvValidate = new Ajv({
+          allErrors: true,
+          // eslint-disable-next-line global-require
+          // keywords: require('ajv-keywords/dist/definitions'),
+          strict: false, // to get rid of console.warning
+        })
+          .addFormat('email', /^[\w.+]+@\w+\.\w+$/)
+          .addSchema([userSchema])
+          .compile(userSchema);
+
+        require('ajv-keywords/dist/definitions')(ajvValidate)
+
+    3. If you get: "Jest did not exit one second after the test run has completed"
+            then add --detectOpenHandles to your jest command to find what's preventing
+            jest to exit. This is a BUG in Nodev15 onwards(???)
+
+            Jest and RANDOMBYTESREQUEST open handles
+
+            Solution: add --forceExit to jest command
+
+    4. In async tests you may get:
+            code: 'ERR_UNHANDLED_REJECTION'
+
+            Solution:
+             put an "await" in front of the function in the try portion of the test
