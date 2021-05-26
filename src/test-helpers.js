@@ -129,7 +129,7 @@ Promise.each = async function(arr, fn) { // take an array and a function
    for(const item of arr) await fn(item);
 }
 
-function reset () {
+async function reset () {
   const tablesToWipe = [
     'pages',
     'user_credentials',
@@ -140,9 +140,11 @@ function reset () {
     // 'admin_users'
   ]
 
-  return Promise.each(tablesToWipe, table =>
-    config.db.then(client => client(table).del())
-  )
+  return Promise.each(tablesToWipe, async table =>
+    await config.db.then(client => {
+      return client(table).del()
+    })
+  );
 }
 
 // function fakeRead(streamName, from)

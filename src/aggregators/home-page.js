@@ -55,7 +55,6 @@ function createQueries({db}){
 }
 
 function build({db, messageStore}){
-  console.log('XXXXXXXXXXXXXXXXXXXXXXXXxx messageStore=', JSON.stringify(messageStore))
   const queries = createQueries({db});
   const handlers = createHandlers({queries});
   // console.log('building the subscription')

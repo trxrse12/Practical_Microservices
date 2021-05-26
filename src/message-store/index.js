@@ -11,9 +11,7 @@ function createMessageStore({db}){
     readLastMessage: read.readLastMessage,
     write: write
   });
-  console.log('UUUUUUUUUUUUUUUUUUUUUUUUUUUU createSubscription=',
-    JSON.stringify(createSubscription)
-)
+
   return {
     createSubscription,
     read: read.read,

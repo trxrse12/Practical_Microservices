@@ -1,4 +1,4 @@
-const configureCreateSubscription = require('./subscribe');
+const ConfigureCreateSubscription = require('./subscribe');
 const { badArgs,
   fakeStream,
   fakeHandlers,
@@ -12,16 +12,16 @@ const read = () => Promise.resolve({a:1});
 const readLastMessage = () => Promise.resolve({b:1});
 const write = () => Promise.resolve({c:1});
 
-describe('configureCreateSubscription() should', () => {
+describe('ConfigureCreateSubscription() should', () => {
   it('return a function ', () => {
     expect(
-      configureCreateSubscription({ read, readLastMessage, write })
+      ConfigureCreateSubscription({ read, readLastMessage, write })
     ).toBeInstanceOf(Function);
   });
   describe('and the returned createSubscription() should', () => {
     let createSubscriptionFcn;
     beforeEach(() => {
-      createSubscriptionFcn = configureCreateSubscription({read, readLastMessage, write});
+      createSubscriptionFcn = ConfigureCreateSubscription({read, readLastMessage, write});
     });
     it('throw if it gets an empty set config object', () => {
       try {
@@ -89,7 +89,7 @@ describe('configureCreateSubscription() should', () => {
 describe('the subscribe function', () => {
   let subscribeFunction, subscriptionResult;
   beforeEach(() => {
-    subscribeFunction = configureCreateSubscription({
+    subscribeFunction = ConfigureCreateSubscription({
       read,
       readLastMessage,
       write,
@@ -115,7 +115,7 @@ describe('the subscribe function', () => {
 });
 describe('writePosition()', () => {
   it('should throw if no valid argument', async () => {
-    const subscribe = configureCreateSubscription({
+    const subscribe = ConfigureCreateSubscription({
       read: fakeRead,
       readLastMessage: fakeReadLastMessage,
       write: fakeWrite,
@@ -130,5 +130,11 @@ describe('writePosition()', () => {
     } catch(e){
       expect(() => writePosition(null)).toThrow(/invalid argument/)
     }
+  });
+});
+
+describe('loadPosition()', () => {
+  it('should throw if ', () => {
+    
   });
 });

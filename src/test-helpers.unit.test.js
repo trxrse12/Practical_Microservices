@@ -1,4 +1,5 @@
 const {fakeDb, badArgs} = require('./test-helpers');
+const {config, reset} = require('./test-helpers');
 
 describe('the fake database', () => {
   it('should have a query property', () => {
@@ -17,5 +18,16 @@ describe('the fake database', () => {
 describe('checkReturningPromiseIsThrowing() should', () => {
   it('throw if badArgsArray is NOT an array', () => {
     expect()
+  });
+});
+
+describe('reset()', () => {
+  it('should delete the database tables', async () => {
+    try {
+      await reset();
+      expect(1).toBe(1);
+    } catch (e){
+      throw new Error(e?.message);
+    }
   });
 });

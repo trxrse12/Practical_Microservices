@@ -4,11 +4,6 @@ const { v4: uuidv4 } = require('uuid');
 const { flipConfig } = require('../../utils');
 
 function outerPublishVideo({ context, videoId, sourceUri }, config) {
-  console.log('TTTTTTTTTTTTTTTTTTTTTTTTT context=', context);
-  console.log('UUUUUUUUUUUUUUUUUUUUUUUUU videoId=', videoId);
-  console.log('VVVVVVVVVVVVVVVVVVVVVVVVV sourceUri=', sourceUri);
-  console.log('XXXXXXXXXXXXXXXXXXXXXXXXX config=', config);
-
   if (!config) {
     throw new TypeError('Invalid config')
   }

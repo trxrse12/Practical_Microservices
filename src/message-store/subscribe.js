@@ -2,11 +2,14 @@ const Bluebird = require('bluebird');
 const {v4:uuid} = require('uuid');
 const category = require('./category');
 const {isObject} = require("../utils");
-
+const lodashClonedeep = require('lodash.clonedeep');
 
 const ConfigureCreateSubscription = (function(){
+  let Subscribe;
+  let currentPosition = 0;
+
   // returns the constructor
-  return function({read, readLastMessage, write}) {
+  Subscribe = function({read, readLastMessage, write}) {
     return ({
       streamName,
       handlers,
@@ -39,7 +42,6 @@ const ConfigureCreateSubscription = (function(){
 
 
       const subscriberStreamName = `subscriberPosition-${subscriberId}`;
-      let currentPosition = 0;
       let messageSinceLastPositionWrite = 0;
       let keepGoing = true;
 
@@ -50,7 +52,8 @@ const ConfigureCreateSubscription = (function(){
           })
       }
 
-      function writePosition(position) {
+      function writePosition(position, write) {
+        console.log('PPPPPPPPPPPPPPPPPPP posittion=', position)
         if (!position){
           throw new TypeError('invalid argument')
         }
@@ -70,9 +73,8 @@ const ConfigureCreateSubscription = (function(){
         if (messageSinceLastPositionWrite === positionUpdateInterval) {
           messageSinceLastPositionWrite = 0;
 
-          return writePosition(position);
+          return writePosition(position, write);
         }
-        ;
 
         return Bluebird.resolve(true);
       }
@@ -157,7 +159,8 @@ const ConfigureCreateSubscription = (function(){
             stop();
           });
       }
-
+      const internalSubscribe =
+        lodashClonedeep(Subscribe.prototype.writePosition);
       return {
         loadPosition,
         start,
@@ -166,7 +169,9 @@ const ConfigureCreateSubscription = (function(){
         writePosition,
       }
     }
-  }
+  } // end subscribe
+
+  return Subscribe
 }())
 
 ConfigureCreateSubscription.prototype = {

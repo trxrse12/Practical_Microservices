@@ -75,7 +75,6 @@ describe('the register-user app factory', () => {
       registerUserApp = await build({ db, messageStore });
 
       ({ actions } = registerUserApp);
-      console.log('AAAAAAAAAAAAAAAAAAA actions=', actions)
     });
     it('have a registerUser function property', () => {
       expect(actions).toMatchObject({ registerUser: expect.any(Function) });
