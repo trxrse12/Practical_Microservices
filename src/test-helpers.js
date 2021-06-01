@@ -51,6 +51,7 @@ const fakeUserId = uuid();
 const fakeSubscriberId = 'appService:123';
 const fakeStream = `identity:command-${fakeUserId}`;
 const fakeTraceId = uuid();
+const fakeEmailId = uuid();
 
 const fakeAttributes = {
   id: fakeUserId,
@@ -86,8 +87,25 @@ const fakeCommand = {
     userId: fakeUserId,
     email: fakeContext.attributes.email,
     passwordHash: fakeContext.passwordHash
-  }
+  },
 };
+
+const fakeEvent = {
+  id: uuid(),
+  type: 'Sent',
+  metadata:{
+    traceId: fakeContext.traceId,
+    userId: fakeUserId,
+  },
+  data: {
+    emailId: fakeEmailId,
+    to: 'to',
+    from: 'from',
+    subject: 'subject',
+    text: 'text',
+    html: 'html',
+  },
+}
 
 const fakeRouter = jest.fn((req, res) => {
   res.status(200);
@@ -162,6 +180,16 @@ const testMockedModule = fn => (async () => {
 })()
   .catch(err => console.log('HHHHHHHHHHHHHHHHHHHHHHHHHHH err=',err))
 
+function createMessageStoreWithWriteSink (sink) {
+  const writeSink = (stream, message, expectedVersion) => {
+    sink.push({ stream, message, expectedVersion })
+
+    return Promise.resolve(true)
+  }
+
+  return { ...config.messageStore, write: writeSink }
+}
+
 module.exports.badArgs = badArgs;
 module.exports.fakeDb = fakeDb;
 module.exports.fakeMessageStore = fakeMessageStore;
@@ -172,6 +200,7 @@ module.exports.fakeStream = fakeStream;
 module.exports.fakeContext = fakeContext;
 module.exports.fakeAttributes = fakeAttributes;
 module.exports.fakeCommand = fakeCommand;
+module.exports.fakeEvent = fakeEvent;
 module.exports.fakeConfig = fakeConfig;
 module.exports.callFcnWithObjWithUnexpectedProps = callFcnWithObjWithUnexpectedProps;
 module.exports.reset = reset;
@@ -181,4 +210,5 @@ module.exports.fakeRead = fakeRead;
 module.exports.fakeReadLastMessage = fakeReadLastMessage;
 module.exports.fakeWrite = fakeWrite;
 module.exports.testMockedModule = testMockedModule;
+module.exports.createMessageStoreWithWriteSink = createMessageStoreWithWriteSink;
 module.exports.app = app;

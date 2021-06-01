@@ -60,7 +60,6 @@ function createRead ({db = {}} = {}){
     }
     let query = null;
     let values = [];
-
     if (streamName === '$all'){
       query = getAllMessagesSql;
       values = [fromPosition, maxMessages];

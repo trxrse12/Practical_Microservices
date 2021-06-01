@@ -1,5 +1,5 @@
 const uuid = require('uuid/v4');
-const { config, reset } = require('../test-helpers');
+const { config, reset, fakeEvent, createMessageStoreWithWriteSink } = require('../test-helpers');
 
 it('Subscribe resumes from the last position', async () => {
   const subscriberId = 'component:subscriberId';
@@ -9,15 +9,11 @@ it('Subscribe resumes from the last position', async () => {
   let handledMessageCount = 0;
 
   const handlers = {
-    test: () => {
+    test: async () => {
       handledMessageCount++;
-
       return Promise.resolve(true);
     },
   };
-
-
-  const testMessage = () => ({ id: uuid(), type: 'test', data: {} });
 
   try{
     const subscription = config.messageStore.createSubscription({
@@ -26,22 +22,58 @@ it('Subscribe resumes from the last position', async () => {
       subscriberId,
     });
 
-    console.log('SSSSSSSSSSSSSSSSSSSSSSss subscription=', subscription);
+    // const writes = [];
+    // const messageStoreWithWriteSink = createMessageStoreWithWriteSink(writes);
 
-    await reset()
-      .then(() => config.messageStore.write(streamName, testMessage()))
-      .then(() => config.messageStore.write(streamName, testMessage()))
+    const testEvent = () => ({ ...fakeEvent, type: 'test', id: uuid() }); // type: test is CRUCIAL
+
+    return await reset()
+
+      .then(() => config.messageStore.write(streamName, testEvent()))
       .then(() => config.messageStore.readLastMessage(streamName))
-      .then(lastMessage => subscription.writePosition(lastMessage.globalPosition))
-      // .then(() => config.messageStore.write(streamName, testMessage()))
-      // .then(() => config.messageStore.write('otherStream', testMessage()))
-      // .then(() => config.messageStore.write('otherStream', testMessage()))
-      // .then(() => config.messageStore.write('otherStream', testMessage()))
-      // .then(() => subscription.loadPosition())
-      // .then(() => subscription.tick())
-      // .then(() => {
-      //   expect(handledMessageCount).toBe(2);
-      // })
+      .then(() => config.messageStore.write(streamName, testEvent()))
+      .then(() => config.messageStore.readLastMessage(streamName))
+      .then((lastMessage) =>{
+        subscription.writePosition(lastMessage.globalPosition) // saves the position
+      })
+      .then(() => config.messageStore.readLastMessage(streamName))
+      .then((lastMessage) =>{
+        subscription.writePosition(lastMessage.globalPosition) // saves the position
+      })
+
+      .then(() => config.messageStore.write(streamName, testEvent()))
+      .then(() => config.messageStore.readLastMessage(streamName))
+      .then((lastMessage) =>{
+      })
+
+      .then(() => config.messageStore.write('otherStream', testEvent()))
+      .then(() => config.messageStore.readLastMessage('otherStream'))
+      .then((lastMessage) => {
+      })
+
+      .then(() => config.messageStore.write('otherStream', testEvent()))
+      .then(() => config.messageStore.write('otherStream', testEvent()))
+      .then(() => config.messageStore.readLastMessage(streamName))
+      .then((lastMessage) => {
+      })
+
+
+
+      .then(async () => {
+        const loadedPosition = await subscription.loadPosition();
+        return loadedPosition;
+      })
+      .then(() => config.messageStore.readLastMessage(streamName))
+      .then((lastMessage) => {
+      })
+
+      // now processes the first two messages in the subscription stream (before saving the subscription)
+      .then(async () => {
+        await subscription.tick()
+      })
+      .then(() => {
+        expect(handledMessageCount).toBe(1);
+      })
   } catch (e) {
     throw new Error(e?.message);
   }

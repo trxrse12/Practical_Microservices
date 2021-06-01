@@ -8,3 +8,5 @@ function ensureRegistrationEmailNotSent(context) {
 
   return context;
 }
+
+module.exports=  ensureRegistrationEmailNotSent

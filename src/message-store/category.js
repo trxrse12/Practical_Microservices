@@ -1,6 +1,11 @@
+/**
+ * @description Returns the category of the supplied `streamName`
+ * @param {string} streamName The streamName from which to extract the category
+ * @returns {string} The category of the supplied `streamName`
+ */
 function category (streamName){
   // double equal to catch null and undefined
-  if (stream == null){
+  if (streamName == null){
     return ''
   }
 

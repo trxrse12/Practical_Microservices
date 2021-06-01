@@ -4,15 +4,20 @@ const ensureNotRegistered = require('./ensure-not-registered');
 const renderRegistrationEmail = require('./render-registration-email');
 const writeSendCommand = require('./write-send-command');
 const writeRegisteredEvent = require('./write-registered-event');
+const writeRegistrationEmailSentEvent = require('./write-registration-email-sent-event');
 const AlreadyRegisteredError = require('./already-registered-error');
+const AlreadySentRegistrationEmailError = require('./already-sent-registration-email-error')
 
 const ensureRegistrationEmailNotSent =
   require('./ensure-registration-email-not-sent');
 
+function streamNameToId (streamName) {
+  return streamName.split(/-(.+)/)[1]
+}
 
 function createIdentityCommandHandlers({messageStore}){
-  //console.log('MMMMMMMMMMMMMMMMMMMMMMM messageStore=', messageStore);
   return {
+    // the first handler >>> creates an event and writes it to the message-store
     Register: command => {
       const context = {
         messageStore: messageStore,
@@ -31,6 +36,7 @@ function createIdentityCommandHandlers({messageStore}){
 
 function createIdentityEventHandlers({messageStore}){
   return {
+    // the second handler >>> creates a Register command and writes it to the message-store
     Registered: event => {
       const context = {
         messageStore: messageStore,
@@ -50,6 +56,7 @@ function createIdentityEventHandlers({messageStore}){
 
 function createSendEmailEventHandlers({messageStore}){
   return {
+    // the third handler >>> creates an RegistrationEmailSent event and writes it to the message-store
     Sent: event => {
       const originStreamName = event.metadata.originStreamName;
       const identityId = streamNameToId(originStreamName);
@@ -59,7 +66,6 @@ function createSendEmailEventHandlers({messageStore}){
         event,
         identityId,
       };
-
       return Bluebird.resolve(context)
         .then(loadIdentity)
         .then(ensureRegistrationEmailNotSent)
@@ -93,7 +99,7 @@ function build({messageStore}){
     subscriberId: 'components:identity:sendEmailEvents',
   });
 
-  function start(){
+  function start(){ // start spinning the wheels of your engine
     identityCommandSubscription.start();
     identityEventSubscription.start();
     sendEmailEventSubscription.start();

@@ -45,56 +45,61 @@ const ConfigureCreateSubscription = (function(){
       let messageSinceLastPositionWrite = 0;
       let keepGoing = true;
 
-      function loadPosition() {
-        return readLastMessage(subscriberStreamName)
+      // find the saved stream position for a subscription
+      async function loadPosition() {
+        return await readLastMessage(subscriberStreamName)
           .then(message => {
-            currentPosition = message ? message.data.position : 0
+            currentPosition = message ? message.data.position : 0;
+            return currentPosition;
           })
       }
 
-      function writePosition(position, write) {
-        console.log('PPPPPPPPPPPPPPPPPPP posittion=', position)
+      // saves the stream position for a subscription
+      async function writePosition(position) {
         if (!position){
           throw new TypeError('invalid argument')
         }
         const positionEvent = {
           id: uuid(),
           type: 'Read',
-          data: {position}
+          data: { position },
         };
 
-        return write(subscriberStreamName, positionEvent);
+        return await write(subscriberStreamName, positionEvent);
       }
 
-      function updateReadPosition(position) {
+      async function updateReadPosition(position) {
         currentPosition = position;
         messageSinceLastPositionWrite += 1;
 
         if (messageSinceLastPositionWrite === positionUpdateInterval) {
           messageSinceLastPositionWrite = 0;
 
-          return writePosition(position, write);
+          return await writePosition(position, write);
         }
 
         return Bluebird.resolve(true);
       }
 
-      function handleMessage(message) {
+      async function handleMessage(message) {
         const handler = handlers[message.type] || handlers.$any;
 
-        return handler ? handler(message) : Promise.resolve(true);
+        const handlingResult = await handler(message);
+        return handler ? handlingResult : Promise.resolve(true);
       }
 
-      function processBatch(messages) {
-        return Bluebird.each(messages, message =>
-          handleMessage(message)
-            .then(() => updateReadPosition(message.globalPosition))
+      async function processBatch(messages) {
+        return await Bluebird.each(messages, message => {
+          const handledMessage = handleMessage(message)
+            .then(async () => await updateReadPosition(message.globalPosition))
             .catch(err => {
               logError(message, err);
 
               // re-throw error that we can break the chain
               throw err;
             })
+        }
+
         )
           .then(() => messages.length);
       }
@@ -122,9 +127,15 @@ const ConfigureCreateSubscription = (function(){
       }
 
       // retrieves the batches of messages in the category I'm subscribed to
-      function getNextBatchOfMessages() {
-        return read(streamName, currentPosition + 1, messagesPerTick)
-          .then(filterOnOriginMatch);
+      async function getNextBatchOfMessages() {
+        const allRemainingMessagesAfterStreamBookmark =
+          await read(streamName, currentPosition + 1, messagesPerTick);
+
+        const filteredMessages =
+          filterOnOriginMatch(allRemainingMessagesAfterStreamBookmark);
+        return filteredMessages;
+        // return read(streamName, currentPosition + 1, messagesPerTick)
+        //   .then(filterOnOriginMatch);
       }
 
       function start() {
@@ -151,8 +162,11 @@ const ConfigureCreateSubscription = (function(){
         }
       }
 
-      function tick() {
-        return getNextBatchOfMessages()
+      async function tick() {
+        return await getNextBatchOfMessages()
+          .then(res => {
+            return res;
+          })
           .then(processBatch)
           .catch(err => {
             console.error('Error processing batch', err);

@@ -1,6 +1,7 @@
-function writeRegisteredEvent(context, err){
-  command = context.command;
+const uuid = require('uuid/v4')
 
+async function writeRegisteredEvent(context, err){
+  const command = context.command;
   const registeredEvent = {
     id: uuid(),
     type: 'Registered',
@@ -14,12 +15,12 @@ function writeRegisteredEvent(context, err){
       passwordHash: command.data.passwordHash,
     }
   };
-
   const identityStreamName = `identity-${command.data.userId}`;
 
-  return context.messageStore
-    .write(idenityStreamName, registeredEvent)
-    .then(() => context)
+  const writeResult = await context.messageStore
+    .write(identityStreamName, registeredEvent)
+    .then(() => context);
+  return writeResult;
 }
 
 module.exports = writeRegisteredEvent;

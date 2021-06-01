@@ -9,7 +9,6 @@ function writeSendCommand (context, err){
   const email = context.email;
 
   const emailId = uuidv5(identity.email, uuidv5Namespace);
-
   const sendEmailCommand = {
     id: uuidv4(),
     type: 'Send',
@@ -24,7 +23,7 @@ function writeSendCommand (context, err){
       subject: email.subject,
       text: email.text,
       html: email.html,
-    }
+    },
   };
   const streamName = `sendEmail:command-${emailId}`;
   return context.messageStore
