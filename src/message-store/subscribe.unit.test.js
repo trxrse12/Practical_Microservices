@@ -79,6 +79,7 @@ describe('ConfigureCreateSubscription() should', () => {
           'stop',
           'tick',
           'writePosition',
+          '__private__',
         ]);
       } catch(e){
         throw new Error(e.message)
@@ -86,31 +87,94 @@ describe('ConfigureCreateSubscription() should', () => {
     });
   });
 });
-describe('the subscribe function', () => {
+describe('the subscribe function should include private', () => {
   let subscribeFunction, subscriptionResult;
+  let privateInterface;
   beforeEach(() => {
     subscribeFunction = ConfigureCreateSubscription({
       read,
       readLastMessage,
       write,
-    });
+    }); // at this stage, subscribe() present a __private__ test interface
+
     subscriptionResult = subscribeFunction({
       streamName: fakeStream,
       handlers: fakeHandlers,
       subscriberId: fakeSubscriberId,
     }); // the rest of the params are left to be initialized from defaults
+    // eslint-disable-next-line no-underscore-dangle
+    privateInterface = subscriptionResult.__private__;
+
   });
-  describe('should return on object with a tick method, that ', () => {
-    it('returns a function', () => {
-      expect(subscriptionResult).toMatchObject({
-        tick: expect.anything(Function),
-      });
+  describe('tick method should', () => {
+    it('throw if exogenous getNextBatchOfMessages() does not exist', async () => {
+      const tick = privateInterface.tick;
+      try{
+        expect(() => tick()).toThrow(/invalid getNextBatchOfMessage/);
+      } catch(e){
+        throw new Error(e?.message);
+      }
     });
-    // describe('and the tick function should', () => {
-    //   it('should return a Promise', () => {
-    //
-    //   });
-    // });
+  });
+  describe('processBatch() should', () => {
+    let processBatch;
+    beforeEach(() => {
+      processBatch = privateInterface.processBatch;
+    });
+    it.each(badArgs)('throw if messages not an array of objects with id prop', async (badArg) => {
+      try{
+        const res = await processBatch(badArg);
+        throw new Error('It should not be here!!!')
+      } catch (err) {
+        expect(err?.message).toMatch(/invalid messages arg/);
+      }
+    });
+    it.only('', () => {
+
+    });
+  });
+  describe('handleMessage() should', () => {
+    let handleMessage;
+    beforeEach(() => {
+      handleMessage = privateInterface.handleMessage;
+    });
+    it.each(badArgs)('throw if message is not an object', async (badArg) => {
+      try{
+        await handleMessage(badArg)
+          .then((res) => {
+            throw new Error('should not be here!!!')
+          })
+      } catch (err){
+        expect(err?.message).toMatch(/(invalid handler)|(invalid message arg)/)
+      }
+    });
+    it('call the exogenous handler() with the message.type and return what the handler returned', async () => {
+      const message = {type: 'read'}; // the same type is included in my fakeHandler
+      try{
+        const res = await handleMessage(message);
+        expect(res).toBe('I did read this');
+      } catch(err){
+        throw new Error(err?.message);
+      }
+    });
+    it('call the exogenous handler() and does nothing if the handler rejects', async () => {
+      try{
+        const message = {type: 'readWithRejection'};
+        const res = await handleMessage(message);
+        expect(res).toBe(true);
+      } catch(err){
+        throw new Error(err?.message);
+      }
+    });
+    it('all the exogenous handler() and does nothing if the handler throws', async () => {
+      try{
+        const message = {type: 'readWithError'};
+        const res = await handleMessage(message);
+        expect(res).toBe(true);
+      }catch(err){
+        throw new Error(err?.message);
+      }
+    });
   });
 });
 describe('writePosition()', () => {

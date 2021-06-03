@@ -169,6 +169,9 @@ async function reset () {
 const fakeHandlers = {
   handler1: () => Promise.resolve({handlerResult: 1}),
   handler2: () => Promise.resolve({handlerResult: 2}),
+  'read': () => Promise.resBlueolve('I did read this'),
+  'readWithRejection': () => Promise.reject('I did not read this'),
+  'readWithError': () => {throw new Error('The handler raised an error!!!')}
 };
 
 const fakeRead = () => Promise.resolve('Here is the read function');
@@ -189,6 +192,13 @@ function createMessageStoreWithWriteSink (sink) {
 
   return { ...config.messageStore, write: writeSink }
 }
+
+// process.on('unhandledRejection', err => {
+//   console.error('Uh-oh. Unhandled Rejection')
+//   console.error(err)
+//
+//   process.exit(1)
+// })
 
 module.exports.badArgs = badArgs;
 module.exports.fakeDb = fakeDb;
