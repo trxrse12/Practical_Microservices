@@ -1,0 +1,17 @@
+Lessons learned:
+
+    1. If you start adding typescript, you'll have to add types into a types.d.ts file in the same path as the *.ts file.
+     In such a case, you need to do in your main *.ts file:
+        import { IDomainInterface} from './types';
+
+    2. If ESLint is giving an error when you compile tsc:
+        ESLint: Require statement not part of import statement
+       Solution:
+        Add to your .eslintrc.json file:
+        "rules": {
+                "@typescript-eslint/no-var-requires": 0}
+
+    3. If git comes back with an error:
+            error: short read while indexing node_modules/lodash/fp/toJSON.js
+    then restart the docker postgres databases:
+            docker-compose rm && docker-compose up

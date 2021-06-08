@@ -1,6 +1,7 @@
 // const deserializeMessage = require('./deserialize-message')
+// eslint-disable-next-line import/extensions
 const createRead = require('./read');
-const { fakeDb } = require('../test-helpers');
+const { fakeDb, fakeDeserializeMessage } = require('../test-helpers');
 
 const db = fakeDb;
 const { badArgs } = require('../test-helpers');
@@ -31,7 +32,10 @@ describe('the main factory', () => {
         const fromPosition = 100;
         const maxMessages = 10000;
         const readResult = await read(streamName, fromPosition, maxMessages);
-        expect(readResult).toEqual([{ a: 1 }, { b: 2 }]);
+        expect(readResult).toMatchObject([
+          {id:1, data: 10000 },
+          {id:2, data: 20000 },
+        ]);
       });
       it('should throw if streamName is invalid', () => {
         badArgs

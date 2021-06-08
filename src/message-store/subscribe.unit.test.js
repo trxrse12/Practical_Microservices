@@ -104,12 +104,19 @@ describe('the subscribe function should include private', () => {
     }); // the rest of the params are left to be initialized from defaults
     // eslint-disable-next-line no-underscore-dangle
     privateInterface = subscriptionResult.__private__;
-
+    privateInterface.getNextBatchOfMessages=[500];
   });
   describe('tick method should', () => {
-    it('throw if exogenous getNextBatchOfMessages() does not exist', async () => {
+    it.only('throw if exogenous getNextBatchOfMessages() does not exist', async () => {
+
+      console.log('PPPPPPPPPPPPPPPPPPPPP privateInterface=', privateInterface)
+      console.log('QQQQQQQQQQQQQQQQQQQ privateInterface.getNextBatchOfMessages=',
+        privateInterface?.getNextBatchOfMessages?.toString())
       const tick = privateInterface.tick;
-      try{
+
+      //
+
+      try {
         expect(() => tick()).toThrow(/invalid getNextBatchOfMessage/);
       } catch(e){
         throw new Error(e?.message);
@@ -129,9 +136,9 @@ describe('the subscribe function should include private', () => {
         expect(err?.message).toMatch(/invalid messages arg/);
       }
     });
-    it.only('', () => {
-
-    });
+    // it('', () => {
+    //
+    // });
   });
   describe('handleMessage() should', () => {
     let handleMessage;

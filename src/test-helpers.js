@@ -31,10 +31,14 @@ const badArgs = [
 ];
 
 const fakeDb = {
-  query: async (...[streamName, fromPosition, maxMessages]) =>{
+  query: async (queryString, values) => {
+    if (!Array.isArray(values)){
+      throw new Error('fakeDb error: values arg is not an array')
+    }
+    const [streamName, fromPosition, maxMessages] = values;
     const resObject = {};
     resObject.rows = [];
-    resObject.rows = await Promise.resolve([{a:1},{b:2}]);
+    resObject.rows = await Promise.resolve([{id:1,data:10000},{id:2, data:20000}]);
     return resObject;
   },
 };
@@ -117,7 +121,7 @@ const fakeRouter = jest.fn((req, res) => {
 
 const fakeConfig = {
   homeApp: {
-    router:fakeRouter ,
+    router: fakeRouter,
   },
   recordViewingsApp: {
     router: express.Router(),
@@ -169,7 +173,7 @@ async function reset () {
 const fakeHandlers = {
   handler1: () => Promise.resolve({handlerResult: 1}),
   handler2: () => Promise.resolve({handlerResult: 2}),
-  'read': () => Promise.resBlueolve('I did read this'),
+  'read': () => Promise.resolve('I did read this'),
   'readWithRejection': () => Promise.reject('I did not read this'),
   'readWithError': () => {throw new Error('The handler raised an error!!!')}
 };
@@ -191,6 +195,17 @@ function createMessageStoreWithWriteSink (sink) {
   }
 
   return { ...config.messageStore, write: writeSink }
+}
+
+function fakeDeserializeMessage(rawMessage){
+  if (!rawMessage){
+    return null;
+  }
+
+  return {
+    id: rawMessage?.id,
+    data: rawMessage?.data,
+  }
 }
 
 // process.on('unhandledRejection', err => {
@@ -221,4 +236,5 @@ module.exports.fakeReadLastMessage = fakeReadLastMessage;
 module.exports.fakeWrite = fakeWrite;
 module.exports.testMockedModule = testMockedModule;
 module.exports.createMessageStoreWithWriteSink = createMessageStoreWithWriteSink;
+module.exports.fakeDeserializeMessage = fakeDeserializeMessage;
 module.exports.app = app;

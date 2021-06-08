@@ -1,11 +1,13 @@
+// @ts-check
+
 const videoPublishingProjection = {
-  $init(){
+  $init() {
     return {
       id: null,
       publishingAttempted: false,
       sourceUri: null,
       transcodedUri: null,
-    }
+    };
   },
   VideoPublished(video, videoPublished){
     video.id = videoPublished.data.videoId;

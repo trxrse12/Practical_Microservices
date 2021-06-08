@@ -8,9 +8,10 @@ describe('the fake database', () => {
     }))
   });
   describe('and the query property', () => {
-    it('should return a Promise that solves in an array of objects', () => {
-      return fakeDb.query()
-        .then(value => expect(value?.rows).toEqual(expect.arrayContaining([{a:1},{b:2}])))
+    it.only('should return a Promise that solves in an array of objects', () => {
+      return fakeDb.query('SELECT', ['stream', 1,2])
+        .then(value => expect(value?.rows).toEqual(expect.arrayContaining([
+          {id:1, data:10000},{id:2, data:20000}])))
     });
   });
 });

@@ -1,7 +1,12 @@
-const Bluebird = require('bluebird');
-const knex = require('knex');
+// @ts-check
 
-function createKnexClient({connectionString, migrationsTableName}){
+import { knex, Knex } from 'knex';
+
+const Bluebird = require('bluebird');
+
+function createKnexClient(
+  { connectionString, migrationsTableName }:
+    { connectionString: string, migrationsTableName: string }): Promise<Knex.Client> {
   const client = knex(connectionString);
 
   const migrationOptions = {

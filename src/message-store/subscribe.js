@@ -1,6 +1,7 @@
+
+
 const Bluebird = require('bluebird');
 const { v4: uuid } = require('uuid');
-const lodashClonedeep = require('lodash.clonedeep');
 const category = require('./category');
 const { isObject } = require('../utils');
 
@@ -101,7 +102,7 @@ const ConfigureCreateSubscription = (function () {
         if (typeof handler !== 'function'){
           throw new TypeError('hanldeMessage(): invalid handler function')
         }
-        try{
+        try {
           const handlingResult = await handler(message);
           return handler ? handlingResult : Promise.resolve(true);
         } catch (err){
@@ -190,6 +191,10 @@ const ConfigureCreateSubscription = (function () {
       }
 
       async function tick() {
+        console.log('EEEEEEEEEEEEEEEEEEEEEEEEEEE getNextBatchOfMessages=', getNextBatchOfMessages.toString())
+        if (typeof getNextBatchOfMessages !== 'function') {
+          throw new TypeError('invalid getNextBatchOfMessage');
+        }
         return getNextBatchOfMessages()
           .then((res) => res)
           .then(processBatch)
