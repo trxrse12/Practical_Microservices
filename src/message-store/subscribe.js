@@ -52,10 +52,10 @@ const ConfigureCreateSubscription = (function(){
           })
       }
 
-      function writePosition(position, write) {
+      function writePosition(position) {
         console.log('PPPPPPPPPPPPPPPPPPP posittion=', position)
-        if (!position){
-          throw new TypeError('invalid argument')
+        if (!position || isNaN(position)){
+          throw new TypeError('writePosition(): invalid argument')
         }
         const positionEvent = {
           id: uuid(),
@@ -67,6 +67,9 @@ const ConfigureCreateSubscription = (function(){
       }
 
       function updateReadPosition(position) {
+        if (!position || isNaN(position)){
+          throw new TypeError('updateReadPosition(): wrong position argument: ' + position);
+        }
         currentPosition = position;
         messageSinceLastPositionWrite += 1;
 

@@ -20,6 +20,9 @@ function createWrite({db}) {
     ];
 
     return db.query(writeFunctionSql, values)
+      .then((res) => {
+        return res
+      })
       .catch(err => {
         const errorMatch = err.message.match(versionConflictErrorRegex);
         const notVersionConflict = errorMatch === null;

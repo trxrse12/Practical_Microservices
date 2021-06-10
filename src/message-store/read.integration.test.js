@@ -73,7 +73,7 @@ it('it reads from the $all stream', async () => {
       .then(() => config.messageStore.write(streamName3, event3))
       .then(() => config.messageStore.read('$all'))
       .then((messages) => {
-        console.log('MMMMMMMMMMMMMMMMMMMMMM messages=', messages);
+        // console.log('MMMMMMMMMMMMMMMMMMMMMM messages=', messages);
         expect(messages.find((m) => m.id === event1.id)).not.toBeUndefined();
         expect(messages.find((m) => m.id === event2.id)).not.toBeUndefined();
         expect(messages.find((m) => m.id === event3.id)).not.toBeUndefined();

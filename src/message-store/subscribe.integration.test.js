@@ -1,7 +1,7 @@
 const uuid = require('uuid/v4');
 const { config, reset } = require('../test-helpers');
 
-it('Subscribe resumes from the last position', async () => {
+it.only('Subscribe resumes from the last position', async () => {
   const subscriberId = 'component:subscriberId';
   const category = `stream${uuid().replace(/-/g, '')}`;
   const streamName = `${category}-123`;
@@ -33,15 +33,17 @@ it('Subscribe resumes from the last position', async () => {
       .then(() => config.messageStore.write(streamName, testMessage()))
       .then(() => config.messageStore.readLastMessage(streamName))
       .then(lastMessage => subscription.writePosition(lastMessage.globalPosition))
-      // .then(() => config.messageStore.write(streamName, testMessage()))
-      // .then(() => config.messageStore.write('otherStream', testMessage()))
-      // .then(() => config.messageStore.write('otherStream', testMessage()))
-      // .then(() => config.messageStore.write('otherStream', testMessage()))
-      // .then(() => subscription.loadPosition())
-      // .then(() => subscription.tick())
-      // .then(() => {
-      //   expect(handledMessageCount).toBe(2);
-      // })
+      .then(() => {
+        config.messageStore.write(streamName, testMessage())
+      })
+      .then(() => config.messageStore.write('otherStream', testMessage()))
+      .then(() => config.messageStore.write('otherStream', testMessage()))
+      .then(() => config.messageStore.write('otherStream', testMessage()))
+      .then(() => subscription.loadPosition())
+      .then(() => subscription.tick())
+      .then(() => {
+        expect(handledMessageCount).toBe(1);
+      })
   } catch (e) {
     throw new Error(e?.message);
   }

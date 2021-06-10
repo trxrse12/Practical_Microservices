@@ -41,7 +41,10 @@ function createRead ({db = {}} = {}){
 
   function readLastMessage(streamName){
     return db.query(getLastMessageSql, [streamName])
-      .then(res => deserializeMessage(res.rows[0]))
+      .then(res => {
+        const deserializedMessage = deserializeMessage(res.rows[0])
+        return  deserializedMessage;
+      })
   }
 
   /**

@@ -1,0 +1,10 @@
+Lessons learned:
+
+    1. In working with the message store, it is absolutely critical to pay attention
+        to the postgres fields when return the records, as a single error when reading
+        the last message (e.g.
+            globalPosition: parseInt(rawMessage.globalPosition,10), >>> the wrong one
+            globalPosition: parseInt(rawMessage.global_position,10)) >>> the right one)
+        will render the whole app useless.
+
+            Solution> do the database integration tests thorougly

@@ -1,0 +1,13 @@
+Lessons learned:
+
+    1. If you want to test that a param is not a number, do not do: Number.isNaN(param), because if param={a:1}
+        the function will return "false", which is incorrect;
+        Solution: use isNaN(param)
+
+    2. it is extremely difficult to test internal private functions inside closures!!!, especially when the closure
+        is a massively complex mamuth!!!
+        Solution: refactor the closure to a class or a hierarchy of classes
+
+    3. it is extremely difficult to run describe in describe in describe, because it not possible to mock the modules
+        in independent tests;
+        Solution: decouple the "hierarchical describe";
