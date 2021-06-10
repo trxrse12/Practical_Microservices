@@ -1,50 +1,58 @@
 const uuid = require('uuid/v4');
 const { config, reset } = require('../test-helpers');
 
-it.only('Subscribe resumes from the last position', async () => {
-  const subscriberId = 'component:subscriberId';
-  const category = `stream${uuid().replace(/-/g, '')}`;
-  const streamName = `${category}-123`;
+describe('In the subscribe module', () => {
+  afterAll(() => {
+    config.db
+      .then(client => client.destroy())
 
-  let handledMessageCount = 0;
+    config.messageStore.stop()
+  })
+  it.only('Subscribe resumes from the last position', async () => {
+    const subscriberId = 'component:subscriberId';
+    const category = `stream${uuid().replace(/-/g, '')}`;
+    const streamName = `${category}-123`;
 
-  const handlers = {
-    test: () => {
-      handledMessageCount++;
+    let handledMessageCount = 0;
 
-      return Promise.resolve(true);
-    },
-  };
+    const handlers = {
+      test: () => {
+        handledMessageCount++;
+
+        return Promise.resolve(true);
+      },
+    };
 
 
-  const testMessage = () => ({ id: uuid(), type: 'test', data: {} });
+    const testMessage = () => ({ id: uuid(), type: 'test', data: {} });
 
-  try{
-    const subscription = config.messageStore.createSubscription({
-      streamName: category,
-      handlers,
-      subscriberId,
-    });
+    try{
+      const subscription = config.messageStore.createSubscription({
+        streamName: category,
+        handlers,
+        subscriberId,
+      });
 
-    console.log('SSSSSSSSSSSSSSSSSSSSSSss subscription=', subscription);
+      console.log('SSSSSSSSSSSSSSSSSSSSSSss subscription=', subscription);
 
-    await reset()
-      .then(() => config.messageStore.write(streamName, testMessage()))
-      .then(() => config.messageStore.write(streamName, testMessage()))
-      .then(() => config.messageStore.readLastMessage(streamName))
-      .then(lastMessage => subscription.writePosition(lastMessage.globalPosition))
-      .then(() => {
-        config.messageStore.write(streamName, testMessage())
-      })
-      .then(() => config.messageStore.write('otherStream', testMessage()))
-      .then(() => config.messageStore.write('otherStream', testMessage()))
-      .then(() => config.messageStore.write('otherStream', testMessage()))
-      .then(() => subscription.loadPosition())
-      .then(() => subscription.tick())
-      .then(() => {
-        expect(handledMessageCount).toBe(1);
-      })
-  } catch (e) {
-    throw new Error(e?.message);
-  }
+      await reset()
+        .then(() => config.messageStore.write(streamName, testMessage()))
+        .then(() => config.messageStore.write(streamName, testMessage()))
+        .then(() => config.messageStore.readLastMessage(streamName))
+        .then(lastMessage => subscription.writePosition(lastMessage.globalPosition))
+        .then(() => {
+          config.messageStore.write(streamName, testMessage())
+        })
+        .then(() => config.messageStore.write('otherStream', testMessage()))
+        .then(() => config.messageStore.write('otherStream', testMessage()))
+        .then(() => config.messageStore.write('otherStream', testMessage()))
+        .then(() => subscription.loadPosition())
+        .then(() => subscription.tick())
+        .then(() => {
+          expect(handledMessageCount).toBe(1);
+        })
+    } catch (e) {
+      throw new Error(e?.message);
+    }
+  });
 });

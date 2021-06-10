@@ -162,6 +162,15 @@ const testMockedModule = fn => (async () => {
 })()
   .catch(err => console.log('HHHHHHHHHHHHHHHHHHHHHHHHHHH err=',err))
 
+/* eslint-disable no-console */
+process.on('unhandledRejection', err => {
+  console.error('Uh-oh. Unhandled Rejection')
+  console.error(err)
+
+  process.exit(1)
+})
+/* eslint-enable no-console */
+
 module.exports.badArgs = badArgs;
 module.exports.fakeDb = fakeDb;
 module.exports.fakeMessageStore = fakeMessageStore;

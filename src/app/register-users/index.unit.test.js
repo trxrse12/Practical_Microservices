@@ -80,17 +80,22 @@ describe('the register-user app factory', () => {
       expect(actions).toMatchObject({ registerUser: expect.any(Function) });
     });
     describe('and registerUser(traceId, attributes) inner function', () => {
-      test('should return a Promise that solves in a the value returned by the db', () => {
+      test('should return a Promise that solves in a the value returned by the db',async () => {
         const fakeTraceId = '123';
         const fakeAttributes = {
           email: 't@t.com',
           password: 'cucu_bau-123',
           userId: 'trxrse',
         };
-        actions.registerUser(fakeTraceId, fakeAttributes)
-          .then(result => {
-          expect(result).toBe({ e: 1 });
-        });
+        try {
+          await actions.registerUser(fakeTraceId, fakeAttributes)
+            .then(result => {
+              expect(result).toEqual({ e: 1 });
+            });
+        } catch(err){
+          throw new Error(err?.message)
+        }
+
       });
       it('throws if any argument is missing or the wrong type', () => {
         const myErroredResultsPromiseArray = badArgs.map((v) => {

@@ -5,12 +5,12 @@ const {isObject} = require("../utils");
 const lodashClonedeep = require('lodash.clonedeep');
 
 const ConfigureCreateSubscription = (function(){
-  let Subscribe;
+  let SubscribeFactory;
   let currentPosition = 0;
 
   // returns the constructor
-  Subscribe = function({read, readLastMessage, write}) {
-    return ({
+  SubscribeFactory = function({read, readLastMessage, write}) {
+    const subscribe = ({
       streamName,
       handlers,
       messagesPerTick = 100,
@@ -163,7 +163,7 @@ const ConfigureCreateSubscription = (function(){
           });
       }
       const internalSubscribe =
-        lodashClonedeep(Subscribe.prototype.writePosition);
+        lodashClonedeep(SubscribeFactory.prototype.writePosition);
       return {
         loadPosition,
         start,
@@ -171,10 +171,10 @@ const ConfigureCreateSubscription = (function(){
         tick,
         writePosition,
       }
-    }
-  } // end subscribe
-
-  return Subscribe
+    } // end subscribe()
+    return subscribe;
+  } // end Subscribe
+  return SubscribeFactory
 }())
 
 ConfigureCreateSubscription.prototype = {
