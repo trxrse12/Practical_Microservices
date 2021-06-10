@@ -4,7 +4,9 @@ const category = require('./category');
 const {isObject} = require("../utils");
 const lodashClonedeep = require('lodash.clonedeep');
 
-const ConfigureCreateSubscription = (function(){
+const subscriberStreamName = subsId => `subscriberPosition-${subsId}`;
+
+const ConfigureCreateSubscription = (function({subscriberStreamName}){
   let SubscribeFactory;
   let currentPosition = 0;
 
@@ -40,13 +42,11 @@ const ConfigureCreateSubscription = (function(){
         throw new TypeError('createSubscription() error: incorrect parameters: subscriberId=' + subscriberId)
       }
 
-
-      const subscriberStreamName = `subscriberPosition-${subscriberId}`;
       let messageSinceLastPositionWrite = 0;
       let keepGoing = true;
 
       function loadPosition() {
-        return readLastMessage(subscriberStreamName)
+        return readLastMessage(subscriberStreamName(subscriberId))
           .then(message => {
             currentPosition = message ? message.data.position : 0
           })
@@ -63,74 +63,22 @@ const ConfigureCreateSubscription = (function(){
           data: {position}
         };
 
-        return write(subscriberStreamName, positionEvent);
-      }
-
-      function updateReadPosition(position) {
-        if (!position || isNaN(position)){
-          throw new TypeError('updateReadPosition(): wrong position argument: ' + position);
-        }
-        currentPosition = position;
-        messageSinceLastPositionWrite += 1;
-
-        if (messageSinceLastPositionWrite === positionUpdateInterval) {
-          messageSinceLastPositionWrite = 0;
-
-          return writePosition(position, write);
-        }
-
-        return Bluebird.resolve(true);
-      }
-
-      function handleMessage(message) {
-        const handler = handlers[message.type] || handlers.$any;
-
-        return handler ? handler(message) : Promise.resolve(true);
-      }
-
-      function processBatch(messages) {
-        return Bluebird.each(messages, message =>
-          handleMessage(message)
-            .then(() => updateReadPosition(message.globalPosition))
-            .catch(err => {
-              logError(message, err);
-
-              // re-throw error that we can break the chain
-              throw err;
-            })
-        )
-          .then(() => messages.length);
-      }
-
-      function logError(lastMessage, error) {
-        console.error(
-          'error processing:\n',
-          `\t${subscriberId}\n`,
-          `\t${lastMessage.id}\n`,
-          `\t${error}\n`
-        )
-      }
-
-      function filterOnOriginMatch(messages) {
-        if (!originStreamName) {
-          return messages;
-        }
-
-        return messages.filter(message => {
-          const originCategory =
-            message.metadata && category(message.metadata.originStreamName);
-
-          return originStreamName === originCategory;
-        })
-      }
-
-      // retrieves the batches of messages in the category I'm subscribed to
-      function getNextBatchOfMessages() {
-        return read(streamName, currentPosition + 1, messagesPerTick)
-          .then(filterOnOriginMatch);
+        return write(subscriberStreamName(subscriberId), positionEvent);
       }
 
       function start() {
+        async function poll() {
+          await loadPosition();
+
+          while (keepGoing) {
+            const messagesProcessed = await tick();
+
+            if (messagesProcessed === 0) {
+              await Bluebird.delay(tickIntervalMs)
+            }
+          }
+        }
+
         console.log(`Started ${subscriberId}`);
 
         return poll();
@@ -142,19 +90,71 @@ const ConfigureCreateSubscription = (function(){
         keepGoing = false;
       }
 
-      async function poll() {
-        await loadPosition();
-
-        while (keepGoing) {
-          const messagesProcessed = await tick();
-
-          if (messagesProcessed === 0) {
-            await Bluebird.delay(tickIntervalMs)
-          }
-        }
-      }
-
       function tick() {
+        // retrieves the batches of messages in the category I'm subscribed to
+        function getNextBatchOfMessages() {
+          function filterOnOriginMatch(messages) {
+            if (!originStreamName) {
+              return messages;
+            }
+
+            return messages.filter(message => {
+              const originCategory =
+                message.metadata && category(message.metadata.originStreamName);
+
+              return originStreamName === originCategory;
+            })
+          }
+
+          return read(streamName, currentPosition + 1, messagesPerTick)
+            .then(filterOnOriginMatch);
+        }
+
+        function processBatch(messages) {
+          function handleMessage(message) {
+            const handler = handlers[message.type] || handlers.$any;
+
+            return handler ? handler(message) : Promise.resolve(true);
+          }
+
+          function updateReadPosition(position) {
+            if (!position || isNaN(position)){
+              throw new TypeError('updateReadPosition(): wrong position argument: ' + position);
+            }
+            currentPosition = position;
+            messageSinceLastPositionWrite += 1;
+
+            if (messageSinceLastPositionWrite === positionUpdateInterval) {
+              messageSinceLastPositionWrite = 0;
+
+              return writePosition(position, write);
+            }
+
+            return Bluebird.resolve(true);
+          }
+
+          return Bluebird.each(messages, message =>
+            handleMessage(message)
+              .then(() => updateReadPosition(message.globalPosition))
+              .catch(err => {
+                function logError(lastMessage, error) {
+                  console.error(
+                    'error processing:\n',
+                    `\t${subscriberId}\n`,
+                    `\t${lastMessage.id}\n`,
+                    `\t${error}\n`
+                  )
+                }
+
+                logError(message, err);
+
+                // re-throw error that we can break the chain
+                throw err;
+              })
+          )
+            .then(() => messages.length);
+        }
+
         return getNextBatchOfMessages()
           .then(processBatch)
           .catch(err => {
@@ -162,8 +162,11 @@ const ConfigureCreateSubscription = (function(){
             stop();
           });
       }
+
       const internalSubscribe =
         lodashClonedeep(SubscribeFactory.prototype.writePosition);
+
+
       return {
         loadPosition,
         start,
@@ -175,7 +178,7 @@ const ConfigureCreateSubscription = (function(){
     return subscribe;
   } // end Subscribe
   return SubscribeFactory
-}())
+}({subscriberStreamName}))
 
 ConfigureCreateSubscription.prototype = {
   display: () => {}
