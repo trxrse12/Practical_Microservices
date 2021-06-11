@@ -53,7 +53,6 @@ const ConfigureCreateSubscription = (function({subscriberStreamName}){
       }
 
       function writePosition(position) {
-        console.log('PPPPPPPPPPPPPPPPPPP posittion=', position)
         if (!position || isNaN(position)){
           throw new TypeError('writePosition(): invalid argument')
         }
@@ -162,16 +161,11 @@ const ConfigureCreateSubscription = (function({subscriberStreamName}){
             stop();
           });
       }
-
-      const internalSubscribe =
-        lodashClonedeep(SubscribeFactory.prototype.writePosition);
-
-
       return {
         loadPosition,
         start,
         stop,
-        tick,
+        tick: tick,
         writePosition,
       }
     } // end subscribe()
@@ -179,10 +173,6 @@ const ConfigureCreateSubscription = (function({subscriberStreamName}){
   } // end Subscribe
   return SubscribeFactory
 }({subscriberStreamName}))
-
-ConfigureCreateSubscription.prototype = {
-  display: () => {}
-}
 
 module.exports = ConfigureCreateSubscription;
 

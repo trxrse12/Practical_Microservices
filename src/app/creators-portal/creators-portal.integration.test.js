@@ -16,7 +16,7 @@ function getMountedRoutes(app){
 }
 
 describe('app', () => {
-  afterEach(() => {
+  afterAll(() => {
     config.db
       .then(client => client.destroy())
 
