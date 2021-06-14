@@ -1,6 +1,7 @@
 const deserializeMessage = require('./deserialize-message');
 
-const getCategoryMessagesSql = 'SELECT * FROM get_category_messages($1, $2, $3)';
+const getCategoryMessagesSql =
+  'SELECT * FROM get_category_messages($1, $2, $3)';
 const getStreamMessagesSql = 'SELECT * FROM get_stream_messages($1, $2, $3)';
 
 const getLastMessageSql = 'SELECT * FROM get_last_stream_message($1)';
@@ -20,31 +21,30 @@ const getAllMessagesSql = `
     global_position > $1 
   LIMIT $2`;
 
-function project(events, projection){
+function project(events, projection) {
   return events.reduce((entity, event) => {
-    if (!projection[event.type]){
+    if (!projection[event.type]) {
       return entity;
     }
 
-    return projection[event.type](entity, event)
-  }, projection.$init())
+    return projection[event.type](entity, event);
+  }, projection.$init());
 }
 
-function createRead ({db = {}} = {}){
-  if (Object.keys(db).length===0 && db.constructor === Object){
-    throw new Error("createRead() error: invalid db argument")
+function createRead({ db = {} } = {}) {
+  if (Object.keys(db).length === 0 && db.constructor === Object) {
+    throw new Error('createRead() error: invalid db argument');
   }
 
-  function fetch(streamName, projection){
-    return read(streamName).then(messages => project(messages, projection))
+  function fetch(streamName, projection) {
+    return read(streamName).then((messages) => project(messages, projection));
   }
 
-  function readLastMessage(streamName){
-    return db.query(getLastMessageSql, [streamName])
-      .then(res => {
-        const deserializedMessage = deserializeMessage(res.rows[0])
-        return  deserializedMessage;
-      })
+  function readLastMessage(streamName) {
+    return db.query(getLastMessageSql, [streamName]).then((res) => {
+      const deserializedMessage = deserializeMessage(res.rows[0]);
+      return deserializedMessage;
+    });
   }
 
   /**
@@ -54,17 +54,19 @@ function createRead ({db = {}} = {}){
    * @param maxMessages
    * @returns {*|Promise<T | never>|undefined}
    */
-  function read(streamName, fromPosition = 0, maxMessages=1000) {
-    if (typeof streamName !== 'string'){
+  function read(streamName, fromPosition = 0, maxMessages = 1000) {
+    if (typeof streamName !== 'string') {
       throw new TypeError('read(): invalid stream name');
     }
-    if(isNaN(fromPosition)){
-      throw new TypeError('read(): invalid fromPosition argument: ' + fromPosition);
+    if (isNaN(fromPosition)) {
+      throw new TypeError(
+        `read(): invalid fromPosition argument: ${fromPosition}`
+      );
     }
     let query = null;
     let values = [];
 
-    if (streamName === '$all'){
+    if (streamName === '$all') {
       query = getAllMessagesSql;
       values = [fromPosition, maxMessages];
     } else if (streamName.includes('-')) {
@@ -75,11 +77,10 @@ function createRead ({db = {}} = {}){
       values = [streamName, fromPosition, maxMessages];
     }
 
-    return db.query(query,values)
-      .then(res => {
-        return res.rows.map(deserializeMessage)
-      })
-      .catch(err => {
+    return db
+      .query(query, values)
+      .then((res) => res?.rows?.map(deserializeMessage))
+      .catch((err) => {
         throw new Error('Error in the read message-db wrapper: ', err);
       });
   }
@@ -87,7 +88,7 @@ function createRead ({db = {}} = {}){
     read,
     readLastMessage,
     fetch,
-  }
+  };
 }
 
 module.exports = exports = createRead;

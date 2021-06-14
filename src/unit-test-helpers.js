@@ -1,7 +1,6 @@
 const {v4:uuid} = require('uuid');
 const express = require('express');
 // const Bluebird = require('bluebird');
-const {app, config} = require('./');
 
 const badArgs = [
   [],
@@ -33,8 +32,10 @@ const badArgs = [
 const fakeDb = {
   query: async (...[streamName, fromPosition, maxMessages]) =>{
     const resObject = {};
-    resObject.rows = [];
-    resObject.rows = await Promise.resolve([{a:1},{b:2}]);
+    resObject.rows = await Promise.resolve([
+      {data: '{"a": 100}'},
+      {data: '{"b": 200}'}
+  ])
     return resObject;
   },
 };
@@ -125,27 +126,6 @@ function checkReturningPromiseIsThrowing(badArgsArray, promiseFcn){
 
 }
 
-Promise.each = async function(arr, fn) { // take an array and a function
-   for(const item of arr) await fn(item);
-}
-
-async function reset () {
-  const tablesToWipe = [
-    'pages',
-    'user_credentials',
-    'creators_portal_videos',
-    // 'video_operations',
-    // 'admin_subscriber_positions',
-    // 'admin_streams',
-    // 'admin_users'
-  ]
-
-  return Promise.each(tablesToWipe, async table =>
-    await config.db.then(client => {
-      return client(table).del()
-    })
-  );
-}
 
 // function fakeRead(streamName, from)
 const fakeHandlers = {
@@ -164,12 +144,16 @@ const testMockedModule = fn => (async () => {
 
 /* eslint-disable no-console */
 process.on('unhandledRejection', err => {
-  console.error('Uh-oh. Unhandled Rejection')
-  console.error(err)
-
-  process.exit(1)
+  console.error(err.message, err.stack)
+  // server.close();
+  setTimeout(process.exit, 5000, 1);
 })
 /* eslint-enable no-console */
+
+// process.on('uncaughtException', err => {
+//   console.log(`Uncaught Exception: ${err.message}`)
+//   process.exit(1)
+// })
 
 module.exports.badArgs = badArgs;
 module.exports.fakeDb = fakeDb;
@@ -183,11 +167,10 @@ module.exports.fakeAttributes = fakeAttributes;
 module.exports.fakeCommand = fakeCommand;
 module.exports.fakeConfig = fakeConfig;
 module.exports.callFcnWithObjWithUnexpectedProps = callFcnWithObjWithUnexpectedProps;
-module.exports.reset = reset;
-module.exports.config = config;
+
+
 module.exports.fakeHandlers = fakeHandlers;
 module.exports.fakeRead = fakeRead;
 module.exports.fakeReadLastMessage = fakeReadLastMessage;
 module.exports.fakeWrite = fakeWrite;
 module.exports.testMockedModule = testMockedModule;
-module.exports.app = app;

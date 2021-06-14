@@ -1,9 +1,9 @@
 // const deserializeMessage = require('./deserialize-message')
 const createRead = require('./read');
-const { fakeDb } = require('../test-helpers');
+const { fakeDb } = require('../unit-test-helpers');
 
 const db = fakeDb;
-const { badArgs } = require('../test-helpers');
+const { badArgs } = require('../unit-test-helpers');
 
 jest.mock('./deserialize-message', () => (v) => v);
 
@@ -30,8 +30,18 @@ describe('the main factory', () => {
         const streamName = 'testStream';
         const fromPosition = 100;
         const maxMessages = 10000;
-        const readResult = await read(streamName, fromPosition, maxMessages);
-        expect(readResult).toEqual([{ a: 1 }, { b: 2 }]);
+        try{
+          const readResult = await read(streamName, fromPosition, maxMessages);
+          expect(readResult).toEqual([
+            expect.objectContaining({data: { a: 100 }}),
+            expect.objectContaining({data: { b: 200 }})
+          ]);
+        } catch (err){
+          throw new Error(err?.message)
+        }
+      });
+      it('should throw if error in deserializeMessage', () => {
+        
       });
       it('should throw if streamName is invalid', () => {
         badArgs

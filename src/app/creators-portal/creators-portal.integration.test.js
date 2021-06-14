@@ -1,7 +1,7 @@
 const Bluebird =require('bluebird');
 const createExpressApp = require('../express/index');
 const supertest = require('supertest');
-const {app, config, reset} = require('../../test-helpers');
+const {app, config, reset} = require('../../integration-test-helpers');
 const bcrypt = require('bcrypt');
 const snakeCaseKeys = require('snakecase-keys');
 const {v4:uuidv4} = require('uuid');

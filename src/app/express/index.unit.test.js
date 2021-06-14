@@ -1,5 +1,8 @@
-import createExpressApp from './index';
-import request from 'supertest';
+// import createExpressApp from './index';
+// import request from 'supertest';
+
+const createExpressApp = require('./index');
+const request = require('supertest');
 
 const config = {};
 const env = {};

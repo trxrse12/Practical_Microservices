@@ -7,7 +7,7 @@ const {
   fakeContext,
   fakeCommand,
   callFcnWithObjWithUnexpectedProps
-} = require('../../test-helpers');
+} = require('../../unit-test-helpers');
 
 
 const writeRegisterCommand = require('./write-register-command');

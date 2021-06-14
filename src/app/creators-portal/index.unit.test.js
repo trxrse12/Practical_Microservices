@@ -1,6 +1,6 @@
 const { v4: uuid } = require('uuid');
 const { outerPublishVideo } = require('./index');
-const { fakeContext } = require('../../test-helpers');
+const { fakeContext } = require('../../unit-test-helpers');
 
 describe('the publishVideo()', () => {
   beforeEach(() => {});

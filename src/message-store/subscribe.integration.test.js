@@ -1,5 +1,5 @@
 const uuid = require('uuid/v4');
-const { config, reset } = require('../test-helpers');
+const { config, reset } = require('../integration-test-helpers');
 
 describe('In the subscribe module', () => {
   afterAll(() => {

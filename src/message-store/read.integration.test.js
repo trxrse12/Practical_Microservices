@@ -1,6 +1,6 @@
 const uuid = require('uuid/v4');
 
-const { config, reset } = require('../test-helpers');
+const { config, reset } = require('../integration-test-helpers');
 
 const makeCategory = () => uuid().replace(/-/g, '');
 

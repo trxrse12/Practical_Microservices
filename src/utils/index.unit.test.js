@@ -6,7 +6,7 @@ const {
   httpContextIsValid,
 } = require('./index');
 
-const { fakeContext } = require('../test-helpers');
+const { fakeContext } = require('../unit-test-helpers');
 
 const badArgs = [
   [],

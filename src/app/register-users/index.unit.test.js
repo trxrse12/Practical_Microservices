@@ -1,5 +1,5 @@
 const build = require('./index');
-const { fakeDb, badArgs, fakeMessageStore, fakeContext } = require('../../test-helpers');
+const { fakeDb, badArgs, fakeMessageStore, fakeContext } = require('../../unit-test-helpers');
 
 jest.mock('./shallow-validate', () => () => Promise.resolve({a:1}));
 jest.mock('./load-existing-identity', () => () => Promise.resolve({b:1}));
@@ -90,7 +90,7 @@ describe('the register-user app factory', () => {
         try {
           await actions.registerUser(fakeTraceId, fakeAttributes)
             .then(result => {
-              expect(result).toEqual({ e: 1 });
+              expect(result).toEqual({ write: 400 });
             });
         } catch(err){
           throw new Error(err?.message)

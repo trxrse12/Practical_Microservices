@@ -6,7 +6,7 @@ const { badArgs,
   fakeRead,
   fakeReadLastMessage,
   fakeWrite,
-} = require('../test-helpers');
+} = require('../unit-test-helpers');
 
 const read = () => Promise.resolve({a:1});
 const readLastMessage = () => Promise.resolve({b:1});

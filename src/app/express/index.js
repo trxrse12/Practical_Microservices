@@ -6,6 +6,9 @@ const mountMiddleware = require('./mount-middleware');
 const mountRoutes = require('./mount-routes');
 
 function createExpressApp ({config, env}){
+  if (env !== 'production') {
+    require('longjohn')
+  }
   const app = express();
   // Configure PUG
   app.set('views', join(__dirname, '..'));

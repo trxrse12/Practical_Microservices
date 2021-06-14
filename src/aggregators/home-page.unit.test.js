@@ -1,8 +1,8 @@
 const buildHomePage = require('./home-page');
-const {fakeDb, fakeMessageStore} = require('../test-helpers');
+const {fakeDb, fakeMessageStore} = require('../unit-test-helpers');
 const db = fakeDb;
 const messageStore = fakeMessageStore;
-const {badArgs} = require('../test-helpers');
+const {badArgs} = require('../unit-test-helpers');
 
 describe('buildHomePage()', () => {
   it('should return an object with certain props', () => {

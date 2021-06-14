@@ -7,3 +7,6 @@
 
 2. How to test the app:
     npm run test
+
+3. How to run a single test:
+    jest --config jest.unit.config.js $MY_FIRST_FAILING_TEST_PATH"

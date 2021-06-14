@@ -1,9 +1,16 @@
-import express from 'express';
-import mountRoutes from './mount-routes';
-import request from 'supertest';
-import bodyparser from 'body-parser';
+// import express from 'express';
+// import mountRoutes from './mount-routes';
+// import request from 'supertest';
+// import bodyparser from 'body-parser';
+//
+// import {fakeConfig} from '../../test-helpers';
 
-import {fakeConfig} from '../../test-helpers';
+const express = require('express');
+const mountRoutes = require('./mount-routes');
+const request = require('supertest');
+const bodyparser = require('body-parser');
+
+const {fakeConfig} = require('../../unit-test-helpers');
 
 const app = express(); // create a fake express app
 app.use(bodyparser.json()); //this made it work

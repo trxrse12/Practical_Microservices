@@ -1,5 +1,5 @@
 const {loadExistingIdentity} = require('./load-existing-identity');
-const {badArgs, fakeContext} = require('../../test-helpers');
+const {badArgs, fakeContext} = require('../../unit-test-helpers');
 const promiseReflect = require('promise-reflect');
 
 jest.mock('./shallow-validate', () => Promise.resolve({a:1}));

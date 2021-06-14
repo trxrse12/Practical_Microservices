@@ -1,4 +1,4 @@
-const { fakeContext, badArgs } = require('../../test-helpers');
+const { fakeContext, badArgs } = require('../../unit-test-helpers');
 const shallowValidate = require('./shallow-validate');
 
 describe('validate()', () => {

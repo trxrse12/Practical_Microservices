@@ -1,4 +1,4 @@
-const {fakeDb} = require('../../../test-helpers');
+const {fakeDb} = require('../../../unit-test-helpers');
 
 function writeRegisterCommand (context){
   return new Promise((resolve, reject) => {
