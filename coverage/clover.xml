@@ -1,57 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1623687977660" clover="3.2.0">
-  <project timestamp="1623687977660" name="All files">
-    <metrics statements="935" coveredstatements="540" conditionals="178" coveredconditionals="61" methods="268" coveredmethods="93" elements="1381" coveredelements="694" complexity="0" loc="935" ncloc="935" packages="15" files="73" classes="73"/>
-    <package name="migrations">
-      <metrics statements="33" coveredstatements="32" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="8"/>
-      <file name="20180303013723_create_pages.js" path="/home/ctex/projects/cqrs/migrations/20180303013723_create_pages.js">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-      </file>
-      <file name="20180623124103_create-user-credentials.js" path="/home/ctex/projects/cqrs/migrations/20180623124103_create-user-credentials.js">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-      </file>
-      <file name="20181013180427_create_creators-portal-videos.js" path="/home/ctex/projects/cqrs/migrations/20181013180427_create_creators-portal-videos.js">
-        <metrics statements="12" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-      </file>
-      <file name="20190426220729_create-videos.js" path="/home/ctex/projects/cqrs/migrations/20190426220729_create-videos.js">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1623689440850" clover="3.2.0">
+  <project timestamp="1623689440850" name="All files">
+    <metrics statements="901" coveredstatements="508" conditionals="178" coveredconditionals="61" methods="256" coveredmethods="85" elements="1335" coveredelements="654" complexity="0" loc="901" ncloc="901" packages="14" files="69" classes="69"/>
     <package name="src">
-      <metrics statements="147" coveredstatements="119" conditionals="13" coveredconditionals="10" methods="45" coveredmethods="15"/>
+      <metrics statements="146" coveredstatements="119" conditionals="13" coveredconditionals="10" methods="45" coveredmethods="15"/>
       <file name="config.js" path="/home/ctex/projects/cqrs/src/config.js">
         <metrics statements="32" coveredstatements="32" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="4" type="stmt"/>
@@ -103,7 +55,7 @@
         <line num="27" count="5" type="stmt"/>
       </file>
       <file name="index.js" path="/home/ctex/projects/cqrs/src/index.js">
-        <metrics statements="12" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <metrics statements="11" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="1" count="4" type="stmt"/>
         <line num="2" count="4" type="stmt"/>
         <line num="3" count="4" type="stmt"/>
@@ -112,10 +64,9 @@
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
       </file>
       <file name="integration-test-helpers.js" path="/home/ctex/projects/cqrs/src/integration-test-helpers.js">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
@@ -1008,13 +959,13 @@
       </file>
       <file name="deserialize-message.js" path="/home/ctex/projects/cqrs/src/message-store/deserialize-message.js">
         <metrics statements="8" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
-        <line num="7" count="17" type="cond" truecount="1" falsecount="1"/>
+        <line num="7" count="53" type="cond" truecount="1" falsecount="1"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="11" count="17" type="stmt"/>
-        <line num="12" count="17" type="stmt"/>
-        <line num="13" count="17" type="stmt"/>
+        <line num="11" count="53" type="stmt"/>
+        <line num="12" count="53" type="stmt"/>
+        <line num="13" count="53" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="18" count="17" type="stmt"/>
+        <line num="18" count="53" type="stmt"/>
         <line num="30" count="4" type="stmt"/>
       </file>
       <file name="index.js" path="/home/ctex/projects/cqrs/src/message-store/index.js">

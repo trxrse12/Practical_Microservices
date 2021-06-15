@@ -33,7 +33,7 @@ describe('In the subscribe module', () => {
         subscriberId,
       });
 
-      console.log('SSSSSSSSSSSSSSSSSSSSSSss subscription=', subscription);
+      // console.log('SSSSSSSSSSSSSSSSSSSSSSss subscription=', subscription);
 
       await reset()
         .then(() => config.messageStore.write(streamName, testMessage()))

@@ -11,7 +11,6 @@ function start() {
   config.components.forEach(s => s.start());
 
   server = app.listen(env.port, signalAppStart);
-  console.log('UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU server=', server)
 }
 
 function signalAppStart() {
