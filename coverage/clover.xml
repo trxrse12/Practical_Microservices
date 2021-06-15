@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1623762076343" clover="3.2.0">
-  <project timestamp="1623762076343" name="All files">
-    <metrics statements="906" coveredstatements="511" conditionals="186" coveredconditionals="66" methods="256" coveredmethods="85" elements="1348" coveredelements="662" complexity="0" loc="906" ncloc="906" packages="14" files="69" classes="69"/>
+<coverage generated="1623769166162" clover="3.2.0">
+  <project timestamp="1623769166162" name="All files">
+    <metrics statements="911" coveredstatements="514" conditionals="190" coveredconditionals="68" methods="256" coveredmethods="85" elements="1357" coveredelements="667" complexity="0" loc="911" ncloc="911" packages="14" files="69" classes="69"/>
     <package name="src">
-      <metrics statements="151" coveredstatements="122" conditionals="21" coveredconditionals="15" methods="45" coveredmethods="15"/>
+      <metrics statements="156" coveredstatements="125" conditionals="25" coveredconditionals="17" methods="45" coveredmethods="15"/>
       <file name="config.ts" path="/home/ctex/projects/cqrs/src/config.ts">
         <metrics statements="34" coveredstatements="33" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="13" count="4" type="stmt"/>
@@ -96,25 +96,30 @@
         <line num="15" count="4" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
       </file>
-      <file name="postgres-client.js" path="/home/ctex/projects/cqrs/src/postgres-client.js">
-        <metrics statements="17" coveredstatements="16" conditionals="7" coveredconditionals="6" methods="8" coveredmethods="7"/>
-        <line num="1" count="5" type="stmt"/>
-        <line num="2" count="5" type="stmt"/>
+      <file name="postgres-client.ts" path="/home/ctex/projects/cqrs/src/postgres-client.ts">
+        <metrics statements="22" coveredstatements="19" conditionals="11" coveredconditionals="8" methods="8" coveredmethods="7"/>
         <line num="5" count="5" type="stmt"/>
         <line num="7" count="5" type="stmt"/>
-        <line num="10" count="25" type="cond" truecount="2" falsecount="0"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="25" type="stmt"/>
-        <line num="23" count="26" type="cond" truecount="4" falsecount="0"/>
-        <line num="24" count="1" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="15" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="26" count="25" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="25" type="stmt"/>
-        <line num="28" count="25" type="stmt"/>
-        <line num="31" count="5" type="stmt"/>
-        <line num="33" count="3" type="stmt"/>
-        <line num="37" count="5" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="35" count="26" type="cond" truecount="4" falsecount="0"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="25" type="stmt"/>
+        <line num="39" count="25" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="42" count="25" type="stmt"/>
+        <line num="43" count="25" type="stmt"/>
+        <line num="48" count="5" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="54" count="5" type="stmt"/>
       </file>
       <file name="unit-test-helpers.js" path="/home/ctex/projects/cqrs/src/unit-test-helpers.js">
         <metrics statements="57" coveredstatements="40" conditionals="0" coveredconditionals="0" methods="25" coveredmethods="0"/>
@@ -964,13 +969,13 @@
       </file>
       <file name="deserialize-message.js" path="/home/ctex/projects/cqrs/src/message-store/deserialize-message.js">
         <metrics statements="8" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
-        <line num="7" count="90" type="cond" truecount="1" falsecount="1"/>
+        <line num="7" count="126" type="cond" truecount="1" falsecount="1"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="11" count="90" type="stmt"/>
-        <line num="12" count="90" type="stmt"/>
-        <line num="13" count="90" type="stmt"/>
+        <line num="11" count="126" type="stmt"/>
+        <line num="12" count="126" type="stmt"/>
+        <line num="13" count="126" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="18" count="90" type="stmt"/>
+        <line num="18" count="126" type="stmt"/>
         <line num="30" count="4" type="stmt"/>
       </file>
       <file name="index.js" path="/home/ctex/projects/cqrs/src/message-store/index.js">
