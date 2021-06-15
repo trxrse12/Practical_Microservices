@@ -1,6 +1,6 @@
 // @ts-check
 
-import { Client } from 'pg';
+import {Client, QueryArrayResult, QueryResult} from 'pg';
 
 const Bluebird = require('bluebird');
 
@@ -31,7 +31,7 @@ function createDatabase({ connectionString }: { connectionString: string }) {
     );
   }
 
-  function query(sql: string, values = []) {
+  function query(sql: string, values = []): Promise<QueryResult> {
     if (!sql || sql.toString().length === 0) {
       throw new Error('message-db query cannot be null');
     }
