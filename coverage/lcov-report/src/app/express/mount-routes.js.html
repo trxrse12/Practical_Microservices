@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">42.86% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/14</span>
+                <span class='fraction'>6/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">42.86% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/14</span>
+                <span class='fraction'>6/14</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -81,47 +81,47 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span></td><td class="text"><pre class="prettyprint lang-js">/** @description Mount app routes into the Express app ...*/
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">/** @description Mount app routes into the Express app ...*/
 const express = require('express');
 const mustBeLoggedIn = require('./must-be-logged-in');
 const {join} = require('path');
 &nbsp;
 function mountRoutes(app, config){
   // console.log('UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUu')
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!config?.homeApp?.router){
-<span class="cstat-no" title="statement not covered" >    throw new Error('Invalid route handler');</span>
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!config?.homeApp?.router){
+    throw new Error('Invalid route handler');
   }
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!app?.use){
+<span class="cstat-no" title="statement not covered" >  if (!app?.use){</span>
 <span class="cstat-no" title="statement not covered" >    throw new Error('Invalid Express app object parameter')</span>
   }
-  app.use('/', config.homeApp.router);
-  app.use('/record-viewing', config.recordViewingsApp.router);
-  app.use('/register', config.registerUsersApp.router);
-  app.use('/auth', config.authenticateApp.router);
-  app.use('/creators-portal',mustBeLoggedIn, config.creatorsPortalApp.router);
-  app.use(
+<span class="cstat-no" title="statement not covered" >  app.use('/', config.homeApp.router);</span>
+<span class="cstat-no" title="statement not covered" >  app.use('/record-viewing', config.recordViewingsApp.router);</span>
+<span class="cstat-no" title="statement not covered" >  app.use('/register', config.registerUsersApp.router);</span>
+<span class="cstat-no" title="statement not covered" >  app.use('/auth', config.authenticateApp.router);</span>
+<span class="cstat-no" title="statement not covered" >  app.use('/creators-portal',mustBeLoggedIn, config.creatorsPortalApp.router);</span>
+<span class="cstat-no" title="statement not covered" >  app.use(</span>
     express.static(join(__dirname, '..', 'public'), {maxAge: 86400000})
   )
 }
@@ -133,7 +133,7 @@ module.exports = mountRoutes;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Jun 15 2021 16:27:18 GMT+0100 (British Summer Time)
+                at Mon Jul 05 2021 13:38:34 GMT+0100 (British Summer Time)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

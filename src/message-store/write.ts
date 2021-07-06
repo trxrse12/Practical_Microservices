@@ -1,11 +1,14 @@
-const writeFunctionSql =
-    'SELECT message_store.write_message($1, $2, $3, $4, $5, $6)';
+// @ts-check
+import { Knex } from 'knex';
+
+const writeFunctionSql: string =
+  'SELECT message_store.write_message($1, $2, $3, $4, $5, $6)';
 
 const versionConflictError = require('./version-conflict-error');
-const versionConflictErrorRegex = /^Wrong.*Stream Version: (\d+)\)/
+const versionConflictErrorRegex = /^Wrong.*Stream Version: (\d+)\)/;
 
-function createWrite({db}) {
-  return (streamName, message, expectedVersion) => {
+function createWrite({ db }: { db: Knex.Client }) {
+  return (streamName: string, message: unknown, expectedVersion: unknown) => {
     if (!message.type){
       throw new Error('Messages must have a type');
     }

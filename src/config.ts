@@ -12,7 +12,7 @@ type CtexConfig = {
 
 const createPickupTransport = require('nodemailer-pickup-transport');
 const createKnexClient = require('./knex-client');
-const createPostGresClient = require('./postgres-client');
+const createPostgresClient = require('./postgres-client');
 const createMessageStore = require('./message-store');
 
 const createHomePageAggregator = require('./aggregators/home-page');
@@ -46,7 +46,7 @@ function createConfig({
     knexClient = createKnexClient({
       connectionString: databaseUrl,
     });
-    const postgresClient = createPostGresClient({
+    const postgresClient = createPostgresClient({
       connectionString: messageStoreConnectionString,
     });
 

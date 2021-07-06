@@ -10,3 +10,9 @@
 
 3. How to run a single test:
     jest --config jest.unit.config.js $MY_FIRST_FAILING_TEST_PATH"
+
+4. How to run the unit tests:
+    npm run test:unit
+
+5. How to run the integration tests:
+    npm run test:integration
