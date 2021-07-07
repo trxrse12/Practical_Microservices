@@ -55,6 +55,7 @@ function createRead({ db = {} } = {}) {
    * @returns {*|Promise<T | never>|undefined}
    */
   function read(streamName, fromPosition = 0, maxMessages = 1000) {
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXX streamName=', streamName)
     if (typeof streamName !== 'string') {
       throw new TypeError('read(): invalid stream name');
     }

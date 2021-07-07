@@ -1,5 +1,6 @@
 import { CommandId, UserId, EmailId, VideoId } from './Identifiers';
 import { MailOptions, PasswordHash, URLString } from './Types';
+import {MetaData} from "./Meta-data";
 
 enum CommandTypes {
   SEND = 'Send',
@@ -33,10 +34,10 @@ type NameVideoCommandData = {
 };
 
 export type DomainCommands =
-  | { type: CommandTypes.SEND; id: CommandId; data: SendCommandData }
-  | { type: CommandTypes.REGISTER; id: CommandId; data: RegisterCommandData }
-  | { type: CommandTypes.PUBLISH_VIDEO; id: CommandId; data: PublishVideoCommandData }
-  | { type: CommandTypes.NAME_VIDEO; id: CommandId; data: NameVideoCommandData }
+  | { type: CommandTypes.SEND; id: CommandId; metadata: MetaData; data: SendCommandData }
+  | { type: CommandTypes.REGISTER; id: CommandId; metadata: MetaData; data: RegisterCommandData }
+  | { type: CommandTypes.PUBLISH_VIDEO; id: CommandId; metadata: MetaData; data: PublishVideoCommandData }
+  | { type: CommandTypes.NAME_VIDEO; id: CommandId; metadata: MetaData; data: NameVideoCommandData }
 
 
 

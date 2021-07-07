@@ -9,9 +9,11 @@
     "test:integration": "jest --config jest.integration.config.js --watchAll --detectOpenHandles",
     "start-dev-server": "nodemon src/bin/start-server.js --color",
     "build": "rimraf dist && tsc",
-    "serve": "npm run build && node dist/src/bin/start-server.js",
+    "serve": "npm run build && node dist/bin/start-server.js",
     "watch": "nodemon -w src --exec npm run serve",
-    "dtslint": "dtslint src/core/domain --onlyTestTsNext --expectOnly"
+    "dtslint_domain": "dtslint src/core/domain --onlyTestTsNext --expectOnly",
+    "dtslint_message_store": "dtslint src/message-store --onlyTestTsNext --expectOnly",
+    "dtslint": "npm run dtslint_domain && npm run dtslint_message_store"
   },
   "author": "",
   "license": "ISC",

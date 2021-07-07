@@ -1,15 +1,22 @@
 // @ts-check
 import { Knex } from 'knex';
+import { EntityStream } from '../core/domain/Stream';
+import { DomainCommands } from '../core/domain/Command';
 
 const writeFunctionSql: string =
   'SELECT message_store.write_message($1, $2, $3, $4, $5, $6)';
 
-const versionConflictError = require('./version-conflict-error');
+const VersionConflictError = require('./version-conflict-error');
+
 const versionConflictErrorRegex = /^Wrong.*Stream Version: (\d+)\)/;
 
 function createWrite({ db }: { db: Knex.Client }) {
-  return (streamName: string, message: unknown, expectedVersion: unknown) => {
-    if (!message.type){
+  return (
+    streamName: EntityStream,
+    message: DomainCommands,
+    expectedVersion: unknown
+  ) => {
+    if (!message.type) {
       throw new Error('Messages must have a type');
     }
 
@@ -22,29 +29,33 @@ function createWrite({ db }: { db: Knex.Client }) {
       expectedVersion,
     ];
 
-    return db.query(writeFunctionSql, values)
-      .then((res) => {
-        return res
-      })
-      .catch(err => {
-        const errorMatch = err.message.match(versionConflictErrorRegex);
-        const notVersionConflict = errorMatch === null;
+    return db
+      .query(writeFunctionSql, values)
+      .then((res: unknown) => res)
+      .catch((err: unknown) => {
+        if (err instanceof Error) {
+          const errorMatch = err.message.match(versionConflictErrorRegex);
+          const notVersionConflict = errorMatch === null;
 
-        if(notVersionConflict){
-          throw err;
+          if (notVersionConflict) {
+            throw err;
+          }
+
+          if (errorMatch) {
+            const actualVersion = parseInt(errorMatch[1], 10);
+
+            const versionConflictError = new VersionConflictError(
+              streamName,
+              actualVersion,
+              expectedVersion
+            );
+            versionConflictError.stack = err.stack;
+            throw versionConflictError;
+          }
         }
-
-        const actualVersion = parseInt(errorMatch[1], 10);
-
-        const versionConflictError = new VersionConflictError(
-          streamName,
-          actualVersion,
-          expectedVersion,
-        );
-        versionConflictError.stack = Err.stack;
-        throw versionConflictError;
-      })
-  }
+        throw err;
+      });
+  };
 }
 
 module.exports = createWrite;

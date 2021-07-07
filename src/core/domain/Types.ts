@@ -4,8 +4,7 @@ import { Either, left, right, mapLeft } from 'fp-ts/lib/Either';
 import assert from 'assert';
 
 export type UUID = `${string}-${string}-${string}-${string}-${string}`;
-
-export type OriginStreamName = `identity-${UUID}`;
+export type EMAIL_ID = `${string}-${string}-${string}-${string}-${string}`;
 
 export type MailOptions = Pick<
   nodemailer.SendMailOptions,

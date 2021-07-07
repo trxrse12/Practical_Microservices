@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1625649351391" clover="3.2.0">
-  <project timestamp="1625649351391" name="All files">
-    <metrics statements="525" coveredstatements="346" conditionals="167" coveredconditionals="122" methods="146" coveredmethods="46" elements="838" coveredelements="514" complexity="0" loc="525" ncloc="525" packages="10" files="32" classes="32"/>
+<coverage generated="1625655008940" clover="3.2.0">
+  <project timestamp="1625655008940" name="All files">
+    <metrics statements="526" coveredstatements="347" conditionals="167" coveredconditionals="122" methods="146" coveredmethods="46" elements="839" coveredelements="515" complexity="0" loc="526" ncloc="526" packages="10" files="32" classes="32"/>
     <package name="src">
       <metrics statements="57" coveredstatements="47" conditionals="0" coveredconditionals="0" methods="25" coveredmethods="5"/>
       <file name="unit-test-helpers.js" path="/home/ctex/projects/cqrs/src/unit-test-helpers.js">
@@ -478,21 +478,21 @@
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="18" count="27" type="stmt"/>
-        <line num="19" count="27" type="cond" truecount="10" falsecount="0"/>
-        <line num="23" count="3" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="33" count="27" type="stmt"/>
-        <line num="35" count="25" type="stmt"/>
-        <line num="38" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="27" type="stmt"/>
+        <line num="18" count="27" type="cond" truecount="10" falsecount="0"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="32" count="27" type="stmt"/>
+        <line num="34" count="25" type="stmt"/>
+        <line num="37" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="2" type="stmt"/>
         <line num="39" count="2" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="42" count="25" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
+        <line num="41" count="25" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.message-store">
-      <metrics statements="110" coveredstatements="51" conditionals="63" coveredconditionals="32" methods="37" coveredmethods="9"/>
+      <metrics statements="111" coveredstatements="52" conditionals="63" coveredconditionals="32" methods="37" coveredmethods="9"/>
       <file name="category.js" path="/home/ctex/projects/cqrs/src/message-store/category.js">
         <metrics statements="4" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="3" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -512,7 +512,7 @@
         <line num="30" count="1" type="stmt"/>
       </file>
       <file name="read.js" path="/home/ctex/projects/cqrs/src/message-store/read.js">
-        <metrics statements="34" coveredstatements="21" conditionals="18" coveredconditionals="13" methods="10" coveredmethods="3"/>
+        <metrics statements="35" coveredstatements="22" conditionals="18" coveredconditionals="13" methods="10" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
@@ -528,25 +528,26 @@
         <line num="44" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="58" count="25" type="cond" truecount="2" falsecount="0"/>
-        <line num="59" count="23" type="stmt"/>
-        <line num="61" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="62" count="1" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
+        <line num="58" count="25" type="stmt"/>
+        <line num="59" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="60" count="23" type="stmt"/>
+        <line num="62" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="63" count="1" type="stmt"/>
         <line num="67" count="1" type="stmt"/>
-        <line num="69" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="70" count="0" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="70" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="71" count="0" type="stmt"/>
-        <line num="72" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="73" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="73" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="74" count="0" type="stmt"/>
-        <line num="76" count="1" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
-        <line num="80" count="1" type="stmt"/>
-        <line num="82" count="1" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="87" count="6" type="stmt"/>
-        <line num="94" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="88" count="6" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
       </file>
       <file name="subscribe.js" path="/home/ctex/projects/cqrs/src/message-store/subscribe.js">
         <metrics statements="64" coveredstatements="23" conditionals="39" coveredconditionals="17" methods="24" coveredmethods="4"/>

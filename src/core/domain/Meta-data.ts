@@ -1,4 +1,4 @@
-import { OriginStreamName} from './Types';
+import { OriginStreamName } from './Stream';
 import { TraceId, UserId } from './Identifiers';
 
 export interface MetaData {
