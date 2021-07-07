@@ -9,7 +9,7 @@ export type OriginStreamName = `identity-${UUID}`;
 
 export type MailOptions = Pick<
   nodemailer.SendMailOptions,
-  'to' | 'subject' | 'text' | 'html'
+  'to' | 'from' | 'subject' | 'text' | 'html'
 >;
 
 export type PasswordHash = string;
@@ -24,7 +24,7 @@ function toUrlString(s: string): Either<string, string> {
   }
 }
 
-class URLString {
+export class URLString {
   readonly s: string;
 
   private type!: string;

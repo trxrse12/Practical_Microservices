@@ -1,4 +1,5 @@
-import { OriginStreamName, TraceId, UserId } from './Types';
+import { OriginStreamName} from './Types';
+import { TraceId, UserId } from './Identifiers';
 
 export interface MetaData {
   readonly originStreamName: OriginStreamName;

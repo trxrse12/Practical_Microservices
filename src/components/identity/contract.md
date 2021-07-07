@@ -52,6 +52,7 @@ Example:
 
 ```
 {
+  "id": "2ea97206-10a4-46ac-aa4a-ba48e0cdd450",
   "type": "Registered",
   "data": {
     "userId": "e90647af-8103-4fe9-ae1f-4766103cca54",
@@ -100,6 +101,7 @@ Example:
 
 ```
 {
+  "id": "2ea97206-10a4-46ac-aa4a-ba48e0cdd450",
   "type": "RegistrationRejected",
   "data": {
     "userId": "e90647af-8103-4fe9-ae1f-4766103cca54",

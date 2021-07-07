@@ -1,5 +1,5 @@
 // eslint-disable-next-line max-classes-per-file
-import uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { UUID } from './Types';
 
 class DomainId<T> {
@@ -40,6 +40,12 @@ export class EmailId extends DomainId<UUID> {
   }
 }
 
+export class VideoId extends DomainId<UUID> {
+  constructor(videoIdValue: UUID) {
+    super(videoIdValue);
+  }
+}
+
 /**
  * @class - used to build Domain Entity type
  */
@@ -65,7 +71,7 @@ abstract class Identifiers<T> {
   /**
    * Return the raw value of the identifier
    */
-  toValue () : T {
+  toValue(): T {
     return this.value;
   }
 }

@@ -1,38 +1,43 @@
-import {EventId, CommandId, UserId, EmailId} from './Identifiers';
-import {MailOptions, PasswordHash, URLString} from "./Types";
+import { CommandId, UserId, EmailId, VideoId } from './Identifiers';
+import { MailOptions, PasswordHash, URLString } from './Types';
 
-type CommandTypes = 'Send' | 'Register' | 'PublishVideo';
+enum CommandTypes {
+  SEND = 'Send',
+  REGISTER = 'Register',
+  PUBLISH_VIDEO = 'PublishVideo',
+  NAME_VIDEO = 'NameVideo',
+}
 
 type SendCommandData = {
-  emailId: EmailId,
-  to: MailOptions['to'],
-  subject: MailOptions['subject'],
-  text: MailOptions['text'],
-  html: MailOptions['html'],
-}
+  emailId: EmailId;
+  to: MailOptions['to'];
+  subject: MailOptions['subject'];
+  text: MailOptions['text'];
+  html: MailOptions['html'];
+};
 
 type RegisterCommandData = {
-  userId: UserId,
-  email: MailOptions['to'],
-  passwordHash: PasswordHash,
-}
+  userId: UserId;
+  email: MailOptions['to'];
+  passwordHash: PasswordHash;
+};
 
 type PublishVideoCommandData = {
-  ownerId: UserId,
-  sourceUri: URLString,
-}
-const ownerId = new UserId('1234-67567-3333-3323-222')
-const sourceUri = new URLString('gigi');
-const test: PublishVideoCommandData = {
-  ownerId: ownerId,
-  sourceUri: sourceUri
-}
+  ownerId: UserId;
+  sourceUri: URLString;
+};
 
-type Commands =
-  | {type: 'sendCommand', id: CommandId, data: SendCommandData}
-  | {type: 'registerCommand', id: CommandId, data: RegisterCommandData}
+type NameVideoCommandData = {
+  videoId: VideoId;
+  name: string;
+};
 
-}
+export type DomainCommands =
+  | { type: CommandTypes.SEND; id: CommandId; data: SendCommandData }
+  | { type: CommandTypes.REGISTER; id: CommandId; data: RegisterCommandData }
+  | { type: CommandTypes.PUBLISH_VIDEO; id: CommandId; data: PublishVideoCommandData }
+  | { type: CommandTypes.NAME_VIDEO; id: CommandId; data: NameVideoCommandData }
 
-type RegisterCommandDataColumns = 'userId' | 'email' | 'passwordHash';
+
+
 
