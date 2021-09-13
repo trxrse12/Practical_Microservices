@@ -8,7 +8,7 @@
         "jest": true
     },
     "extends": [
-        "airbnb-base",
+        "plugin:import/typescript",
         "prettier",
         "plugin:@typescript-eslint/eslint-recommended"
     ],
@@ -25,6 +25,16 @@
     ],
     "rules": {
         "prettier/prettier": "error",
-        "no-useless-constructor": "off"
+        "no-useless-constructor": "off",
+        "import/extensions":  [
+            "error",
+            "always",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ]
     }
 }

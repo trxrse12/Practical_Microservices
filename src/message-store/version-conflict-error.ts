@@ -1,5 +1,19 @@
-function VersionConflictError(stream, expected, actual) {
-  Error.captureStackTrace(this, this.constructor);
+import {
+  EntityCommandStream,
+  EntityStream,
+  StreamPosition,
+} from '../core/domain/Stream';
+
+function VersionConflictError(
+  this: Error,
+  stream: EntityStream | EntityCommandStream,
+  expected: StreamPosition,
+  actual: StreamPosition
+) {
+  if (typeof this === 'object') {
+    Error.captureStackTrace(this, this.constructor);
+  }
+
   const message = [
     'VersionConflict: stream',
     stream,

@@ -1,3 +1,3 @@
-const {start} = require('../');
+const { start } = require('../');
 
 start();

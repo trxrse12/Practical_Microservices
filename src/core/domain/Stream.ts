@@ -19,12 +19,18 @@ export type EntityStream =
 
 
 enum CommandStreamType {
-  EMAIL = 'email',
-  IDENIITY = 'identity',
+  SEND_EMAIL = 'send_email',
+  VIDEO_PUBLISHING = 'video_publishing',
+  IDENTITY = 'identity',
 }
 
-type IdentityCommandStreamName = `${CommandStreamType.IDENIITY}-${UUID}`;
+type SendEmailCommandStreamName = `${CommandStreamType.SEND_EMAIL}-${UUID}`;
+type VideoPublishingCommandStreamName = `${CommandStreamType.VIDEO_PUBLISHING}-${UUID}`;
+type IdentityCommandStreamName = `${CommandStreamType.IDENTITY}-${UUID}`;
 
 export type EntityCommandStream =
-  | {type: CommandStreamType.IDENIITY; Name: IdentityCommandStreamName}
+  | { type: CommandStreamType.SEND_EMAIL; Name: SendEmailCommandStreamName}
+  | { type: CommandStreamType.VIDEO_PUBLISHING; Name: VideoPublishingCommandStreamName}
+  | { type: CommandStreamType.IDENTITY; Name: IdentityCommandStreamName}
 
+export type StreamPosition = number;

@@ -1,6 +1,6 @@
 // @ts-check
 import { Knex } from 'knex';
-import { EntityStream } from '../core/domain/Stream';
+import {EntityStream, StreamPosition} from '../core/domain/Stream';
 import { DomainCommands } from '../core/domain/Command';
 
 const writeFunctionSql: string =
@@ -10,11 +10,20 @@ const VersionConflictError = require('./version-conflict-error');
 
 const versionConflictErrorRegex = /^Wrong.*Stream Version: (\d+)\)/;
 
-function createWrite({ db }: { db: Knex.Client }) {
+type Write = (
+  // eslint-disable-next-line no-unused-vars
+  streamName: EntityStream,
+  // eslint-disable-next-line no-unused-vars
+  message: DomainCommands,
+  // eslint-disable-next-line no-unused-vars
+  expectedVersion: StreamPosition
+) => unknown;
+
+function createWrite({ db }: { db: Knex.Client }): Write {
   return (
     streamName: EntityStream,
     message: DomainCommands,
-    expectedVersion: unknown
+    expectedVersion: StreamPosition
   ) => {
     if (!message.type) {
       throw new Error('Messages must have a type');
@@ -29,7 +38,7 @@ function createWrite({ db }: { db: Knex.Client }) {
       expectedVersion,
     ];
 
-    return db
+    const answer: unknown = db
       .query(writeFunctionSql, values)
       .then((res: unknown) => res)
       .catch((err: unknown) => {
@@ -55,6 +64,7 @@ function createWrite({ db }: { db: Knex.Client }) {
         }
         throw err;
       });
+    return answer;
   };
 }
 
