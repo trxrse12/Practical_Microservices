@@ -16,3 +16,11 @@
 
 5. How to run the integration tests:
     npm run test:integration
+
+6. Completely destroy the postgres database and rebuild it:
+    docker-compose rm -sf
+    docker-compose up
+
+7. Populate the databse with example data used for debugging:
+
+

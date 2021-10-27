@@ -8,12 +8,14 @@
     "test:unit": "jest --config jest.unit.config.js --watchAll --detectOpenHandles",
     "test:integration": "jest --config jest.integration.config.js --watchAll --detectOpenHandles",
     "start-dev-server": "npm run build && nodemon dist/bin/start-server.js --color",
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc && npm run copy-home-templates && npm run copy-common-templates",
     "serve": "npm run build && node dist/bin/start-server.js",
     "watch": "nodemon -w src --exec npm run serve",
     "dtslint_domain": "dtslint src/core/domain --onlyTestTsNext --expectOnly",
     "dtslint_message_store": "dtslint src/message-store --onlyTestTsNext --expectOnly",
-    "dtslint": "npm run dtslint_domain && npm run dtslint_message_store"
+    "dtslint": "npm run dtslint_domain && npm run dtslint_message_store",
+    "copy-home-templates": "cp -r src/app/home/templates dist/app/home/templates",
+    "copy-common-templates": "cp -r src/app/common-templates dist/app/common-templates"
   },
   "author": "",
   "license": "ISC",

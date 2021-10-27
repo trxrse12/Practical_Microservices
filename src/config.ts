@@ -55,7 +55,8 @@ function createConfig({
     const homePageAggregator = createHomePageAggregator({
       db: knexClient,
       messageStore,
-    });
+    }); // so at this stage homePageAggregator is going to be an object {queries, handlers, init, start}
+
     const userCredentialsAggregator = createUserCredentialsAggregator({
       db: knexClient,
       messageStore,

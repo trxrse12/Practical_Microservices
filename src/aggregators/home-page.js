@@ -79,6 +79,6 @@ function build({db, messageStore}){
     init,
     start,
   }
-}
+} // end build
 
 module.exports = build;

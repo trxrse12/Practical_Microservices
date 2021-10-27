@@ -15,6 +15,7 @@ const identityProjection = {
     return identity;
   },
   RegistrationEmailSent(identity){
+    console.log('KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK identity  is setting the registrationEmailSent=true')
     identity.registrationEmailSent = true;
 
     return identity;
