@@ -21,6 +21,14 @@
     docker-compose rm -sf
     docker-compose up
 
-7. Populate the databse with example data used for debugging:
+7. Populate the database with example data used for debugging:
+    a. First start the docker containers:
+        docker-compose rm && docker-compose up
+    b. Populate the message_db database:
+        npm run populate
+    c. In pgadmin (see below on how to start it) you open/create message_db server and then visualise the table in the message_store schema;
 
+8. connect to pgadmin: open browser to localhost:5050/browser and use:
+    uid: admin@admin.com
+    pwd: root
 

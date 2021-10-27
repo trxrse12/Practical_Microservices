@@ -15,7 +15,8 @@
     "dtslint_message_store": "dtslint src/message-store --onlyTestTsNext --expectOnly",
     "dtslint": "npm run dtslint_domain && npm run dtslint_message_store",
     "copy-home-templates": "cp -r src/app/home/templates dist/app/home/templates",
-    "copy-common-templates": "cp -r src/app/common-templates dist/app/common-templates"
+    "copy-common-templates": "cp -r src/app/common-templates dist/app/common-templates",
+    "populate": "node dist/bin/populate.js"
   },
   "author": "",
   "license": "ISC",
