@@ -1,15 +1,21 @@
-const {v4:uuid} = require('uuid');
+import { StreamName } from '../src/core/domain/Stream';
+import { QueryParams } from './core/domain/Types';
+import { EmailAddress } from "./core/domain/Types";
+
+// eslint-disable-next-line import/extensions
+const { v4: uuid } = require('uuid');
 const express = require('express');
 // const Bluebird = require('bluebird');
 
 const badArgs = [
   [],
-  null, undefined,
+  null,
+  undefined,
   0,
   'a',
   ()=>{},
   {a:1},
-  [null,null],
+  [null, null],
   [null,undefined],
   [1,null],
   [undefined,1],
@@ -29,23 +35,71 @@ const badArgs = [
   // ['a',{a:1}]
 ];
 
+type NullFunctionResult = {};
+type NullFunction = () => {};
+export type TestNonArray = (
+  | string
+  | number
+  | null
+  | undefined
+  | Symbol
+  | NullFunction
+  | object
+)[];
+export const badArgsNonArray: TestNonArray = [
+  null,
+  undefined,
+  0,
+  'a',
+  () => ({} as NullFunctionResult),
+  { a: 1 },
+  Symbol('cucu'),
+];
+
+export type TestNonString = (
+  | number
+  | null
+  | undefined
+  | Symbol
+  | NullFunction
+  | object
+)[];
+export const badArgsNonString: ReadonlyArray<TestNonString> = [
+  [null],
+  [undefined],
+  [0],
+  [() => ({} as NullFunctionResult)],
+  [{ a: 1 }],
+  [Symbol('cucu')],
+];
+
+type FakeDb = (queryParams: QueryParams) => Promise<unknown>;
+type FakeDbRecord = {
+  data: string;
+};
+type FakeDbAnswer = {
+  rows: FakeDbRecord[];
+};
 const fakeDb = {
-  query: async (...[streamName, fromPosition, maxMessages]) =>{
-    const resObject = {};
-    resObject.rows = await Promise.resolve([
+  query: async (...[streamName, fromPosition, maxMessages]: QueryParams) => {
+    const resObject = {} as FakeDbAnswer;
+    resObject.rows = [
       {data: '{"a": 100}'},
-      {data: '{"b": 200}'}
-  ])
+      {data: '{"b": 200}'},
+    ]
     return resObject;
   },
 };
 
 const fakeMessageStore = {
-  createSubscription: () => jest.fn(() => {subscription: 100}),
-  read: () => Promise.resolve({read: 200}),
-  readLastMessage: () => Promise.resolve({readLastMessage: 300}),
-  write: () => Promise.resolve({write: 400}),
-  fetch: () => Promise.resolve({fetch: 500})
+  createSubscription: () =>
+    jest.fn(() => {
+      subscription: 100;
+    }),
+  read: () => Promise.resolve({ read: 200 }),
+  readLastMessage: () => Promise.resolve({ readLastMessage: 300 }),
+  write: () => Promise.resolve({ write: 400 }),
+  fetch: () => Promise.resolve({ fetch: 500 }),
 };
 
 const fakeUserId = uuid();
@@ -55,16 +109,19 @@ const fakeTraceId = uuid();
 
 const fakeAttributes = {
   id: fakeUserId,
-  email: "meme@gmail.com",
-  password: "test_password_123"
+  email: 'meme@gmail.com',
+  password: 'test_password_123',
 }
 
-const fakeVideoId = "f35bc702-9992-43e1-b751-3ec07c67e311";
-const fakeSourceUri = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+const fakeVideoId = 'f35bc702-9992-43e1-b751-3ec07c67e311';
+const fakeSourceUri = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
 
-const byEmail = email => Promise.resolve({identity: 'trx'})
+const byEmail = (email: EmailAddress) => {
+  return Promise.resolve({ identity: 'trx' });
+};
+
 const fakeContext = {
-  userId:'e29cbf58-6cf8-4dc8-a41e-0d4aa5ca27da',
+  userId: 'e29cbf58-6cf8-4dc8-a41e-0d4aa5ca27da',
   attributes: fakeAttributes,
   traceId: fakeTraceId,
   passwordHash: '321123AB',
@@ -87,7 +144,7 @@ const fakeCommand = {
     userId: fakeUserId,
     email: fakeContext.attributes.email,
     passwordHash: fakeContext.passwordHash
-  }
+  },
 };
 
 const fakeRouter = jest.fn((req, res) => {
@@ -100,7 +157,7 @@ const fakeRouter = jest.fn((req, res) => {
 
 const fakeConfig = {
   homeApp: {
-    router:fakeRouter ,
+    router: fakeRouter,
   },
   recordViewingsApp: {
     router: express.Router(),
@@ -118,36 +175,42 @@ const fakeConfig = {
   queries: {},
 };
 
-function callFcnWithObjWithUnexpectedProps(badPropObject, fcn){
-      fcn => badParam;
+function callFcnWithObjWithUnexpectedProps(
+  badPropObject: object,
+  fcn: Function
+): void {
+  return fcn(badPropObject);
 }
 
-function checkReturningPromiseIsThrowing(badArgsArray, promiseFcn){
-
-}
+// function checkReturningPromiseIsThrowing(badArgsArray, promiseFcn){
+//
+// }
 
 
 // function fakeRead(streamName, from)
 const fakeHandlers = {
-  handler1: () => Promise.resolve({handlerResult: 1}),
-  handler2: () => Promise.resolve({handlerResult: 2}),
+  handler1: () => Promise.resolve({ handlerResult: 1 }),
+  handler2: () => Promise.resolve({ handlerResult: 2 }),
 };
 
 const fakeRead = () => Promise.resolve('Here is the read function');
 const fakeReadLastMessage = () => Promise.resolve('Here is the readLastMessage function');
 const fakeWrite = () => Promise.resolve('Here is the write function');
 
-const testMockedModule = fn => (async () => {
+const testMockedModule = (fn: Function) => (async () => {
   console.log('OOOOOOOOOOOOOOOOOO res=',  await fn())
 })()
   .catch(err => console.log('HHHHHHHHHHHHHHHHHHHHHHHHHHH err=',err))
 
 /* eslint-disable no-console */
-process.on('unhandledRejection', err => {
-  console.error(err.message, err.stack)
+process.on('unhandledRejection', (err: Error) => {
+  if (!err) {
+    throw new Error('Error in unhandledRejection listener');
+  }
+  console.error(err?.message, err?.stack);
   // server.close();
   setTimeout(process.exit, 5000, 1);
-})
+});
 /* eslint-enable no-console */
 
 // process.on('uncaughtException', err => {
@@ -156,6 +219,7 @@ process.on('unhandledRejection', err => {
 // })
 
 module.exports.badArgs = badArgs;
+module.exports.badArgsNonArray = badArgsNonArray;
 module.exports.fakeDb = fakeDb;
 module.exports.fakeMessageStore = fakeMessageStore;
 module.exports.fakeUserId = fakeUserId;

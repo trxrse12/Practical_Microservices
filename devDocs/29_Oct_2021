@@ -1,0 +1,51 @@
+Learned:
+    1. When jets comne back with:
+        Error: Can't find a root directory while resolving a config file path.
+
+        it means it cannot find a config file.
+
+        Solution: Add the --config option as per below.
+        jest --config jest.unit.config.js ./src/core/domain/types.unit.test.ts
+
+
+    2. jest TS loop through a set of non-arrays in a test that expects arrays
+         Ex.1 :
+         import { TestNonArray } from './unit-test-helpers';
+
+         it.each<TestNonArray>(badArgsNonArray)(
+            'should throw if sink not valid array',
+            (badArray) => {
+              expect(() => createMessageStoreWithWriteSink(badArray)).toThrow(
+                'Sink must be an array'
+              );
+          });
+
+
+          Ex. 2:
+          export type TestNonString = (
+            | number
+            | null
+            | undefined
+            | Symbol
+            | NullFunction
+            | object
+          )[];
+
+          const badArgsNonString: ReadonlyArray<TestNonString> = [
+              [null],
+              [undefined],
+              [0],
+              [() => ({} as NullFunctionResult)],
+              [{ a: 1 }],
+              [Symbol('cucu')],
+            ];
+
+            it.each<TestNonArray>(badArgsNonString)(
+                'should throw if param not a string',
+                (nonString) => {
+                  expect(() => emailIsValid(nonString)).toThrow();
+                }
+              );
+
+    3. Learned how to produce an EmailAddress type in TS:
+        see "Types.ts", function emailIsValid()

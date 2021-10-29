@@ -28,6 +28,8 @@ Example:
     {
         "id": "aea45ea1-bdcd-4cce-b610-931a66e67765",
         "type": "Register",
+        "metadata":{
+            "traceId": "2222222-213a-43ef-ae1f-4766103cc213"
         "data": {
             "userId": "e90647af-8103-4fe9-ae1f-4766103cca54",
             "email": "user@example.com",

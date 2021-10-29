@@ -1,0 +1,22 @@
+Remained at:
+    >>> unit-test-helpers.js to be transformed into ts >> DONE
+    >>> finish the test for createMessageStoreWithWriteSink() in integration-test-helpers.test.ts
+    >>> continue with integration tests for the identity.integration.test.js
+
+Lessons learned:
+        1. In TS, is not easy to model a null function: () => {};
+            Solution:
+                type NullFunctionResult = {};
+                type NullFunction = () => {};
+                const fcn = () => ({} as NullFunctionResult);
+
+        2. I learned how to type a rest tuple used as args in an async function:
+                export type QueryParams = [
+                  streamName: StreamName,
+                  fromPosition: number,
+                  maxMessages: number
+                ];
+
+                const fakeDb = {
+                    query: async (...[streamName, fromPosition, maxMessages]: QueryParams) => {
+                    .....................

@@ -16,7 +16,7 @@ export type EntityStream =
   | { type: EntityStreamType.EMAIL; Name: EmailEntityStreamName };
 
 
-
+export type StreamName = IdentityEntityStreamName;
 
 enum CommandStreamType {
   SEND_EMAIL = 'send_email',
